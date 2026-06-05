@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\C#\\С#.csproj": {}
+    "C:\\Universal-Strategy-Logic\\С#.csproj": {}
   },
   "projects": {
-    "C:\\C#\\С#.csproj": {
+    "C:\\Universal-Strategy-Logic\\С#.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\C#\\С#.csproj",
+        "projectUniqueName": "C:\\Universal-Strategy-Logic\\С#.csproj",
         "projectName": "С#",
-        "projectPath": "C:\\C#\\С#.csproj",
+        "projectPath": "C:\\Universal-Strategy-Logic\\С#.csproj",
         "packagesPath": "C:\\Users\\first\\.nuget\\packages\\",
-        "outputPath": "C:\\C#\\obj\\",
+        "outputPath": "C:\\Universal-Strategy-Logic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\first\\AppData\\Roaming\\NuGet\\NuGet.Config"

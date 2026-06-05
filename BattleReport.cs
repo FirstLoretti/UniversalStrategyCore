@@ -1,3 +1,4 @@
+using InsideTheWar.Armies;
 using InsideTheWar.GameMath;
 
 namespace InsideTheWar.Battle;
@@ -30,8 +31,7 @@ public class BattleReport
 
     public static BattleReport CreateDrawReport()
     {
-        int zero = (int)FundamentalMath.Zero;
-        return new BattleReport(null, null, zero, zero, zero, zero, isDraw: true);
+        return new BattleReport(null, null, 0, 0, 0, 0, isDraw: true);
     }
 
     public void Print()

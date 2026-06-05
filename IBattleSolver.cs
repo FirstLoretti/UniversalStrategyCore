@@ -1,3 +1,5 @@
+using InsideTheWar.Armies;
+
 namespace InsideTheWar.Battle;
 
 public interface IBattleSolver

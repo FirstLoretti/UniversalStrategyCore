@@ -1,4 +1,5 @@
 using InsideTheWar.GameMath;
+using InsideTheWar.Armies;
 
 namespace InsideTheWar.Battle;
 
