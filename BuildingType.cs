@@ -1,6 +1,6 @@
 namespace InsideTheWar.Buildings;
 
-enum BuildingType
+public enum BuildingType
 {
     Farm,
     Barrack,

@@ -8,6 +8,10 @@ using InsideTheWar.Managers;
 using InsideTheWar.Armies;
 using InsideTheWar.Mediators;
 using InsideTheWar.Map.WeatherLogic;
+using InsideTheWar.AI.Faction;
+using InsideTheWar.PlayerRegistrar;
+using InsideTheWar.Bootstrap;
+using Microsoft.Extensions.DependencyInjection;
 
 class Program
 {
@@ -22,19 +26,20 @@ class GameSession
 {
     public void Start()
     {
-        Province rome = new(1, "Rome");
-        Province paris = new(2, "Paris");
-        WorldMap worldMap = new();
-        TurnManager turnManager = new();
+        GameBootstrap gameBootstrap = new();
+        var provinceManager = gameBootstrap.GameServices.GetRequiredService<ProvinceManager>();
+        var turnManager = gameBootstrap.GameServices.GetRequiredService<TurnManager>();
+        var playerHolder = gameBootstrap.GameServices.GetRequiredService<PlayerHolder>();
 
-        worldMap.AddProvince(rome);
-        worldMap.AddProvince(paris);
+        Player player1 = new("Loretty", false);
+        Player player2 = new("AI", true);
+        playerHolder.RegisterPlayer(player1);
+        playerHolder.RegisterPlayer(player2);
 
-        var provinceParis = worldMap.GetProvince(2);
-        if (provinceParis != null)
-        {
-            turnManager.OnTurnEnded += provinceParis.OnTurnEnd;
-        }
+        provinceManager.RegisterProvince(new(1, "London"), player1.Name);
+        provinceManager.RegisterProvince(new(2, "Paris"), player2.Name);
+
+        turnManager.TurnEnd(player1.Name);
 
         // paris.AddConstructionOrder(BuildingType.Farm, 2);
         // paris.AddConstructionOrder(BuildingType.Barrack, 3);
@@ -45,16 +50,16 @@ class GameSession
         // Console.WriteLine("Turn 3");
         // turnManager.TurnEnd();
         ///
-        UnitMatchupTable unitMatchupTable = new();
-        AutoBattleManager autoBattleManager = new();
-        FieldBattleSolveStrategy fieldBattleSolveStrategy = new(unitMatchupTable);
-        SiegeBattleSolveStrategy siegeBattleSolveStrategy = new(unitMatchupTable);
-        ArmyManager armyManager = new();
+        // UnitMatchupTable unitMatchupTable = new();
+        // AutoBattleManager autoBattleManager = new();
+        // FieldBattleSolveStrategy fieldBattleSolveStrategy = new(unitMatchupTable);
+        // SiegeBattleSolveStrategy siegeBattleSolveStrategy = new(unitMatchupTable);
+        // ArmyManager armyManager = new();
 
-        Army attacker = new(1, FactionName.France, UnitType.Cavalry, 750, new ArmyStats());
-        Army defender = new(2, FactionName.England, UnitType.Infantry, 1000, new ArmyStats());
-        armyManager.RegisterArmy(attacker);
-        armyManager.RegisterArmy(defender);
+        // Army attacker = new(1, FactionName.France, UnitType.Cavalry, 750, new ArmyStats());
+        // Army defender = new(2, FactionName.England, UnitType.Infantry, 1000, new ArmyStats());
+        // armyManager.RegisterArmy(attacker);
+        // armyManager.RegisterArmy(defender);
         //var battleReportField = autoBattleManager.ExecuteBattle(attacker, defender, fieldBattleSolveStrategy);
         //battleReportField.Print();
         // Console.WriteLine("SiegeBattle");
@@ -66,8 +71,10 @@ class GameSession
         //turnManager.OnTurnEnded += attacker.OnTurnEnd;
         //attacker.ChangeState(new ArmyStateForcedMarch());
         //turnManager.TurnEnd();
-        MapWeatherPenaltiesTable mapWeatherPenaltiesTable = new();
-        ArmyWeatherMediator armyWeatherMediator = new(armyManager, mapWeatherPenaltiesTable);
-        armyWeatherMediator.CurrentWeatherImpactOnArmies(MapWeatherType.Snow);
+        // MapWeatherPenaltiesTable mapWeatherPenaltiesTable = new();
+        // ArmyWeatherMediator armyWeatherMediator = new(armyManager, mapWeatherPenaltiesTable);
+        // armyWeatherMediator.CurrentWeatherImpactOnArmies(MapWeatherType.Snow);
+        ///
+        AIFaction aIFaction = new(FactionName.France);
     }
 }

@@ -10,7 +10,7 @@ public class ArmyWeatherMediator(ArmyManager armyManager, IMapWeatherPenaltiesTa
         var penalties = mapWeatherPenaltiesTable.GetPenalties(mapWeatherType);
         var attritionCasualties = penalties[Map.MapPenaltyTypeForArmy.Attrition];
         var moralePenalty = penalties[Map.MapPenaltyTypeForArmy.Morale];
-        foreach(var army in armyManager.IdAndArmy.Values)
+        foreach(var army in armyManager.Armies.Values)
         {
             army.TakeCasualties(attritionCasualties);
             army.MoralePenalty(moralePenalty);

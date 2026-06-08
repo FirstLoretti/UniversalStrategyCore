@@ -41,3 +41,7 @@ C:\Universal-Strategy-Logic\bin\Debug\net8.0\С#.dll
 C:\Universal-Strategy-Logic\bin\Debug\net8.0\С#.pdb
 C:\Universal-Strategy-Logic\obj\Debug\net8.0\С#.genruntimeconfig.cache
 C:\Universal-Strategy-Logic\obj\Debug\net8.0\ref\С#.dll
+C:\Universal-Strategy-Logic\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Universal-Strategy-Logic\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Universal-Strategy-Logic\obj\Debug\net8.0\С#.csproj.AssemblyReference.cache
+C:\Universal-Strategy-Logic\obj\Debug\net8.0\С#.csproj.Up2Date

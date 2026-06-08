@@ -1,11 +1,11 @@
 namespace InsideTheWar.Managers;
 
-class TurnManager()
+public class TurnManager
 {
-    public event Action? OnTurnEnded;
+    public event Action<string>? TurnEnded;
 
-    public void TurnEnd()
+    public void TurnEnd(string playerName)
     {
-        OnTurnEnded?.Invoke();
+        TurnEnded?.Invoke(playerName);
     }
 }

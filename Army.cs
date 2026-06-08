@@ -13,7 +13,7 @@ public class Army(int id, FactionName factionName, UnitType unitType, int unitsC
     public ArmyStats Stats { get; private set; } = stats;
     public bool IsDestroyed => UnitsCount <= 0;
     public IArmyState CurrentState => _currentState;
-    public event Action<Army>? OnArmyDestroyed;
+    public event Action<Army>? ArmyDestroyed;
 
     private IArmyState _currentState = new ArmyStateIdle();
 
@@ -37,7 +37,7 @@ public class Army(int id, FactionName factionName, UnitType unitType, int unitsC
         UnitsCount = Math.Max(0, UnitsCount - units);
         if (UnitsCount <= 0)
         {
-            OnArmyDestroyed?.Invoke(this);
+            ArmyDestroyed?.Invoke(this);
         }
     }
 

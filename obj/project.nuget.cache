@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "m2MtlRkQR5Y=",
+  "dgSpecHash": "+GJGrVQJ+d8=",
   "success": true,
   "projectFilePath": "C:\\Universal-Strategy-Logic\\С#.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\first\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.8\\microsoft.extensions.dependencyinjection.10.0.8.nupkg.sha512",
+    "C:\\Users\\first\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.8\\microsoft.extensions.dependencyinjection.abstractions.10.0.8.nupkg.sha512"
+  ],
   "logs": []
 }
