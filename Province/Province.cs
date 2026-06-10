@@ -1,6 +1,6 @@
-using InsideTheWar.Buildings;
+using UniversalStrategyCore.Buildings;
 
-namespace InsideTheWar.Provinces;
+namespace UniversalStrategyCore.Provinces;
 
 public class Province(int id, string name)
 {

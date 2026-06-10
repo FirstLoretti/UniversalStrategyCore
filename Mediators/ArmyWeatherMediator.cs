@@ -1,7 +1,7 @@
-using InsideTheWar.Armies;
-using InsideTheWar.Map.WeatherLogic;
+using UniversalStrategyCore.Armies;
+using UniversalStrategyCore.Map.WeatherLogic;
 
-namespace InsideTheWar.Mediators;
+namespace UniversalStrategyCore.Mediators;
 
 public class ArmyWeatherMediator(ArmyManager armyManager, IMapWeatherPenaltiesTable mapWeatherPenaltiesTable)
 {

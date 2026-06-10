@@ -1,6 +1,6 @@
-using InsideTheWar.Factions;
+using UniversalStrategyCore.Factions;
 
-namespace InsideTheWar.AI.Faction;
+namespace UniversalStrategyCore.AI.Faction;
 
 public class AIFaction(FactionName factionName)
 {

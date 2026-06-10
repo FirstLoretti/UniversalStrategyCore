@@ -1,4 +1,4 @@
-namespace InsideTheWar.Buildings;
+namespace UniversalStrategyCore.Buildings;
 
 class ConstructionOrder(BuildingType buildingType, int turns)
 {

@@ -1,4 +1,4 @@
-namespace InsideTheWar.Map;
+namespace UniversalStrategyCore.Map;
 
 public enum MapPenaltyTypeForArmy
 {

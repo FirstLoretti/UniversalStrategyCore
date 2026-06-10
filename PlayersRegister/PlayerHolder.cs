@@ -1,4 +1,4 @@
-namespace InsideTheWar.PlayerRegistrar;
+namespace UniversalStrategyCore.PlayerRegistrar;
 
 public class PlayerHolder
 {

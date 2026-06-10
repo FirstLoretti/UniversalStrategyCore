@@ -1,4 +1,4 @@
-namespace InsideTheWar.Map.WeatherLogic;
+namespace UniversalStrategyCore.Map.WeatherLogic;
 
 public class MapWeatherPenaltiesTable : IMapWeatherPenaltiesTable
 {

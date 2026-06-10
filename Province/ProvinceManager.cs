@@ -1,4 +1,4 @@
-namespace InsideTheWar.Provinces;
+namespace UniversalStrategyCore.Provinces;
 
 public class ProvinceManager
 {

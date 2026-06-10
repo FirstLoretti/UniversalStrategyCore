@@ -114,11 +114,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Universal-Strategy-Logic\\С#.csproj",
-      "projectName": "С#",
-      "projectPath": "C:\\Universal-Strategy-Logic\\С#.csproj",
+      "projectUniqueName": "C:\\UniversalStrategyCore\\UniversalStrategyCore.csproj",
+      "projectName": "UniversalStrategyCore",
+      "projectPath": "C:\\UniversalStrategyCore\\UniversalStrategyCore.csproj",
       "packagesPath": "C:\\Users\\first\\.nuget\\packages\\",
-      "outputPath": "C:\\Universal-Strategy-Logic\\obj\\",
+      "outputPath": "C:\\UniversalStrategyCore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\first\\AppData\\Roaming\\NuGet\\NuGet.Config"

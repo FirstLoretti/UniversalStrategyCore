@@ -1,4 +1,4 @@
-namespace InsideTheWar.Managers;
+namespace UniversalStrategyCore.Managers;
 
 public class TurnManager
 {

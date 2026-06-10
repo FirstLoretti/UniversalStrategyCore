@@ -1,4 +1,4 @@
-namespace InsideTheWar.AI.ProvinceLogic;
+namespace UniversalStrategyCore.AI.ProvinceLogic;
 
 public class ProvinceLogic
 {

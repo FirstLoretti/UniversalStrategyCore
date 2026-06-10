@@ -1,17 +1,18 @@
-﻿using InsideTheWar.Buildings;
-using InsideTheWar.Map;
-using InsideTheWar.Battle;
-using InsideTheWar.Factions;
-using InsideTheWar.Units;
-using InsideTheWar.Provinces;
-using InsideTheWar.Managers;
-using InsideTheWar.Armies;
-using InsideTheWar.Mediators;
-using InsideTheWar.Map.WeatherLogic;
-using InsideTheWar.AI.Faction;
-using InsideTheWar.PlayerRegistrar;
-using InsideTheWar.Bootstrap;
+﻿using UniversalStrategyCore.Buildings;
+using UniversalStrategyCore.Map;
+using UniversalStrategyCore.StrategyBattle;
+using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.Units;
+using UniversalStrategyCore.Provinces;
+using UniversalStrategyCore.Managers;
+using UniversalStrategyCore.Armies;
+using UniversalStrategyCore.Mediators;
+using UniversalStrategyCore.Map.WeatherLogic;
+using UniversalStrategyCore.AI.Faction;
+using UniversalStrategyCore.PlayerRegistrar;
+using UniversalStrategyCore.Bootstrap;
 using Microsoft.Extensions.DependencyInjection;
+using UniversalStrategyCore.GameMath;
 
 class Program
 {
@@ -30,11 +31,16 @@ class GameSession
         var provinceManager = gameBootstrap.GameServices.GetRequiredService<ProvinceManager>();
         var turnManager = gameBootstrap.GameServices.GetRequiredService<TurnManager>();
         var playerHolder = gameBootstrap.GameServices.GetRequiredService<PlayerHolder>();
-
+        var factionManager = gameBootstrap.GameServices.GetRequiredService<FactionManager>();
+        var armyManager = gameBootstrap.GameServices.GetRequiredService<ArmyManager>();
+    
         Player player1 = new("Loretty", false);
         Player player2 = new("AI", true);
         playerHolder.RegisterPlayer(player1);
         playerHolder.RegisterPlayer(player2);
+
+        factionManager.RegisterFaction(player1.Name, FactionName.England);
+        factionManager.RegisterFaction(player2.Name, FactionName.France);
 
         provinceManager.RegisterProvince(new(1, "London"), player1.Name);
         provinceManager.RegisterProvince(new(2, "Paris"), player2.Name);
@@ -76,5 +82,6 @@ class GameSession
         // armyWeatherMediator.CurrentWeatherImpactOnArmies(MapWeatherType.Snow);
         ///
         AIFaction aIFaction = new(FactionName.France);
-    }
+        var army1 = armyManager.CreateArmy(FactionName.England, UnitType.Infantry, 1000);
+    }   
 }

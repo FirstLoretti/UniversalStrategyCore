@@ -1,4 +1,4 @@
-namespace InsideTheWar.Units;
+namespace UniversalStrategyCore.Units;
 
 public enum UnitType
 {

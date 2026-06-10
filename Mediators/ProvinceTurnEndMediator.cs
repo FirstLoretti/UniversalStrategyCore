@@ -1,7 +1,7 @@
-using InsideTheWar.Managers;
-using InsideTheWar.Provinces;
+using UniversalStrategyCore.Managers;
+using UniversalStrategyCore.Provinces;
 
-namespace InsideTheWar.Mediators;
+namespace UniversalStrategyCore.Mediators;
 
 public class ProvinceTurnEndMediator
 {
