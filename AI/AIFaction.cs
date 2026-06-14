@@ -1,4 +1,4 @@
-using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.Faction;
 
 namespace UniversalStrategyCore.AI.Faction;
 

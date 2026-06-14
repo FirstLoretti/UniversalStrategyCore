@@ -1,39 +1,53 @@
-using UniversalStrategyCore.Factions;
-using UniversalStrategyCore.Managers;
+using UniversalStrategyCore.Faction;
 using UniversalStrategyCore.Mediators;
 using UniversalStrategyCore.PlayerRegistrar;
-using UniversalStrategyCore.Provinces;
 using Microsoft.Extensions.DependencyInjection;
 using UniversalStrategyCore.Armies;
+using UniversalStrategyCore.Turn;
+using UniversalStrategyCore.Province.BuildingSystem;
+using UniversalStrategyCore.Province;
 
-namespace UniversalStrategyCore.Bootstrap;
+namespace UniversalStrategyCore.GameBootstrap;
 
 public class GameBootstrap
 {
     public ServiceProvider GameServices { get; init; }
 
+    private ServiceCollection _serviceCollection = new();
+
     public GameBootstrap()
     {
-        var serviceCollection = new ServiceCollection();
-        serviceCollection.AddSingleton<TurnManager>();
-        serviceCollection.AddSingleton<ProvinceManager>();
-        serviceCollection.AddSingleton<PlayerHolder>();
-        serviceCollection.AddSingleton<FactionManager>();
-        serviceCollection.AddSingleton<ArmyManager>();
-        serviceCollection.AddSingleton<ProvinceTurnEndMediator>();
-        InitializeFactionProvinces(serviceCollection);
+        _serviceCollection.AddSingleton<TurnManager>();
+        _serviceCollection.AddSingleton<PlayerManager>();
+        _serviceCollection.AddSingleton<ArmyManager>();
+        InitializeProvinceSystem();
+        InitializeFactionSystem();
+        InitializeMediators();
 
-        GameServices = serviceCollection.BuildServiceProvider();
-        GameServices.GetRequiredService<ProvinceTurnEndMediator>();
+        GameServices = _serviceCollection.BuildServiceProvider();
+        GameServices.GetRequiredService<ProvinceConstructionTurnEndMediator>();
+        GameServices.GetRequiredService<FactionProvincesTable>();
     }
 
-    private void InitializeFactionProvinces(ServiceCollection serviceCollection)
+    private void InitializeFactionSystem()
     {
-        List<FactionStartingProvinces> factionStartingProvinces =
-        [
-            new FactionStartingProvinces(FactionName.England, [ProvinceName.London]),
-            new FactionStartingProvinces(FactionName.France, [ProvinceName.Paris])
-        ];
-        serviceCollection.AddSingleton(new FactionProvincesRegistry(factionStartingProvinces));
+        _serviceCollection.AddSingleton<FactionsTable>();
+        _serviceCollection.AddSingleton<FactionProvincesTable>();
+        _serviceCollection.AddSingleton<FactionManager>();
+    }
+
+    private void InitializeProvinceSystem()
+    {
+        _serviceCollection.AddSingleton<ProvincesTable>();
+        _serviceCollection.AddSingleton<ProvinceConstructionManager>();
+        _serviceCollection.AddSingleton<ProvinceManager>();
+        _serviceCollection.AddSingleton<ProvinceBuildingsTable>();
+        _serviceCollection.AddSingleton<ProvinceBuildings>();
+    }
+
+    private void InitializeMediators()
+    {
+        _serviceCollection.AddSingleton<ProvinceConstructionTurnEndMediator>();
+        _serviceCollection.AddSingleton<FactionProvincesTable>();
     }
 }

@@ -1,12 +1,12 @@
-namespace UniversalStrategyCore.Factions;
+namespace UniversalStrategyCore.Faction;
 
 public class FactionManager
 {
-    public Dictionary<string, FactionName> playerFactionPairs = [];
+    private readonly Dictionary<string, FactionTemplate> _playerToFaction = [];
 
-    public void RegisterFaction(string holderName, FactionName factionName)
+    public void RegisterFactionByPlayer(string playerName, FactionTemplate factionTemplate)
     {
-        playerFactionPairs.TryAdd(holderName, factionName);
-        Console.WriteLine($"[FactionManager] Игрок: {holderName} выбрал фракцию: {factionName}");
+        _playerToFaction.TryAdd(playerName, factionTemplate);
+        Console.WriteLine($"[FactionManager] Игрок: {playerName} выбрал фракцию: {factionTemplate.Name}");
     }
 }

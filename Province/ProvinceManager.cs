@@ -1,19 +1,41 @@
-namespace UniversalStrategyCore.Provinces;
+namespace UniversalStrategyCore.Province;
 
 public class ProvinceManager
 {
-    public Dictionary<int, Province> IdAndProvince { get; private set; } = [];
-    public Dictionary<string, Province> HolderProvinces { get; private set; } = [];
+    private readonly Dictionary<string, HashSet<ProvinceTemplate>> _playerToProvinces = [];
 
-    public void RegisterProvince(Province province, string holderName)
+    public void AddPlayerProvinces(string playerName, HashSet<ProvinceTemplate> provinces)
     {
-        IdAndProvince.TryAdd(province.Id, province);
-        HolderProvinces.TryAdd(holderName, province);
+        _playerToProvinces.TryAdd(playerName, provinces);
     }
 
-    public void RemoveProvince(Province province, string holderName)
+    public HashSet<ProvinceTemplate> GetPlayerProvinces(string playerName)
     {
-        IdAndProvince.Remove(province.Id);
-        HolderProvinces.Remove(holderName);
+        if (_playerToProvinces.TryGetValue(playerName, out var provinces))
+        {
+            return provinces;
+        }
+        throw new ArgumentException($"[ProvinceManager] Игрок {playerName} не зарегестрирован в _playerToProvince");
+    }
+
+    public ProvinceTemplate GetPlayerProvince(string playerName, ProvinceName provinceName)
+    {
+        if (_playerToProvinces.TryGetValue(playerName, out var provinces))
+        {
+            foreach(var province in provinces)
+            {
+                if(province.Name == provinceName)
+                {
+                    return province;
+                }
+                throw new ArgumentException($"[ProvinceManager] Игрок {playerName} не владеет провинцией: {provinceName}");
+            }
+        }
+        throw new ArgumentException($"[ProvinceManager] Игрок {playerName} не зарегистрирован в _playerToProvince");
+    }
+
+    public void RemovePlayerProvinces(string playerName)
+    {
+        _playerToProvinces.Remove(playerName);
     }
 }

@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.Provinces;
+namespace UniversalStrategyCore.Province;
 
 public enum ProvinceName
 {

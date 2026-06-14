@@ -1,16 +1,19 @@
-using UniversalStrategyCore.Managers;
-using UniversalStrategyCore.Provinces;
+using UniversalStrategyCore.Province.BuildingSystem;
+using UniversalStrategyCore.Province;
+using UniversalStrategyCore.Turn;
 
 namespace UniversalStrategyCore.Mediators;
 
-public class ProvinceTurnEndMediator
+public class ProvinceConstructionTurnEndMediator
 {
     private readonly TurnManager _turnManager;
+    private readonly ProvinceConstructionManager _provinceConstructionManager;
     private readonly ProvinceManager _provinceManager;
 
-    public ProvinceTurnEndMediator(TurnManager turnManager, ProvinceManager provinceManager)
+    public ProvinceConstructionTurnEndMediator(ProvinceManager provinceManager, ProvinceConstructionManager provinceConstructionManager, TurnManager turnManager)
     {
         _turnManager = turnManager;
+        _provinceConstructionManager = provinceConstructionManager;
         _provinceManager = provinceManager;
         _turnManager.TurnEnded += OnTurnEnd;
     }
@@ -22,14 +25,12 @@ public class ProvinceTurnEndMediator
 
     private void OnTurnEnd(string playerName)
     {
-        Console.WriteLine($"[TurnEndMediator] Конец хода игрока: {playerName}");
-        foreach (var province in _provinceManager.HolderProvinces)
+        Console.WriteLine($"[ProvinceTurnEndMediator] Конец хода игрока: {playerName}");
+        var playerProvinces = _provinceManager.GetPlayerProvinces(playerName);
+        foreach (var province in playerProvinces)
         {
-            if (province.Key == playerName)
-            {
-                province.Value.OnTurnEnd();
-                Console.WriteLine($"[TurnEndMediator] Провинция: {province.Value.Name} является провинцией игрока: {playerName}");
-            }
+            _provinceConstructionManager.OnTurnEnd(province);
+            Console.WriteLine($"[ProvinceTurnEndMediator] Провинция: {province.Name} является провинцией игрока: {playerName}");
         }
     }
 }

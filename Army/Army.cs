@@ -1,6 +1,6 @@
 using System.Numerics;
 using UniversalStrategyCore.Armies.States;
-using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.Faction;
 using UniversalStrategyCore.Units;
 
 namespace UniversalStrategyCore.Armies;

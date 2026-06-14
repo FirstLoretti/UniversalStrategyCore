@@ -1,4 +1,4 @@
-using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.Faction;
 using UniversalStrategyCore.Units;
 
 namespace UniversalStrategyCore.Armies;

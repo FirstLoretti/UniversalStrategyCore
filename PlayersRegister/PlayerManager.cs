@@ -1,6 +1,6 @@
 namespace UniversalStrategyCore.PlayerRegistrar;
 
-public class PlayerHolder
+public class PlayerManager
 {
     public Dictionary<string, Player> Players {get; private set;} = [];
 

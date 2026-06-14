@@ -1,18 +1,20 @@
-﻿using UniversalStrategyCore.Buildings;
+﻿
 using UniversalStrategyCore.Map;
 using UniversalStrategyCore.StrategyBattle;
-using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.Faction;
 using UniversalStrategyCore.Units;
-using UniversalStrategyCore.Provinces;
-using UniversalStrategyCore.Managers;
 using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Mediators;
 using UniversalStrategyCore.Map.WeatherLogic;
 using UniversalStrategyCore.AI.Faction;
 using UniversalStrategyCore.PlayerRegistrar;
-using UniversalStrategyCore.Bootstrap;
+using UniversalStrategyCore.GameBootstrap;
 using Microsoft.Extensions.DependencyInjection;
 using UniversalStrategyCore.GameMath;
+using UniversalStrategyCore.Turn;
+using UniversalStrategyCore.Province.BuildingSystem;
+using UniversalStrategyCore.Province.Commands;
+using UniversalStrategyCore.Province;
 
 class Program
 {
@@ -30,22 +32,40 @@ class GameSession
         GameBootstrap gameBootstrap = new();
         var provinceManager = gameBootstrap.GameServices.GetRequiredService<ProvinceManager>();
         var turnManager = gameBootstrap.GameServices.GetRequiredService<TurnManager>();
-        var playerHolder = gameBootstrap.GameServices.GetRequiredService<PlayerHolder>();
+        var playerHolder = gameBootstrap.GameServices.GetRequiredService<PlayerManager>();
         var factionManager = gameBootstrap.GameServices.GetRequiredService<FactionManager>();
         var armyManager = gameBootstrap.GameServices.GetRequiredService<ArmyManager>();
+        var factionTable = gameBootstrap.GameServices.GetRequiredService<FactionsTable>();
+        var factionProvincesTable = gameBootstrap.GameServices.GetRequiredService<FactionProvincesTable>();
+        var provinceConstructionManager = gameBootstrap.GameServices.GetRequiredService<ProvinceConstructionManager>();
+        var provinceBuildings = gameBootstrap.GameServices.GetRequiredService<ProvinceBuildings>();
+        var provinceBuildingsTable = gameBootstrap.GameServices.GetRequiredService<ProvinceBuildingsTable>();
     
         Player player1 = new("Loretty", false);
         Player player2 = new("AI", true);
         playerHolder.RegisterPlayer(player1);
         playerHolder.RegisterPlayer(player2);
 
-        factionManager.RegisterFaction(player1.Name, FactionName.England);
-        factionManager.RegisterFaction(player2.Name, FactionName.France);
+        var england = factionTable.GetFaction(FactionName.England);
+        var france = factionTable.GetFaction(FactionName.France);
+        factionManager.RegisterFactionByPlayer(player1.Name, england);
+        factionManager.RegisterFactionByPlayer(player2.Name, france);
+        var englandProvinces = factionProvincesTable.GetProvinces(england);
+        var franceProvinces = factionProvincesTable.GetProvinces(france);
+        provinceManager.AddPlayerProvinces(player1.Name, englandProvinces);
+        provinceManager.AddPlayerProvinces(player2.Name, franceProvinces);
 
-        provinceManager.RegisterProvince(new(1, "London"), player1.Name);
-        provinceManager.RegisterProvince(new(2, "Paris"), player2.Name);
+        var farm = provinceBuildingsTable.GetBuilding("farm_1");
+        var barrack = provinceBuildingsTable.GetBuilding("barrack_1");
+        var london = provinceManager.GetPlayerProvince(player1.Name, ProvinceName.London);
+        var paris = provinceManager.GetPlayerProvince(player2.Name, ProvinceName.Paris);
+        provinceConstructionManager.AddConstructionOrder(london, new ConstructionOrder(farm));
+        provinceConstructionManager.AddConstructionOrder(paris, new ConstructionOrder(barrack));
 
         turnManager.TurnEnd(player1.Name);
+        turnManager.TurnEnd(player2.Name);
+        turnManager.TurnEnd(player1.Name);
+        turnManager.TurnEnd(player2.Name);
 
         // paris.AddConstructionOrder(BuildingType.Farm, 2);
         // paris.AddConstructionOrder(BuildingType.Barrack, 3);
@@ -81,7 +101,7 @@ class GameSession
         // ArmyWeatherMediator armyWeatherMediator = new(armyManager, mapWeatherPenaltiesTable);
         // armyWeatherMediator.CurrentWeatherImpactOnArmies(MapWeatherType.Snow);
         ///
-        AIFaction aIFaction = new(FactionName.France);
-        var army1 = armyManager.CreateArmy(FactionName.England, UnitType.Infantry, 1000);
+        //AIFaction aIFaction = new(FactionName.France);
+        //var army1 = armyManager.CreateArmy(FactionName.England, UnitType.Infantry, 1000);
     }   
 }

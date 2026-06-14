@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.Managers;
+namespace UniversalStrategyCore.Turn;
 
 public class TurnManager
 {
