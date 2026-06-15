@@ -6,6 +6,9 @@ using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Turn;
 using UniversalStrategyCore.Province.BuildingSystem;
 using UniversalStrategyCore.Province;
+using UniversalStrategyCore.TacticalCombat.Unit;
+using UniversalStrategyCore.TacticalCombat.Mediators;
+using UniversalStrategyCore.TacticalCombat.Squad;
 
 namespace UniversalStrategyCore.GameBootstrap;
 
@@ -13,30 +16,55 @@ public class GameBootstrap
 {
     public ServiceProvider GameServices { get; init; }
 
-    private ServiceCollection _serviceCollection = new();
+    private readonly ServiceCollection _serviceCollection = new();
 
     public GameBootstrap()
     {
-        _serviceCollection.AddSingleton<TurnManager>();
-        _serviceCollection.AddSingleton<PlayerManager>();
-        _serviceCollection.AddSingleton<ArmyManager>();
-        InitializeProvinceSystem();
-        InitializeFactionSystem();
-        InitializeMediators();
+        RegisterPlayerSystem();
+        RegisterArmySystem();
+        RegisterTurnSystem();
+        RegisterProvinceSystem();
+        RegisterFactionSystem();
+        RegisterTacticalBattleSystem();
+        RegisterMediators();
+        RegisterGameSession();
 
         GameServices = _serviceCollection.BuildServiceProvider();
-        GameServices.GetRequiredService<ProvinceConstructionTurnEndMediator>();
-        GameServices.GetRequiredService<FactionProvincesTable>();
+        StartEventSystems();
     }
 
-    private void InitializeFactionSystem()
+    private void StartEventSystems()
+    {
+        GameServices.GetRequiredService<ProvinceConstructionTurnEndMediator>();
+    }
+
+    private void RegisterArmySystem()
+    {
+        _serviceCollection.AddSingleton<ArmyManager>();
+    }
+
+    private void RegisterPlayerSystem()
+    {
+        _serviceCollection.AddSingleton<PlayerManager>();
+    }
+
+    private void RegisterTurnSystem()
+    {
+        _serviceCollection.AddSingleton<TurnManager>();
+    }
+
+    private void RegisterGameSession()
+    {
+        _serviceCollection.AddSingleton<GameSession>();
+    }
+
+    private void RegisterFactionSystem()
     {
         _serviceCollection.AddSingleton<FactionsTable>();
-        _serviceCollection.AddSingleton<FactionProvincesTable>();
         _serviceCollection.AddSingleton<FactionManager>();
     }
 
-    private void InitializeProvinceSystem()
+    private void RegisterProvinceSystem()
     {
         _serviceCollection.AddSingleton<ProvincesTable>();
         _serviceCollection.AddSingleton<ProvinceConstructionManager>();
@@ -45,9 +73,16 @@ public class GameBootstrap
         _serviceCollection.AddSingleton<ProvinceBuildings>();
     }
 
-    private void InitializeMediators()
+    private void RegisterTacticalBattleSystem()
+    {
+        _serviceCollection.AddSingleton<IUnitsTable, UnitsTable>();
+        _serviceCollection.AddSingleton<ISquadsTable, SquadsTable>();
+    }
+
+    private void RegisterMediators()
     {
         _serviceCollection.AddSingleton<ProvinceConstructionTurnEndMediator>();
         _serviceCollection.AddSingleton<FactionProvincesTable>();
+        _serviceCollection.AddSingleton<SquadFactory>();
     }
 }

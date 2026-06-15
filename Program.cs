@@ -15,39 +15,37 @@ using UniversalStrategyCore.Turn;
 using UniversalStrategyCore.Province.BuildingSystem;
 using UniversalStrategyCore.Province.Commands;
 using UniversalStrategyCore.Province;
+using UniversalStrategyCore.TacticalCombat.Unit;
+using UniversalStrategyCore.TacticalCombat.Squad;
+using UniversalStrategyCore.TacticalCombat.Mediators;
 
 class Program
 {
     public static void Main(string[] args)
     {
-        GameSession session = new();
-        session.Start();
+        GameBootstrap gameBootstrap = new();
+        var gameSession = gameBootstrap.GameServices.GetRequiredService<GameSession>();
+        gameSession.Start();
     }
 }
 
-class GameSession
+class GameSession(
+    ProvinceManager provinceManager, TurnManager turnManager, PlayerManager playerManager, FactionManager factionManager,
+    ArmyManager armyManager, FactionsTable factionsTable, FactionProvincesTable factionProvincesTable,
+    ProvinceConstructionManager provinceConstructionManager, ProvinceBuildings provinceBuildings,
+    ProvinceBuildingsTable provinceBuildingsTable, IUnitsTable unitsTable, ISquadsTable squadsTable,
+    SquadFactory squadFactory
+)
 {
     public void Start()
     {
-        GameBootstrap gameBootstrap = new();
-        var provinceManager = gameBootstrap.GameServices.GetRequiredService<ProvinceManager>();
-        var turnManager = gameBootstrap.GameServices.GetRequiredService<TurnManager>();
-        var playerHolder = gameBootstrap.GameServices.GetRequiredService<PlayerManager>();
-        var factionManager = gameBootstrap.GameServices.GetRequiredService<FactionManager>();
-        var armyManager = gameBootstrap.GameServices.GetRequiredService<ArmyManager>();
-        var factionTable = gameBootstrap.GameServices.GetRequiredService<FactionsTable>();
-        var factionProvincesTable = gameBootstrap.GameServices.GetRequiredService<FactionProvincesTable>();
-        var provinceConstructionManager = gameBootstrap.GameServices.GetRequiredService<ProvinceConstructionManager>();
-        var provinceBuildings = gameBootstrap.GameServices.GetRequiredService<ProvinceBuildings>();
-        var provinceBuildingsTable = gameBootstrap.GameServices.GetRequiredService<ProvinceBuildingsTable>();
-    
         Player player1 = new("Loretty", false);
         Player player2 = new("AI", true);
-        playerHolder.RegisterPlayer(player1);
-        playerHolder.RegisterPlayer(player2);
+        playerManager.RegisterPlayer(player1);
+        playerManager.RegisterPlayer(player2);
 
-        var england = factionTable.GetFaction(FactionName.England);
-        var france = factionTable.GetFaction(FactionName.France);
+        var england = factionsTable.GetFaction(FactionName.England);
+        var france = factionsTable.GetFaction(FactionName.France);
         factionManager.RegisterFactionByPlayer(player1.Name, england);
         factionManager.RegisterFactionByPlayer(player2.Name, france);
         var englandProvinces = factionProvincesTable.GetProvinces(england);
@@ -55,17 +53,24 @@ class GameSession
         provinceManager.AddPlayerProvinces(player1.Name, englandProvinces);
         provinceManager.AddPlayerProvinces(player2.Name, franceProvinces);
 
-        var farm = provinceBuildingsTable.GetBuilding("farm_1");
-        var barrack = provinceBuildingsTable.GetBuilding("barrack_1");
-        var london = provinceManager.GetPlayerProvince(player1.Name, ProvinceName.London);
-        var paris = provinceManager.GetPlayerProvince(player2.Name, ProvinceName.Paris);
-        provinceConstructionManager.AddConstructionOrder(london, new ConstructionOrder(farm));
-        provinceConstructionManager.AddConstructionOrder(paris, new ConstructionOrder(barrack));
+        // Строительство
+        // var farm = provinceBuildingsTable.GetBuilding("farm_1");
+        // var barrack = provinceBuildingsTable.GetBuilding("barrack_1");
+        // var london = provinceManager.GetPlayerProvince(player1.Name, ProvinceName.London);
+        // var paris = provinceManager.GetPlayerProvince(player2.Name, ProvinceName.Paris);
+        // provinceConstructionManager.AddConstructionOrder(london, new ConstructionOrder(farm));
+        // provinceConstructionManager.AddConstructionOrder(paris, new ConstructionOrder(barrack));
 
-        turnManager.TurnEnd(player1.Name);
-        turnManager.TurnEnd(player2.Name);
-        turnManager.TurnEnd(player1.Name);
-        turnManager.TurnEnd(player2.Name);
+        // turnManager.TurnEnd(player1.Name);
+        // turnManager.TurnEnd(player2.Name);
+        // turnManager.TurnEnd(player1.Name);
+        // turnManager.TurnEnd(player2.Name);
+
+        // Тактическая битва
+        var squad1 = squadFactory.CreateSquad("swordmen_1");
+        var squad2 = squadFactory.CreateSquad("spearmen_1");
+        squad1.UnitsCount();
+        squad2.UnitsCount();
 
         // paris.AddConstructionOrder(BuildingType.Farm, 2);
         // paris.AddConstructionOrder(BuildingType.Barrack, 3);
@@ -103,5 +108,5 @@ class GameSession
         ///
         //AIFaction aIFaction = new(FactionName.France);
         //var army1 = armyManager.CreateArmy(FactionName.England, UnitType.Infantry, 1000);
-    }   
+    }
 }
