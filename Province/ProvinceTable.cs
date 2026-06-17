@@ -1,10 +1,13 @@
 namespace UniversalStrategyCore.Province;
 
-public record ProvincesTable: IProvinceTable
+public record ProvinceTable : IProvinceTable
 {
+    public IReadOnlyList<ProvinceTemplate> AllProvinces => _provinces;
+
+    private readonly List<ProvinceTemplate> _provinces = [];
     private readonly Dictionary<ProvinceName, ProvinceTemplate> _provinceNameToProvince = [];
 
-    public ProvincesTable()
+    public ProvinceTable()
     {
         Initialization();
     }
@@ -32,5 +35,6 @@ public record ProvincesTable: IProvinceTable
     private void AddProvince(ProvinceTemplate provinceTemplate)
     {
         _provinceNameToProvince.Add(provinceTemplate.Name, provinceTemplate);
+        _provinces.Add(provinceTemplate);
     }
 }

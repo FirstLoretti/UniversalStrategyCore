@@ -1,18 +1,18 @@
 using UniversalStrategyCore.Faction;
 using UniversalStrategyCore.Province;
 
-namespace UniversalStrategyCore.Mediators;
+namespace UniversalStrategyCore.Mediators.FactionProvince;
 
-public class FactionProvincesTable
+public class FactionProvincesTable: IFactionProvincesTable
 {
     private readonly Dictionary<FactionTemplate, HashSet<ProvinceTemplate>> _factionToProvinces = [];
-    private readonly FactionsTable _factionsTable;
-    private readonly ProvincesTable _provincesTable;
+    private readonly IFactionTable _factionTable;
+    private readonly IProvinceTable _provinceTable;
 
-    public FactionProvincesTable(FactionsTable factionsTable, ProvincesTable provincesTable)
+    public FactionProvincesTable(IFactionTable factionTable, IProvinceTable provinceTable)
     {
-        _factionsTable = factionsTable;
-        _provincesTable = provincesTable;
+        _factionTable = factionTable;
+        _provinceTable = provinceTable;
         Initialization();
     }
 
@@ -32,16 +32,16 @@ public class FactionProvincesTable
 
     private void SetStartingProvinces()
     {
-        var england = _factionsTable.GetFaction(FactionName.England);
+        var england = _factionTable.GetFaction(FactionName.England);
         HashSet<ProvinceTemplate> englandProvinces =
         [
-            _provincesTable.GetProvince(ProvinceName.London)
+            _provinceTable.GetProvince(ProvinceName.London)
         ];
 
-        var france = _factionsTable.GetFaction(FactionName.France);
+        var france = _factionTable.GetFaction(FactionName.France);
         HashSet<ProvinceTemplate> franceProvinces =
         [
-            _provincesTable.GetProvince(ProvinceName.Paris)
+            _provinceTable.GetProvince(ProvinceName.Paris)
         ];
 
         AddProvince(england, englandProvinces);

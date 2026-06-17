@@ -21,6 +21,7 @@ using UniversalStrategyCore.TacticalCombat.Mediators;
 using UniversalStrategyCore.TacticalCombat.Squad.FSM;
 using UniversalStrategyCore.TacticalCombat;
 using System.Numerics;
+using UniversalStrategyCore.Mediators.FactionProvince;
 
 #pragma warning disable CS9113
 
@@ -36,10 +37,10 @@ class Program
 
 class GameSession(
     ProvinceManager provinceManager, TurnManager turnManager, PlayerManager playerManager, FactionManager factionManager,
-    ArmyManager armyManager, FactionsTable factionsTable, FactionProvincesTable factionProvincesTable,
+    ArmyManager armyManager, IFactionTable factionTable, IFactionProvincesTable factionProvincesTable,
     ProvinceConstructionManager provinceConstructionManager, ProvinceBuildings provinceBuildings,
     ProvinceBuildingsTable provinceBuildingsTable, IUnitsTable unitsTable, ISquadsTable squadsTable,
-    SquadFactory squadFactory
+    SquadFactory squadFactory, FactionVisionManager factionVisionManager
 )
 {
     public void Start()
@@ -49,14 +50,20 @@ class GameSession(
         playerManager.RegisterPlayer(player1);
         playerManager.RegisterPlayer(player2);
 
-        var england = factionsTable.GetFaction(FactionName.England);
-        var france = factionsTable.GetFaction(FactionName.France);
+        var england = factionTable.GetFaction(FactionName.England);
+        var france = factionTable.GetFaction(FactionName.France);
         factionManager.RegisterFactionByPlayer(player1.Name, england);
         factionManager.RegisterFactionByPlayer(player2.Name, france);
         var englandProvinces = factionProvincesTable.GetProvinces(england);
         var franceProvinces = factionProvincesTable.GetProvinces(france);
         provinceManager.AddPlayerProvinces(player1.Name, englandProvinces);
         provinceManager.AddPlayerProvinces(player2.Name, franceProvinces);
+
+        //Глобальный вижн
+        var isEnglandDiscover = new IsFactionDiscoveredCheck(factionVisionManager, england);
+        var isFranceDiscover = new IsFactionDiscoveredCheck(factionVisionManager, france);
+        isEnglandDiscover.IsPassed(france);
+        isFranceDiscover.IsPassed(france);
 
         // Строительство
         // var farm = provinceBuildingsTable.GetBuilding("farm_1");
@@ -72,18 +79,17 @@ class GameSession(
         // turnManager.TurnEnd(player2.Name);
 
         //Тактическая битва
-        var squad1 = squadFactory.CreateSquad("swordmen_1");
-        var squad2 = squadFactory.CreateSquad("spearmen_1");
-        squad2.MovementComponent.ChangeState(new SquadStateIdle(squad2));
-        squad1.MovementComponent.MoveTo(new Vector2(10f, 5f));
-        Console.WriteLine("Запуск симуляции");
-        float fakeDeltaTime = 0.033f;
-        for (int i = 1; i <= 10; i++)
-        {
-            squad1.MovementComponent.Update(fakeDeltaTime);
-            Console.WriteLine($"Тик номер: {i}");
-        }
-
+        // var squad1 = squadFactory.CreateSquad("swordmen_1");
+        // var squad2 = squadFactory.CreateSquad("spearmen_1");
+        // squad2.MovementComponent.ChangeState(new SquadStateIdle(squad2));
+        // squad1.MovementComponent.MoveTo(new Vector2(10f, 5f));
+        // Console.WriteLine("Запуск симуляции");
+        // float fakeDeltaTime = 0.033f;
+        // for (int i = 1; i <= 10; i++)
+        // {
+        //     squad1.MovementComponent.Update(fakeDeltaTime);
+        //     Console.WriteLine($"Тик номер: {i}");
+        // }
 
         // paris.AddConstructionOrder(BuildingType.Farm, 2);
         // paris.AddConstructionOrder(BuildingType.Barrack, 3);

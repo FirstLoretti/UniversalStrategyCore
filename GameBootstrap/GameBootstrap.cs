@@ -9,7 +9,7 @@ using UniversalStrategyCore.Province;
 using UniversalStrategyCore.TacticalCombat.Unit;
 using UniversalStrategyCore.TacticalCombat.Mediators;
 using UniversalStrategyCore.TacticalCombat.Squad;
-using UniversalStrategyCore.TacticalCombat.Squad.FSM;
+using UniversalStrategyCore.Mediators.FactionProvince;
 
 namespace UniversalStrategyCore.GameBootstrap;
 
@@ -61,13 +61,13 @@ public class GameBootstrap
 
     private void RegisterFactionSystem()
     {
-        _serviceCollection.AddSingleton<FactionsTable>();
+        _serviceCollection.AddSingleton<IFactionTable, FactionsTable>();
         _serviceCollection.AddSingleton<FactionManager>();
     }
 
     private void RegisterProvinceSystem()
     {
-        _serviceCollection.AddSingleton<ProvincesTable>();
+        _serviceCollection.AddSingleton<IProvinceTable,ProvinceTable>();
         _serviceCollection.AddSingleton<ProvinceConstructionManager>();
         _serviceCollection.AddSingleton<ProvinceManager>();
         _serviceCollection.AddSingleton<ProvinceBuildingsTable>();
@@ -83,7 +83,9 @@ public class GameBootstrap
     private void RegisterMediators()
     {
         _serviceCollection.AddSingleton<ProvinceConstructionTurnEndMediator>();
-        _serviceCollection.AddSingleton<FactionProvincesTable>();
+        _serviceCollection.AddSingleton<IFactionProvincesTable, FactionProvincesTable>();
         _serviceCollection.AddSingleton<SquadFactory>();
+        _serviceCollection.AddSingleton<FactionVisionManager>();
+        _serviceCollection.AddSingleton<FactionVisionTable>();
     }
 }
