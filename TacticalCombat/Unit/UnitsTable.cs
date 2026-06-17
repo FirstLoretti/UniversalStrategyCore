@@ -23,8 +23,8 @@ public class UnitsTable : IUnitsTable
 
     private void Initialize()
     {
-        AddUnit(new UnitTemplate("swordman_1", "Мечник", UnitType.Swordman));
-        AddUnit(new UnitTemplate("spearman_1", "Копейщик", UnitType.Spearman));
+        AddUnit(new UnitTemplate("swordman_1", "Мечник", UnitType.Swordman, 1f));
+        AddUnit(new UnitTemplate("spearman_1", "Копейщик", UnitType.Spearman, 1f));
     }
 
     private void AddUnit(UnitTemplate unitTemplate)

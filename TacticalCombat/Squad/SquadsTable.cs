@@ -23,7 +23,7 @@ public class SquadsTable : ISquadsTable
 
     private void Initialize()
     {
-        AddSquad(new SquadTemplate(Id: "swordmen_1", UnitTemplateId: "swordman_1", UnitsCount: 100));
+        AddSquad(new SquadTemplate(Id: "swordmen_1", UnitTemplateId: "swordman_1", UnitsCount: 1));
         AddSquad(new SquadTemplate(Id: "spearmen_1", UnitTemplateId: "spearman_1", UnitsCount: 100));
     }
 

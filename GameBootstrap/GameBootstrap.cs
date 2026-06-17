@@ -9,6 +9,7 @@ using UniversalStrategyCore.Province;
 using UniversalStrategyCore.TacticalCombat.Unit;
 using UniversalStrategyCore.TacticalCombat.Mediators;
 using UniversalStrategyCore.TacticalCombat.Squad;
+using UniversalStrategyCore.TacticalCombat.Squad.FSM;
 
 namespace UniversalStrategyCore.GameBootstrap;
 

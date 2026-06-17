@@ -18,6 +18,11 @@ using UniversalStrategyCore.Province;
 using UniversalStrategyCore.TacticalCombat.Unit;
 using UniversalStrategyCore.TacticalCombat.Squad;
 using UniversalStrategyCore.TacticalCombat.Mediators;
+using UniversalStrategyCore.TacticalCombat.Squad.FSM;
+using UniversalStrategyCore.TacticalCombat;
+using System.Numerics;
+
+#pragma warning disable CS9113
 
 class Program
 {
@@ -66,11 +71,19 @@ class GameSession(
         // turnManager.TurnEnd(player1.Name);
         // turnManager.TurnEnd(player2.Name);
 
-        // Тактическая битва
+        //Тактическая битва
         var squad1 = squadFactory.CreateSquad("swordmen_1");
         var squad2 = squadFactory.CreateSquad("spearmen_1");
-        squad1.UnitsCount();
-        squad2.UnitsCount();
+        squad2.MovementComponent.ChangeState(new SquadStateIdle(squad2));
+        squad1.MovementComponent.MoveTo(new Vector2(10f, 5f));
+        Console.WriteLine("Запуск симуляции");
+        float fakeDeltaTime = 0.033f;
+        for (int i = 1; i <= 10; i++)
+        {
+            squad1.MovementComponent.Update(fakeDeltaTime);
+            Console.WriteLine($"Тик номер: {i}");
+        }
+
 
         // paris.AddConstructionOrder(BuildingType.Farm, 2);
         // paris.AddConstructionOrder(BuildingType.Barrack, 3);
