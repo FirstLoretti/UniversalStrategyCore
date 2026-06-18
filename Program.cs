@@ -22,6 +22,8 @@ using UniversalStrategyCore.TacticalCombat;
 using System.Numerics;
 using UniversalStrategyCore.Mediators.FactionProvince;
 using UniversalStrategyCore.Faction.AI;
+using UniversalStrategyCore;
+using Microsoft.VisualBasic;
 
 #pragma warning disable CS9113
 
@@ -45,15 +47,17 @@ class GameSession(
 {
     public void Start()
     {
-        Player player1 = new("Loretty", false);
-        Player player2 = new("AI", true);
-        playerManager.RegisterPlayer(player1);
-        playerManager.RegisterPlayer(player2);
+        // Player player1 = new("Loretty", false);
+        // Player player2 = new("AI", true);
+        // playerManager.RegisterPlayer(player1);
+        // playerManager.RegisterPlayer(player2);
+        var player1 = playerManager.CreatePlayer("AI", true).Value;
+        var player2 = playerManager.CreatePlayer("Loretty", false).Value;
 
         var england = factionTable.GetFaction(FactionName.England);
         var france = factionTable.GetFaction(FactionName.France);
-        factionManager.RegisterFactionByPlayer(player1.Name, england);
-        factionManager.RegisterFactionByPlayer(player2.Name, france);
+        factionManager.RegisterFactionByPlayer(player1!.Name, england);
+        factionManager.RegisterFactionByPlayer(player2!.Name, france);
         var englandProvinces = factionProvincesTable.GetProvinces(england);
         var franceProvinces = factionProvincesTable.GetProvinces(france);
         provinceManager.AddPlayerProvinces(player1.Name, englandProvinces);
@@ -70,6 +74,9 @@ class GameSession(
         var aiEngland = new AIFaction(england, new DefaultState(), new AggressiveState());
         aiFrance.OnTurnEnd();
         aiEngland.OnTurnEnd();
+
+        //Result
+
 
         // Строительство
         // var farm = provinceBuildingsTable.GetBuilding("farm_1");
