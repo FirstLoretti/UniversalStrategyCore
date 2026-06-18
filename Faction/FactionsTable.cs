@@ -25,8 +25,8 @@ public class FactionsTable : IFactionTable
 
     private void CreateFactions()
     {
-        AddFaction(new FactionTemplate(FactionName.England));
-        AddFaction(new FactionTemplate(FactionName.France));
+        AddFaction(new FactionTemplate(FactionName.England, Gold: 1000, Wood: 500));
+        AddFaction(new FactionTemplate(FactionName.France, Gold: 2000, Wood: 250));
     }
 
     private void AddFaction(FactionTemplate factionTemplate)

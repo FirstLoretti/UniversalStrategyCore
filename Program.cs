@@ -6,7 +6,6 @@ using UniversalStrategyCore.Units;
 using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Mediators;
 using UniversalStrategyCore.Map.WeatherLogic;
-using UniversalStrategyCore.AI.Faction;
 using UniversalStrategyCore.PlayerRegistrar;
 using UniversalStrategyCore.GameBootstrap;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,6 +21,7 @@ using UniversalStrategyCore.TacticalCombat.Squad.FSM;
 using UniversalStrategyCore.TacticalCombat;
 using System.Numerics;
 using UniversalStrategyCore.Mediators.FactionProvince;
+using UniversalStrategyCore.Faction.AI;
 
 #pragma warning disable CS9113
 
@@ -60,10 +60,16 @@ class GameSession(
         provinceManager.AddPlayerProvinces(player2.Name, franceProvinces);
 
         //Глобальный вижн
-        var isEnglandDiscover = new IsFactionDiscoveredCheck(factionVisionManager, england);
-        var isFranceDiscover = new IsFactionDiscoveredCheck(factionVisionManager, france);
-        isEnglandDiscover.IsPassed(france);
-        isFranceDiscover.IsPassed(france);
+        // var isEnglandDiscover = new IsFactionDiscoveredCheck(factionVisionManager, england);
+        // var isFranceDiscover = new IsFactionDiscoveredCheck(factionVisionManager, france);
+        // isEnglandDiscover.IsPassed(france);
+        // isFranceDiscover.IsPassed(france);
+
+        //Faction AI
+        var aiFrance = new AIFaction(france, new DefaultState(), new AggressiveState());
+        var aiEngland = new AIFaction(england, new DefaultState(), new AggressiveState());
+        aiFrance.OnTurnEnd();
+        aiEngland.OnTurnEnd();
 
         // Строительство
         // var farm = provinceBuildingsTable.GetBuilding("farm_1");
