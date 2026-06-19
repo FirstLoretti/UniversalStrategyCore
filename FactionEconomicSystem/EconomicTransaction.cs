@@ -1,6 +1,6 @@
 using UniversalStrategyCore.Factions;
 
-namespace UniversalStrategyCore;
+namespace UniversalStrategyCore.FactionEconomicSystem;
 
 public record EconomicTransaction(
     Guid Id,

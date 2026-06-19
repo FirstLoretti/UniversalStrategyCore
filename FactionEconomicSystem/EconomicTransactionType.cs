@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore;
+namespace UniversalStrategyCore.FactionEconomicSystem;
 
 public enum EconomicTransactionType
 {

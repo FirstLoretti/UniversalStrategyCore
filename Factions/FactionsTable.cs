@@ -1,3 +1,5 @@
+using UniversalStrategyCore.FactionEconomicSystem;
+
 namespace UniversalStrategyCore.Factions;
 
 public class FactionsTable : IFactionTable

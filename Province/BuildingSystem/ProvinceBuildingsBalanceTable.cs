@@ -1,5 +1,5 @@
-using UniversalStrategyCore.ConstructionSystem;
 using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.FactionEconomicSystem;
 
 namespace UniversalStrategyCore.Province;
 

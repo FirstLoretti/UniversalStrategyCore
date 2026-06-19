@@ -1,4 +1,4 @@
-using System.Diagnostics.Contracts;
+using UniversalStrategyCore.FactionEconomicSystem;
 
 namespace UniversalStrategyCore.Faction.AI;
 

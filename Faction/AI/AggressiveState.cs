@@ -1,3 +1,5 @@
+using UniversalStrategyCore.FactionEconomicSystem;
+
 namespace UniversalStrategyCore.Faction.AI;
 
 public class AggressiveState : IState

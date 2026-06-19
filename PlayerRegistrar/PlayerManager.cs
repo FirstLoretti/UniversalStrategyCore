@@ -8,7 +8,7 @@ public class PlayerManager
     {
         if (_players.ContainsKey(name))
         {
-            return ErrorType.PlayerAlreadyExist;
+            return Error.PlayerAlredyExist();
         }
         var player = new Player(name, isAI);
         _players.Add(player.Name, player);

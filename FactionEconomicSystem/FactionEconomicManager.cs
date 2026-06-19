@@ -1,6 +1,6 @@
 using UniversalStrategyCore.Factions;
 
-namespace UniversalStrategyCore.Faction;
+namespace UniversalStrategyCore.FactionEconomicSystem;
 
 public class FactionEconomicManager
 {

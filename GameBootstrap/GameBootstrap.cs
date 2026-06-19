@@ -1,4 +1,4 @@
-using UniversalStrategyCore.Faction;
+using UniversalStrategyCore.FactionEconomicSystem;
 using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.Mediators;
 using UniversalStrategyCore.PlayerRegistrar;

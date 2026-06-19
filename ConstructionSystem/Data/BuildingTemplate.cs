@@ -1,3 +1,5 @@
+using UniversalStrategyCore.FactionEconomicSystem;
+
 namespace UniversalStrategyCore.ConstructionSystem.Data;
 
 public record BuildingTemplate(
