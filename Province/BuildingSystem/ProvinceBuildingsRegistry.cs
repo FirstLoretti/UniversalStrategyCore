@@ -1,6 +1,9 @@
+using UniversalStrategyCore.ConstructionSystem;
+using UniversalStrategyCore.ConstructionSystem.Data;
+
 namespace UniversalStrategyCore.Province.BuildingSystem;
 
-public class ProvinceBuildings: IProvinceBuildings
+public class ProvinceBuildingsRegistry: IProvinceBuildingsRegistry
 {
     private readonly Dictionary <ProvinceTemplate, List<BuildingTemplate>> _provinceToBuildings = [];
 
@@ -21,12 +24,13 @@ public class ProvinceBuildings: IProvinceBuildings
         AddBuildings(provinceTemplate, [buildingTemplate]);
     }
 
-    public IReadOnlyList<BuildingTemplate> GetBuildings(ProvinceTemplate provinceTemplate)
+    public IReadOnlyList<BuildingTemplate>? GetBuildings(ProvinceTemplate provinceTemplate)
     {
         if(_provinceToBuildings.TryGetValue(provinceTemplate, out var buildingTemplates))
         {
             return buildingTemplates;
         }
-        throw new ArgumentException($"[ProvinceBuildings] Провинция: {provinceTemplate} не добавлена в _provinceToBuildings");
+        Console.WriteLine($"[ProvinceBuildings] Провинция: {provinceTemplate} не добавлена в _provinceToBuildings");
+        return null;
     }
 }

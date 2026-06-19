@@ -1,11 +1,14 @@
-namespace UniversalStrategyCore.Province.BuildingSystem;
+using UniversalStrategyCore.ConstructionSystem;
+using UniversalStrategyCore.ConstructionSystem.Data;
 
-public class ProvinceBuildingsTable
+namespace UniversalStrategyCore.Province;
+
+public class ProvinceBuildingsBalanceTable
 {
     private readonly Dictionary<BuildingLogicType, List<BuildingTemplate>> _logicTypeToBuildings = [];
     private readonly Dictionary<string, BuildingTemplate> _idToBuilding = [];
 
-    public ProvinceBuildingsTable()
+    public ProvinceBuildingsBalanceTable()
     {
         Initialize();
     }
@@ -21,11 +24,22 @@ public class ProvinceBuildingsTable
 
     private void Initialize()
     {
+        Dictionary<ResourceType, int> farm_1Cost = new()
+        {
+            {ResourceType.Gold, 200},
+            {ResourceType.Wood, 100}
+        };
+        Dictionary<ResourceType, int> barrack_1Cost = new()
+        {
+            {ResourceType.Gold, 400},
+            {ResourceType.Wood, 200}
+        };
+
         AddBuilding(BuildingLogicType.Economic, new BuildingTemplate(
-            Id: "farm_1", DisplayName: "Farm", ConstructionTurns: 1, WoodCost: 100
+            Id: "farm_1", DisplayName: "Farm", ConstructionTurns: 1, farm_1Cost
             ));
         AddBuilding(BuildingLogicType.Military, new BuildingTemplate(
-            Id: "barrack_1", DisplayName: "Barrack", ConstructionTurns: 2, WoodCost: 300
+            Id: "barrack_1", DisplayName: "Barrack", ConstructionTurns: 2, barrack_1Cost
             ));
     }
 

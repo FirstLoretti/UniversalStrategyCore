@@ -1,6 +1,6 @@
-namespace UniversalStrategyCore.Faction;
+namespace UniversalStrategyCore.Factions;
 
-public class FactionManager
+public class FactionPlayerRegistrar
 {
     private readonly Dictionary<string, FactionTemplate> _playerToFaction = [];
 

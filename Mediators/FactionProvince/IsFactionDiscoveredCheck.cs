@@ -1,4 +1,5 @@
 using UniversalStrategyCore.Faction;
+using UniversalStrategyCore.Factions;
 
 namespace UniversalStrategyCore.Mediators.FactionProvince;
 

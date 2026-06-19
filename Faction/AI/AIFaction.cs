@@ -1,3 +1,5 @@
+using UniversalStrategyCore.Factions;
+
 namespace UniversalStrategyCore.Faction.AI;
 
 public class AIFaction(FactionTemplate faction, DefaultState defaultState, AggressiveState aggressiveState)

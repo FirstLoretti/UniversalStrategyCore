@@ -4,5 +4,6 @@ public enum ErrorType
 {
     NotEnoughtGold,
     NotEnoughtWood,
-    PlayerAlreadyExist
+    PlayerAlreadyExist,
+    NotEnoughtResource
 }

@@ -1,8 +1,8 @@
-namespace UniversalStrategyCore.Province.BuildingSystem;
+namespace UniversalStrategyCore.ConstructionSystem.Data;
 
 public record BuildingTemplate(
     string Id,
     string DisplayName,
     int ConstructionTurns,
-    int WoodCost
+    Dictionary<ResourceType, int> Cost
 );

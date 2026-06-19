@@ -1,4 +1,5 @@
 using UniversalStrategyCore.Faction;
+using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.Mediators;
 using UniversalStrategyCore.PlayerRegistrar;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ using UniversalStrategyCore.TacticalCombat.Unit;
 using UniversalStrategyCore.TacticalCombat.Mediators;
 using UniversalStrategyCore.TacticalCombat.Squad;
 using UniversalStrategyCore.Mediators.FactionProvince;
+using UniversalStrategyCore.ConstructionSystem.Logic;
 
 namespace UniversalStrategyCore.GameBootstrap;
 
@@ -62,16 +64,17 @@ public class GameBootstrap
     private void RegisterFactionSystem()
     {
         _serviceCollection.AddSingleton<IFactionTable, FactionsTable>();
-        _serviceCollection.AddSingleton<FactionManager>();
+        _serviceCollection.AddSingleton<FactionPlayerRegistrar>();
+        _serviceCollection.AddSingleton<FactionEconomicManager>();
     }
 
     private void RegisterProvinceSystem()
     {
         _serviceCollection.AddSingleton<IProvinceTable,ProvinceTable>();
-        _serviceCollection.AddSingleton<ProvinceConstructionManager>();
+        _serviceCollection.AddSingleton<IProvinceConstructionManager, ProvinceConstructionManager>();
         _serviceCollection.AddSingleton<ProvinceManager>();
-        _serviceCollection.AddSingleton<ProvinceBuildingsTable>();
-        _serviceCollection.AddSingleton<ProvinceBuildings>();
+        _serviceCollection.AddSingleton<ProvinceBuildingsBalanceTable>();
+        _serviceCollection.AddSingleton<ProvinceBuildingsRegistry>();
     }
 
     private void RegisterTacticalBattleSystem()
@@ -87,5 +90,6 @@ public class GameBootstrap
         _serviceCollection.AddSingleton<SquadFactory>();
         _serviceCollection.AddSingleton<FactionVisionManager>();
         _serviceCollection.AddSingleton<FactionVisionTable>();
+        _serviceCollection.AddSingleton<StrategicalConstructionManager>();
     }
 }

@@ -1,16 +1,17 @@
 using UniversalStrategyCore.Province.BuildingSystem;
 using UniversalStrategyCore.Province;
 using UniversalStrategyCore.Turn;
+using UniversalStrategyCore.ConstructionSystem.Logic;
 
 namespace UniversalStrategyCore.Mediators;
 
 public class ProvinceConstructionTurnEndMediator
 {
     private readonly TurnManager _turnManager;
-    private readonly ProvinceConstructionManager _provinceConstructionManager;
+    private readonly IProvinceConstructionManager _provinceConstructionManager;
     private readonly ProvinceManager _provinceManager;
 
-    public ProvinceConstructionTurnEndMediator(ProvinceManager provinceManager, ProvinceConstructionManager provinceConstructionManager, TurnManager turnManager)
+    public ProvinceConstructionTurnEndMediator(ProvinceManager provinceManager, IProvinceConstructionManager provinceConstructionManager, TurnManager turnManager)
     {
         _turnManager = turnManager;
         _provinceConstructionManager = provinceConstructionManager;

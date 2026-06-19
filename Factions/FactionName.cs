@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.Faction;
+namespace UniversalStrategyCore.Factions;
 
 public enum FactionName
 {

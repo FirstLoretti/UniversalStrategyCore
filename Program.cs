@@ -12,7 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 using UniversalStrategyCore.GameMath;
 using UniversalStrategyCore.Turn;
 using UniversalStrategyCore.Province.BuildingSystem;
-using UniversalStrategyCore.Province.Commands;
 using UniversalStrategyCore.Province;
 using UniversalStrategyCore.TacticalCombat.Unit;
 using UniversalStrategyCore.TacticalCombat.Squad;
@@ -23,7 +22,10 @@ using System.Numerics;
 using UniversalStrategyCore.Mediators.FactionProvince;
 using UniversalStrategyCore.Faction.AI;
 using UniversalStrategyCore;
-using Microsoft.VisualBasic;
+using UniversalStrategyCore.ConstructionSystem;
+using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.ConstructionSystem.Logic;
+using UniversalStrategyCore.ConstructionSystem.Data;
 
 #pragma warning disable CS9113
 
@@ -38,11 +40,11 @@ class Program
 }
 
 class GameSession(
-    ProvinceManager provinceManager, TurnManager turnManager, PlayerManager playerManager, FactionManager factionManager,
+    ProvinceManager provinceManager, TurnManager turnManager, PlayerManager playerManager, FactionPlayerRegistrar factionManager,
     ArmyManager armyManager, IFactionTable factionTable, IFactionProvincesTable factionProvincesTable,
-    ProvinceConstructionManager provinceConstructionManager, ProvinceBuildings provinceBuildings,
-    ProvinceBuildingsTable provinceBuildingsTable, IUnitsTable unitsTable, ISquadsTable squadsTable,
-    SquadFactory squadFactory, FactionVisionManager factionVisionManager
+    IProvinceConstructionManager provinceConstructionManager, ProvinceBuildingsRegistry provinceBuildings,
+    ProvinceBuildingsBalanceTable provinceBuildingsTable, IUnitsTable unitsTable, ISquadsTable squadsTable,
+    SquadFactory squadFactory, FactionVisionManager factionVisionManager, StrategicalConstructionManager strategicalConstructionManager
 )
 {
     public void Start()
@@ -70,26 +72,25 @@ class GameSession(
         // isFranceDiscover.IsPassed(france);
 
         //Faction AI
-        var aiFrance = new AIFaction(france, new DefaultState(), new AggressiveState());
-        var aiEngland = new AIFaction(england, new DefaultState(), new AggressiveState());
-        aiFrance.OnTurnEnd();
-        aiEngland.OnTurnEnd();
+        // var aiFrance = new AIFaction(france, new DefaultState(), new AggressiveState());
+        // var aiEngland = new AIFaction(england, new DefaultState(), new AggressiveState());
+        // aiFrance.OnTurnEnd();
+        // aiEngland.OnTurnEnd();
 
-        //Result
+        //Строительство
+        var farm = provinceBuildingsTable.GetBuilding("farm_1");
+        var barrack = provinceBuildingsTable.GetBuilding("barrack_1");
+        var london = provinceManager.GetPlayerProvince(player1.Name, ProvinceName.London);
+        var paris = provinceManager.GetPlayerProvince(player2.Name, ProvinceName.Paris);
+        ConstructBuildingCommand constructFarm = new(england, london, farm);
+        ConstructBuildingCommand constructBarrack = new(france, paris, barrack);
+        strategicalConstructionManager.ConstructBuilding(constructFarm);
+        strategicalConstructionManager.ConstructBuilding(constructBarrack);
 
-
-        // Строительство
-        // var farm = provinceBuildingsTable.GetBuilding("farm_1");
-        // var barrack = provinceBuildingsTable.GetBuilding("barrack_1");
-        // var london = provinceManager.GetPlayerProvince(player1.Name, ProvinceName.London);
-        // var paris = provinceManager.GetPlayerProvince(player2.Name, ProvinceName.Paris);
-        // provinceConstructionManager.AddConstructionOrder(london, new ConstructionOrder(farm));
-        // provinceConstructionManager.AddConstructionOrder(paris, new ConstructionOrder(barrack));
-
-        // turnManager.TurnEnd(player1.Name);
-        // turnManager.TurnEnd(player2.Name);
-        // turnManager.TurnEnd(player1.Name);
-        // turnManager.TurnEnd(player2.Name);
+        turnManager.TurnEnd(player1.Name);
+        turnManager.TurnEnd(player2.Name);
+        turnManager.TurnEnd(player1.Name);
+        turnManager.TurnEnd(player2.Name);
 
         //Тактическая битва
         // var squad1 = squadFactory.CreateSquad("swordmen_1");

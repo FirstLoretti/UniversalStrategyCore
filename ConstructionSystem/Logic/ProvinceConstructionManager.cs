@@ -1,6 +1,9 @@
-namespace UniversalStrategyCore.Province.BuildingSystem;
+using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.Province;
 
-public class ProvinceConstructionManager
+namespace UniversalStrategyCore.ConstructionSystem.Logic;
+
+internal class ProvinceConstructionManager: IProvinceConstructionManager
 {
     public event Action? BuildingConstructed;
     private readonly Dictionary<ProvinceTemplate, List<ConstructionOrder>> _provinceToConstructionOrders = [];

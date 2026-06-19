@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.Faction;
+namespace UniversalStrategyCore.Factions;
 
 public class FactionsTable : IFactionTable
 {
@@ -25,8 +25,18 @@ public class FactionsTable : IFactionTable
 
     private void CreateFactions()
     {
-        AddFaction(new FactionTemplate(FactionName.England, Gold: 1000, Wood: 500));
-        AddFaction(new FactionTemplate(FactionName.France, Gold: 2000, Wood: 250));
+        Dictionary<ResourceType, int> englandResources = new()
+        {
+            {ResourceType.Gold, 1000},
+            {ResourceType.Wood, 500}
+        };
+        Dictionary<ResourceType, int> franceResources = new()
+        {
+            {ResourceType.Gold, 2000},
+            {ResourceType.Wood, 250}
+        };
+        AddFaction(new FactionTemplate(FactionName.England, englandResources));
+        AddFaction(new FactionTemplate(FactionName.France, franceResources));
     }
 
     private void AddFaction(FactionTemplate factionTemplate)

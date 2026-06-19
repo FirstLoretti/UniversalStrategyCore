@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.Province.BuildingSystem;
+namespace UniversalStrategyCore.ConstructionSystem.Data;
 
 public enum BuildingLogicType
 {
