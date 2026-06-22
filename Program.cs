@@ -26,6 +26,7 @@ using UniversalStrategyCore.ConstructionSystem;
 using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.ConstructionSystem.Logic;
 using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.EconomicSystem;
 
 #pragma warning disable CS9113
 
@@ -44,7 +45,8 @@ class GameSession(
     ArmyManager armyManager, IFactionTable factionTable, IFactionProvincesTable factionProvincesTable,
     IProvinceConstructionManager provinceConstructionManager, ProvinceBuildingsRegistry provinceBuildings,
     ProvinceBuildingsBalanceTable provinceBuildingsTable, IUnitsTable unitsTable, ISquadsTable squadsTable,
-    SquadFactory squadFactory, FactionVisionManager factionVisionManager, StrategicalConstructionManager strategicalConstructionManager
+    SquadFactory squadFactory, FactionVisionManager factionVisionManager, IFactionEconomicManager factionEconomicManager,
+    ICommandHandler<ConstructBuildingCommand> constructBuildingCommandHandler
 )
 {
     public void Start()
@@ -82,10 +84,10 @@ class GameSession(
         var barrack = provinceBuildingsTable.GetBuilding("barrack_1");
         var london = provinceManager.GetPlayerProvince(player1.Name, ProvinceName.London);
         var paris = provinceManager.GetPlayerProvince(player2.Name, ProvinceName.Paris);
-        ConstructBuildingCommand constructFarm = new(england, london, farm);
-        ConstructBuildingCommand constructBarrack = new(france, paris, barrack);
-        strategicalConstructionManager.ConstructBuilding(constructFarm);
-        strategicalConstructionManager.ConstructBuilding(constructBarrack);
+        ConstructBuildingCommand constructFarm = new(england, london, new ConstructionOrder(farm));
+        ConstructBuildingCommand constructBarrack = new(france, paris, new ConstructionOrder(barrack));
+        constructBuildingCommandHandler.Handle(constructFarm);
+        constructBuildingCommandHandler.Handle(constructBarrack);
 
         turnManager.TurnEnd(player1.Name);
         turnManager.TurnEnd(player2.Name);

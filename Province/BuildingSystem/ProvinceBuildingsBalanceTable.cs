@@ -1,5 +1,5 @@
 using UniversalStrategyCore.ConstructionSystem.Data;
-using UniversalStrategyCore.FactionEconomicSystem;
+using UniversalStrategyCore.EconomicSystem;
 
 namespace UniversalStrategyCore.Province;
 
@@ -24,15 +24,15 @@ public class ProvinceBuildingsBalanceTable
 
     private void Initialize()
     {
-        Dictionary<ResourceType, int> farm_1Cost = new()
+        Dictionary<GameResourceType, int> farm_1Cost = new()
         {
-            {ResourceType.Gold, 200},
-            {ResourceType.Wood, 100}
+            {GameResourceType.Gold, 200},
+            {GameResourceType.Wood, 100}
         };
-        Dictionary<ResourceType, int> barrack_1Cost = new()
+        Dictionary<GameResourceType, int> barrack_1Cost = new()
         {
-            {ResourceType.Gold, 400},
-            {ResourceType.Wood, 200}
+            {GameResourceType.Gold, 400},
+            {GameResourceType.Wood, 200}
         };
 
         AddBuilding(BuildingLogicType.Economic, new BuildingTemplate(

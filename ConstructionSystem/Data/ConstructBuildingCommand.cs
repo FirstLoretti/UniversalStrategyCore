@@ -6,5 +6,5 @@ namespace UniversalStrategyCore.ConstructionSystem.Data;
 public record ConstructBuildingCommand(
     FactionTemplate Faction,
     ProvinceTemplate Province,
-    BuildingTemplate Building
-);
+    ConstructionOrder ConstructionOrder
+): IGameCommand;

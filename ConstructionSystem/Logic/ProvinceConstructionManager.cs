@@ -3,33 +3,33 @@ using UniversalStrategyCore.Province;
 
 namespace UniversalStrategyCore.ConstructionSystem.Logic;
 
-internal class ProvinceConstructionManager: IProvinceConstructionManager
+public class ProvinceConstructionManager: IProvinceConstructionManager
 {
     public event Action? BuildingConstructed;
     private readonly Dictionary<ProvinceTemplate, List<ConstructionOrder>> _provinceToConstructionOrders = [];
 
-    public void OnTurnEnd(ProvinceTemplate provinceTemplate)
+    public void OnTurnEnd(ProvinceTemplate province)
     {
-        if (_provinceToConstructionOrders.TryGetValue(provinceTemplate, out var constructionOrders))
+        if (_provinceToConstructionOrders.TryGetValue(province, out var orders))
         {
-            foreach (var constructionOrder in constructionOrders)
+            foreach (var order in orders)
             {
-                constructionOrder.TickTurn();
-                if (constructionOrder.IsFinished)
+                order.TickTurn();
+                if (order.IsFinished)
                 {
                     BuildingConstructed?.Invoke();
-                    Console.WriteLine($"Здание: {constructionOrder.BuildingTemplate.DisplayName} в провинции: {provinceTemplate.Name} построено.");
+                    Console.WriteLine($"Здание: {order.Building.DisplayName} в провинции: {province.Name} построено.");
                 }
             }
-            constructionOrders.RemoveAll(order => order.IsFinished);
-            if(constructionOrders.Count == 0)
+            orders.RemoveAll(order => order.IsFinished);
+            if(orders.Count == 0)
             {
-                _provinceToConstructionOrders.Remove(provinceTemplate);
+                _provinceToConstructionOrders.Remove(province);
             }
         }
     }
 
-    public void AddConstructionOrder(ProvinceTemplate province, ConstructionOrder constructionOrder)
+    public void AddConstructionOrder(ProvinceTemplate province, ConstructionOrder order)
     {
         if (!_provinceToConstructionOrders.TryGetValue(province, out var constructionOrders))
         {
@@ -37,12 +37,24 @@ internal class ProvinceConstructionManager: IProvinceConstructionManager
             _provinceToConstructionOrders.Add(province, constructionOrders);
         }
 
-        constructionOrders.Add(constructionOrder);
+        constructionOrders.Add(order);
         Console.WriteLine(
             $"[ProvinceConstructionManager] " +
-            $"Здание: {constructionOrder.BuildingTemplate.DisplayName} " +
+            $"Здание: {order.Building.DisplayName} " +
             $"добавлено в стройку провинции: {province.Name}. " +
-            $"Время строительства: {constructionOrder.TurnsLeft}."
+            $"Время строительства: {order.TurnsLeft}."
         );
+    }
+
+    public void RemoveConstructionOrder(ProvinceTemplate province, ConstructionOrder order)
+    {
+        if (_provinceToConstructionOrders.ContainsKey(province))
+        {
+            _provinceToConstructionOrders[province].Remove(order);
+        }
+        else
+        {
+            throw new Exception("Заказа нет в словаре");
+        }
     }
 }

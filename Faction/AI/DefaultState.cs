@@ -1,4 +1,4 @@
-using UniversalStrategyCore.FactionEconomicSystem;
+using UniversalStrategyCore.EconomicSystem;
 
 namespace UniversalStrategyCore.Faction.AI;
 
@@ -8,7 +8,7 @@ public class DefaultState : IState
 
     public void Update(AIFaction faction)
     {
-        if (faction.Faction.ResourceAmount.TryGetValue(ResourceType.Gold, out var amountGold))
+        if (faction.Faction.ResourceAmount.TryGetValue(GameResourceType.Gold, out var amountGold))
         {
             if (amountGold > 1500)
             {
@@ -20,6 +20,6 @@ public class DefaultState : IState
                 Console.WriteLine($"[DefaultState] Фракция: {faction.Faction.Name} осталась в DefaultState.");
             }
         }
-        throw new Exception($"[DefaultState] Ресурс: {ResourceType.Gold} не добавлен в словарь фракции: {faction.Faction.Name}");
+        throw new Exception($"[DefaultState] Ресурс: {GameResourceType.Gold} не добавлен в словарь фракции: {faction.Faction.Name}");
     }
 }

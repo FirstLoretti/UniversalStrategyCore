@@ -1,4 +1,4 @@
-using UniversalStrategyCore.FactionEconomicSystem;
+using UniversalStrategyCore.EconomicSystem;
 
 namespace UniversalStrategyCore.Factions;
 
@@ -27,15 +27,15 @@ public class FactionsTable : IFactionTable
 
     private void CreateFactions()
     {
-        Dictionary<ResourceType, int> englandResources = new()
+        Dictionary<GameResourceType, int> englandResources = new()
         {
-            {ResourceType.Gold, 1000},
-            {ResourceType.Wood, 500}
+            {GameResourceType.Gold, 1000},
+            {GameResourceType.Wood, 500}
         };
-        Dictionary<ResourceType, int> franceResources = new()
+        Dictionary<GameResourceType, int> franceResources = new()
         {
-            {ResourceType.Gold, 2000},
-            {ResourceType.Wood, 250}
+            {GameResourceType.Gold, 2000},
+            {GameResourceType.Wood, 250}
         };
         AddFaction(new FactionTemplate(FactionName.England, englandResources));
         AddFaction(new FactionTemplate(FactionName.France, franceResources));

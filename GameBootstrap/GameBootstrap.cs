@@ -1,4 +1,4 @@
-using UniversalStrategyCore.FactionEconomicSystem;
+using UniversalStrategyCore.EconomicSystem;
 using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.Mediators;
 using UniversalStrategyCore.PlayerRegistrar;
@@ -12,6 +12,7 @@ using UniversalStrategyCore.TacticalCombat.Mediators;
 using UniversalStrategyCore.TacticalCombat.Squad;
 using UniversalStrategyCore.Mediators.FactionProvince;
 using UniversalStrategyCore.ConstructionSystem.Logic;
+using UniversalStrategyCore.ConstructionSystem.Data;
 
 namespace UniversalStrategyCore.GameBootstrap;
 
@@ -29,6 +30,8 @@ public class GameBootstrap
         RegisterProvinceSystem();
         RegisterFactionSystem();
         RegisterTacticalBattleSystem();
+        RegisterEconomicSystem();
+        RegisterConstructionSystem();
         RegisterMediators();
         RegisterGameSession();
 
@@ -65,16 +68,25 @@ public class GameBootstrap
     {
         _serviceCollection.AddSingleton<IFactionTable, FactionsTable>();
         _serviceCollection.AddSingleton<FactionPlayerRegistrar>();
-        _serviceCollection.AddSingleton<FactionEconomicManager>();
     }
 
     private void RegisterProvinceSystem()
     {
-        _serviceCollection.AddSingleton<IProvinceTable,ProvinceTable>();
-        _serviceCollection.AddSingleton<IProvinceConstructionManager, ProvinceConstructionManager>();
+        _serviceCollection.AddSingleton<IProvinceTable, ProvinceTable>();
         _serviceCollection.AddSingleton<ProvinceManager>();
         _serviceCollection.AddSingleton<ProvinceBuildingsBalanceTable>();
         _serviceCollection.AddSingleton<ProvinceBuildingsRegistry>();
+    }
+
+    private void RegisterConstructionSystem()
+    {
+        _serviceCollection.AddSingleton<IProvinceConstructionManager, ProvinceConstructionManager>();
+        _serviceCollection.AddSingleton<ICommandHandler<ConstructBuildingCommand>, ConstructBuildingCommandHandler>();
+    }
+
+    private void RegisterEconomicSystem()
+    {
+        _serviceCollection.AddSingleton<IFactionEconomicManager, FactionEconomicManager>();
     }
 
     private void RegisterTacticalBattleSystem()
@@ -90,6 +102,5 @@ public class GameBootstrap
         _serviceCollection.AddSingleton<SquadFactory>();
         _serviceCollection.AddSingleton<FactionVisionManager>();
         _serviceCollection.AddSingleton<FactionVisionTable>();
-        _serviceCollection.AddSingleton<StrategicalConstructionManager>();
     }
 }

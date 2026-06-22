@@ -1,5 +1,5 @@
-using UniversalStrategyCore.FactionEconomicSystem;
+using UniversalStrategyCore.EconomicSystem;
 
 namespace UniversalStrategyCore.Factions;
 
-public record FactionTemplate(FactionName Name, Dictionary<ResourceType, int> ResourceAmount);
+public record FactionTemplate(FactionName Name, Dictionary<GameResourceType, int> ResourceAmount);

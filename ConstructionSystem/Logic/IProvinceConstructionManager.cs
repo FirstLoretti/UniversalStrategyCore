@@ -7,4 +7,5 @@ public interface IProvinceConstructionManager
 {
     public void OnTurnEnd(ProvinceTemplate province);
     public void AddConstructionOrder(ProvinceTemplate province, ConstructionOrder constructionOrder);
+    public void RemoveConstructionOrder(ProvinceTemplate province, ConstructionOrder constructionOrder);
 }
