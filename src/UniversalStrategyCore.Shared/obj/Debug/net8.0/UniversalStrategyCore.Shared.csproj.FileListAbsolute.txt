@@ -1,0 +1,11 @@
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\bin\Debug\net8.0\UniversalStrategyCore.Shared.deps.json
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\bin\Debug\net8.0\UniversalStrategyCore.Shared.dll
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\bin\Debug\net8.0\UniversalStrategyCore.Shared.pdb
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\UniversalStrategyCore.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\UniversalStrategyCore.Shared.AssemblyInfoInputs.cache
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\UniversalStrategyCore.Shared.AssemblyInfo.cs
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\UniversalStrategyCore.Shared.csproj.CoreCompileInputs.cache
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\UniversalStrategyCore.Shared.dll
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\refint\UniversalStrategyCore.Shared.dll
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\UniversalStrategyCore.Shared.pdb
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\ref\UniversalStrategyCore.Shared.dll

@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "UniversalStrategyCore.StrategicConstructionSystem/1.0.0": {
+        "dependencies": {
+          "UniversalStrategyCore.EconomicSystem": "1.0.0",
+          "UniversalStrategyCore.Shared": "1.0.0"
+        },
+        "runtime": {
+          "UniversalStrategyCore.StrategicConstructionSystem.dll": {}
+        }
+      },
+      "UniversalStrategyCore.EconomicSystem/1.0.0": {
+        "dependencies": {
+          "UniversalStrategyCore.Shared": "1.0.0"
+        },
+        "runtime": {
+          "UniversalStrategyCore.EconomicSystem.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UniversalStrategyCore.Shared/1.0.0": {
+        "runtime": {
+          "UniversalStrategyCore.Shared.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "UniversalStrategyCore.StrategicConstructionSystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UniversalStrategyCore.EconomicSystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UniversalStrategyCore.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

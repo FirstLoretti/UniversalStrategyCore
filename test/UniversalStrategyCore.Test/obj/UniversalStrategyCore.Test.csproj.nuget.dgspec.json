@@ -1,0 +1,360 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\UniversalStrategyCore\\test\\UniversalStrategyCore.Test\\UniversalStrategyCore.Test.csproj": {}
+  },
+  "projects": {
+    "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Base\\UniversalStrategyCore.Base.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Base\\UniversalStrategyCore.Base.csproj",
+        "projectName": "UniversalStrategyCore.Base",
+        "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Base\\UniversalStrategyCore.Base.csproj",
+        "packagesPath": "C:\\Users\\first\\.nuget\\packages\\",
+        "outputPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Base\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\first\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj"
+              },
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj"
+              },
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj",
+        "projectName": "UniversalStrategyCore.EconomicSystem",
+        "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj",
+        "packagesPath": "C:\\Users\\first\\.nuget\\packages\\",
+        "outputPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\first\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj",
+        "projectName": "UniversalStrategyCore.Shared",
+        "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj",
+        "packagesPath": "C:\\Users\\first\\.nuget\\packages\\",
+        "outputPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\first\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj",
+        "projectName": "UniversalStrategyCore.StrategicConstructionSystem",
+        "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj",
+        "packagesPath": "C:\\Users\\first\\.nuget\\packages\\",
+        "outputPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\first\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj"
+              },
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\UniversalStrategyCore\\test\\UniversalStrategyCore.Test\\UniversalStrategyCore.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\UniversalStrategyCore\\test\\UniversalStrategyCore.Test\\UniversalStrategyCore.Test.csproj",
+        "projectName": "UniversalStrategyCore.Test",
+        "projectPath": "C:\\UniversalStrategyCore\\test\\UniversalStrategyCore.Test\\UniversalStrategyCore.Test.csproj",
+        "packagesPath": "C:\\Users\\first\\.nuget\\packages\\",
+        "outputPath": "C:\\UniversalStrategyCore\\test\\UniversalStrategyCore.Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\first\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Base\\UniversalStrategyCore.Base.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Base\\UniversalStrategyCore.Base.csproj"
+              },
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj"
+              },
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj"
+              },
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "NSubstitute": {
+              "target": "Package",
+              "version": "[5.3.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.419/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
