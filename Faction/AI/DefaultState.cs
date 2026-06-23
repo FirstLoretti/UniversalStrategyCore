@@ -1,4 +1,4 @@
-using UniversalStrategyCore.EconomicSystem;
+using UniversalStrategyCore.Share;
 
 namespace UniversalStrategyCore.Faction.AI;
 

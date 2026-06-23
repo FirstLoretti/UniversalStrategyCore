@@ -1,4 +1,4 @@
-using UniversalStrategyCore.StrategicConstructionSystem;
+using UniversalStrategyCore.Share;
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 namespace UniversalStrategyCore.Province.BuildingSystem;

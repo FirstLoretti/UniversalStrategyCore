@@ -1,6 +1,6 @@
 using System.Numerics;
 using UniversalStrategyCore.Armies.States;
-using UniversalStrategyCore.Share.Type;
+using UniversalStrategyCore.Share;
 using UniversalStrategyCore.Units;
 
 namespace UniversalStrategyCore.Armies;

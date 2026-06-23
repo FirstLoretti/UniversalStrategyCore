@@ -1,4 +1,4 @@
-using UniversalStrategyCore.Share.Type;
+using UniversalStrategyCore.Share;
 
 namespace UniversalStrategyCore.Province;
 

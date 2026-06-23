@@ -1,3 +1,5 @@
+using UniversalStrategyCore.Share;
+
 namespace UniversalStrategyCore.Factions;
 
 public class FactionPlayerRegistrar

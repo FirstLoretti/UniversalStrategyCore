@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ptSnzIwCrVI=",
+  "dgSpecHash": "xL7zSKOcSOE=",
   "success": true,
-  "projectFilePath": "C:\\UniversalStrategyCore\\UniversalStrategyCore.csproj",
+  "projectFilePath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Base\\UniversalStrategyCore.Base.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\first\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.8\\microsoft.extensions.dependencyinjection.10.0.8.nupkg.sha512",
     "C:\\Users\\first\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.8\\microsoft.extensions.dependencyinjection.abstractions.10.0.8.nupkg.sha512"

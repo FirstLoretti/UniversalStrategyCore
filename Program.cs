@@ -27,7 +27,7 @@ using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.StrategicConstructionSystem.Logic;
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.EconomicSystem;
-using UniversalStrategyCore.Share.Type;
+using UniversalStrategyCore.Share;
 
 #pragma warning disable CS9113
 

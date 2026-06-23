@@ -1,3 +1,5 @@
+using UniversalStrategyCore.Share;
+
 namespace UniversalStrategyCore.PlayerRegistrar;
 
 public class PlayerManager

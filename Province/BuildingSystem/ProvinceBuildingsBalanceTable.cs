@@ -1,6 +1,5 @@
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
-using UniversalStrategyCore.EconomicSystem;
-using UniversalStrategyCore.Share.Type;
+using UniversalStrategyCore.Share;
 
 namespace UniversalStrategyCore.Province;
 
