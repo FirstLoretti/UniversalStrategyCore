@@ -85,8 +85,6 @@ class GameSession(
         //Строительство
         var farm = provinceBuildingsTable.GetBuilding("farm");
         var barrack = provinceBuildingsTable.GetBuilding("barrack");
-        var london = provinceManager.GetPlayerProvince(player1.Name, "london");
-        var paris = provinceManager.GetPlayerProvince(player2.Name, "paris");
         ConstructBuildingCommand constructFarm = new("england", "london", new ConstructionOrder(farm));
         ConstructBuildingCommand constructBarrack = new("france", "paris", new ConstructionOrder(barrack));
         constructBuildingCommandHandler.Handle(constructFarm);

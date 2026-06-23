@@ -13,3 +13,4 @@ C:\UniversalStrategyCore\src\UniversalStrategyCore.EconomicSystem\obj\Debug\net8
 C:\UniversalStrategyCore\src\UniversalStrategyCore.EconomicSystem\obj\Debug\net8.0\refint\UniversalStrategyCore.EconomicSystem.dll
 C:\UniversalStrategyCore\src\UniversalStrategyCore.EconomicSystem\obj\Debug\net8.0\UniversalStrategyCore.EconomicSystem.pdb
 C:\UniversalStrategyCore\src\UniversalStrategyCore.EconomicSystem\obj\Debug\net8.0\ref\UniversalStrategyCore.EconomicSystem.dll
+C:\UniversalStrategyCore\src\UniversalStrategyCore.EconomicSystem\obj\Debug\net8.0\UniversalStrategyCore.EconomicSystem.sourcelink.json

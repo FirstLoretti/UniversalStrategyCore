@@ -3,9 +3,10 @@ using UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 namespace UniversalStrategyCore.StrategicConstructionSystem.Logic;
 
-public class ProvinceConstructionManager: IProvinceConstructionManager
+public class ProvinceConstructionManager : IProvinceConstructionManager
 {
     public event Action? BuildingConstructed;
+
     private readonly Dictionary<ProvinceId, List<ConstructionOrder>> _idToConstructionOrders = [];
 
     public void OnTurnEnd(ProvinceId id)
@@ -18,13 +19,10 @@ public class ProvinceConstructionManager: IProvinceConstructionManager
                 if (order.IsFinished)
                 {
                     BuildingConstructed?.Invoke();
-                    Console.WriteLine(
-                        $"[{nameof(ProvinceConstructionManager)}]Здание: {order.Building.DisplayName} в провинции: {id} построено."
-                    );
                 }
             }
             orders.RemoveAll(order => order.IsFinished);
-            if(orders.Count == 0)
+            if (orders.Count == 0)
             {
                 _idToConstructionOrders.Remove(id);
             }
@@ -38,25 +36,19 @@ public class ProvinceConstructionManager: IProvinceConstructionManager
             constructionOrders = [];
             _idToConstructionOrders.Add(id, constructionOrders);
         }
-
         constructionOrders.Add(order);
-        Console.WriteLine(
-            $"[ProvinceConstructionManager] " +
-            $"Здание: {order.Building.DisplayName} " +
-            $"добавлено в стройку провинции: {id}. " +
-            $"Время строительства: {order.TurnsLeft}."
-        );
     }
 
-    public void RemoveConstructionOrder(ProvinceId id, ConstructionOrder order)
+    public Result<bool> RemoveConstructionOrder(ProvinceId id, ConstructionOrder order)
     {
-        if (_idToConstructionOrders.ContainsKey(id))
+        if (_idToConstructionOrders.TryGetValue(id, out var orders))
         {
-            _idToConstructionOrders[id].Remove(order);
+            if (!orders.Remove(order))
+            {
+                return Error.NotFound(order.Building.Id, nameof(_idToConstructionOrders));
+            }
+            return true;
         }
-        else
-        {
-            throw new Exception("Заказа нет в словаре");
-        }
+        return Error.NotFound(id, nameof(_idToConstructionOrders));
     }
 }

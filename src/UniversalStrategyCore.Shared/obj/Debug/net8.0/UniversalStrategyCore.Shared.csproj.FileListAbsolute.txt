@@ -9,3 +9,4 @@ C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\Unive
 C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\refint\UniversalStrategyCore.Shared.dll
 C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\UniversalStrategyCore.Shared.pdb
 C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\ref\UniversalStrategyCore.Shared.dll
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Shared\obj\Debug\net8.0\UniversalStrategyCore.Shared.sourcelink.json

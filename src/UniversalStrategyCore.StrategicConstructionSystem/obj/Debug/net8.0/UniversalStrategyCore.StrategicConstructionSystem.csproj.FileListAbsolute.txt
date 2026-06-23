@@ -15,3 +15,4 @@ C:\UniversalStrategyCore\src\UniversalStrategyCore.StrategicConstructionSystem\o
 C:\UniversalStrategyCore\src\UniversalStrategyCore.StrategicConstructionSystem\obj\Debug\net8.0\refint\UniversalStrategyCore.StrategicConstructionSystem.dll
 C:\UniversalStrategyCore\src\UniversalStrategyCore.StrategicConstructionSystem\obj\Debug\net8.0\UniversalStrategyCore.StrategicConstructionSystem.pdb
 C:\UniversalStrategyCore\src\UniversalStrategyCore.StrategicConstructionSystem\obj\Debug\net8.0\ref\UniversalStrategyCore.StrategicConstructionSystem.dll
+C:\UniversalStrategyCore\src\UniversalStrategyCore.StrategicConstructionSystem\obj\Debug\net8.0\UniversalStrategyCore.StrategicConstructionSystem.sourcelink.json
