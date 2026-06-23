@@ -1,6 +1,6 @@
 
 using Microsoft.Extensions.DependencyInjection;
-using UniversalStrategyCore.Share;
+using UniversalStrategyCore.Shared;
 using UniversalStrategyCore.Turn;
 
 namespace UniversalStrategyCore.Commands.Turn;

@@ -1,5 +1,5 @@
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
-using UniversalStrategyCore.Share;
+using UniversalStrategyCore.Shared;
 
 namespace UniversalStrategyCore.Province;
 

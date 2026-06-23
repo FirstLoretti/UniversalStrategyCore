@@ -10,7 +10,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "10.0.8",
           "UniversalStrategyCore.EconomicSystem": "1.0.0",
-          "UniversalStrategyCore.Share": "1.0.0",
+          "UniversalStrategyCore.Shared": "1.0.0",
           "UniversalStrategyCore.StrategicConstructionSystem": "1.0.0"
         },
         "runtime": {
@@ -38,7 +38,7 @@
       },
       "UniversalStrategyCore.EconomicSystem/1.0.0": {
         "dependencies": {
-          "UniversalStrategyCore.Share": "1.0.0"
+          "UniversalStrategyCore.Shared": "1.0.0"
         },
         "runtime": {
           "UniversalStrategyCore.EconomicSystem.dll": {
@@ -47,9 +47,9 @@
           }
         }
       },
-      "UniversalStrategyCore.Share/1.0.0": {
+      "UniversalStrategyCore.Shared/1.0.0": {
         "runtime": {
-          "UniversalStrategyCore.Share.dll": {
+          "UniversalStrategyCore.Shared.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -58,7 +58,7 @@
       "UniversalStrategyCore.StrategicConstructionSystem/1.0.0": {
         "dependencies": {
           "UniversalStrategyCore.EconomicSystem": "1.0.0",
-          "UniversalStrategyCore.Share": "1.0.0"
+          "UniversalStrategyCore.Shared": "1.0.0"
         },
         "runtime": {
           "UniversalStrategyCore.StrategicConstructionSystem.dll": {
@@ -94,7 +94,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "UniversalStrategyCore.Share/1.0.0": {
+    "UniversalStrategyCore.Shared/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

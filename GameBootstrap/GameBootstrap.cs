@@ -13,7 +13,7 @@ using UniversalStrategyCore.TacticalCombat.Squad;
 using UniversalStrategyCore.Mediators.FactionProvince;
 using UniversalStrategyCore.StrategicConstructionSystem.Logic;
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
-using UniversalStrategyCore.Share;
+using UniversalStrategyCore.Shared;
 
 namespace UniversalStrategyCore.GameBootstrap;
 

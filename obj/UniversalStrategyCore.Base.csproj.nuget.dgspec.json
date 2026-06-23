@@ -29,8 +29,8 @@
               "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj": {
                 "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj"
               },
-              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj": {
-                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj"
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj"
               },
               "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj": {
                 "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.StrategicConstructionSystem\\UniversalStrategyCore.StrategicConstructionSystem.csproj"
@@ -100,8 +100,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj": {
-                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj"
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj"
               }
             }
           }
@@ -140,14 +140,14 @@
         }
       }
     },
-    "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj": {
+    "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj",
-        "projectName": "UniversalStrategyCore.Share",
-        "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj",
+        "projectUniqueName": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj",
+        "projectName": "UniversalStrategyCore.Shared",
+        "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj",
         "packagesPath": "C:\\Users\\first\\.nuget\\packages\\",
-        "outputPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\obj\\",
+        "outputPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\first\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -223,8 +223,8 @@
               "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj": {
                 "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj"
               },
-              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj": {
-                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Share\\UniversalStrategyCore.Share.csproj"
+              "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
+                "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj"
               }
             }
           }

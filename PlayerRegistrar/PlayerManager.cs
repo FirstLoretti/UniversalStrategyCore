@@ -1,4 +1,4 @@
-using UniversalStrategyCore.Share;
+using UniversalStrategyCore.Shared;
 
 namespace UniversalStrategyCore.PlayerRegistrar;
 
