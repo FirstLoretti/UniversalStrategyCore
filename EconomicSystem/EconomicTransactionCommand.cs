@@ -1,10 +1,10 @@
-using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.Share.Type;
 
 namespace UniversalStrategyCore.EconomicSystem;
 
 public record EconomicTransactionCommand(
     Guid Id,
-    FactionTemplate Faction,
+    FactionId FactionId,
     EconomicTransactionType Type,
     Dictionary<GameResourceType, int> Amount,
     DateTime Time

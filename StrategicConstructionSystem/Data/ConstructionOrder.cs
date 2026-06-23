@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.ConstructionSystem.Data;
+namespace UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 public class ConstructionOrder(BuildingTemplate building)
 {

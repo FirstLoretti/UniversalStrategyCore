@@ -1,16 +1,18 @@
-using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.EconomicSystem;
+using UniversalStrategyCore.Share.Type;
 
-namespace UniversalStrategyCore.ConstructionSystem.Logic;
+namespace UniversalStrategyCore.StrategicConstructionSystem.Logic;
 
 public class ConstructBuildingCommandHandler(
     IFactionEconomicManager economicManager,
-    IProvinceConstructionManager constructionManager
+    IProvinceConstructionManager constructionManager,
+    IFactionTable factionTable
 ) : ICommandHandler<ConstructBuildingCommand>
 {
     public Result<IUndoAction> Handle(ConstructBuildingCommand command)
     {
-        var factionResources = command.Faction.ResourceAmount;
+        var factionResources = factionTable.GetFaction(command.FactionId).ResourceAmount;
 
         foreach (var (resource, cost) in command.ConstructionOrder.Building.Cost)
         {
@@ -22,18 +24,18 @@ public class ConstructBuildingCommandHandler(
 
         EconomicTransactionCommand transaction = new(
             Guid.NewGuid(),
-            command.Faction,
+            command.FactionId,
             EconomicTransactionType.ConstructBuilding,
             command.ConstructionOrder.Building.Cost,
             DateTime.Now
         );
         economicManager.ApplyTransaction(transaction);
-        constructionManager.AddConstructionOrder(command.Province, command.ConstructionOrder);
+        constructionManager.AddConstructionOrder(command.ProvinceId, command.ConstructionOrder);
 
         return new UndoConstructBuilding(
             constructionManager,
             economicManager,
-            command.Province,
+            command.ProvinceId,
             command.ConstructionOrder,
             transaction
         );

@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.ConstructionSystem.Logic;
+namespace UniversalStrategyCore.StrategicConstructionSystem.Logic;
 
 public interface IUndoAction
 {

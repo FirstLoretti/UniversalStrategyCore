@@ -1,6 +1,6 @@
-using UniversalStrategyCore.Faction;
 using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.Province;
+using UniversalStrategyCore.Share.Type;
 
 namespace UniversalStrategyCore.Mediators.FactionProvince;
 
@@ -29,8 +29,8 @@ public class FactionVisionTable
 
     private void DiplomacyVision()
     {
-        var england = _factionTable.GetFaction(FactionName.England);
-        var france = _factionTable.GetFaction(FactionName.France);
+        var england = _factionTable.GetFaction("england");
+        var france = _factionTable.GetFaction("france");
         var englandVision = new HashSet<FactionTemplate>() { england };
         var franceVision = new HashSet<FactionTemplate>() { france };
         _visionContact.Add(england, englandVision);
@@ -39,8 +39,8 @@ public class FactionVisionTable
 
     private void Vision()
     {
-        var england = _factionTable.GetFaction(FactionName.England);
-        var france = _factionTable.GetFaction(FactionName.France);
+        var england = _factionTable.GetFaction("england");
+        var france = _factionTable.GetFaction("france");
         var englandVision = new HashSet<ProvinceTemplate>(_factionProvincesTable.GetProvinces(england));
         var franceVision = new HashSet<ProvinceTemplate>(_factionProvincesTable.GetProvinces(france));
         _visibleProvinces.Add(england, englandVision);

@@ -1,26 +1,26 @@
-using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.EconomicSystem;
-using UniversalStrategyCore.Province;
+using UniversalStrategyCore.Share.Type;
 
-namespace UniversalStrategyCore.ConstructionSystem.Logic;
+namespace UniversalStrategyCore.StrategicConstructionSystem.Logic;
 
 public record UndoConstructBuilding(
     IProvinceConstructionManager ConstructionManager,
     IFactionEconomicManager EconomicManager,
-    ProvinceTemplate Province,
+    ProvinceId Id,
     ConstructionOrder Order,
     EconomicTransactionCommand Transaction
 ) : IUndoAction
 {
     public void Undo()
     {
-        ConstructionManager.RemoveConstructionOrder(Province, Order);
+        ConstructionManager.RemoveConstructionOrder(Id, Order);
         EconomicManager.ReturnTransaction(Transaction);
     }
 
     public void Redo()
     {
-        ConstructionManager.AddConstructionOrder(Province, Order);
+        ConstructionManager.AddConstructionOrder(Id, Order);
         EconomicManager.ApplyTransaction(Transaction);
     }
 }

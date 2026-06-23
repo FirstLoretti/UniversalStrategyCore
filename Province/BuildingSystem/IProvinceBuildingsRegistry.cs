@@ -1,5 +1,5 @@
-using UniversalStrategyCore.ConstructionSystem;
-using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.StrategicConstructionSystem;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 namespace UniversalStrategyCore.Province.BuildingSystem;
 

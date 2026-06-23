@@ -22,11 +22,12 @@ using System.Numerics;
 using UniversalStrategyCore.Mediators.FactionProvince;
 using UniversalStrategyCore.Faction.AI;
 using UniversalStrategyCore;
-using UniversalStrategyCore.ConstructionSystem;
+using UniversalStrategyCore.StrategicConstructionSystem;
 using UniversalStrategyCore.Factions;
-using UniversalStrategyCore.ConstructionSystem.Logic;
-using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.StrategicConstructionSystem.Logic;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.EconomicSystem;
+using UniversalStrategyCore.Share.Type;
 
 #pragma warning disable CS9113
 
@@ -51,6 +52,8 @@ class GameSession(
 {
     public void Start()
     {
+        FactionId factionId = "1";
+        Console.WriteLine(factionId);
         // Player player1 = new("Loretty", false);
         // Player player2 = new("AI", true);
         // playerManager.RegisterPlayer(player1);
@@ -58,8 +61,8 @@ class GameSession(
         var player1 = playerManager.CreatePlayer("AI", true).Value;
         var player2 = playerManager.CreatePlayer("Loretty", false).Value;
 
-        var england = factionTable.GetFaction(FactionName.England);
-        var france = factionTable.GetFaction(FactionName.France);
+        var england = factionTable.GetFaction("england");
+        var france = factionTable.GetFaction("france");
         factionManager.RegisterFactionByPlayer(player1!.Name, england);
         factionManager.RegisterFactionByPlayer(player2!.Name, france);
         var englandProvinces = factionProvincesTable.GetProvinces(england);
@@ -80,12 +83,12 @@ class GameSession(
         // aiEngland.OnTurnEnd();
 
         //Строительство
-        var farm = provinceBuildingsTable.GetBuilding("farm_1");
-        var barrack = provinceBuildingsTable.GetBuilding("barrack_1");
-        var london = provinceManager.GetPlayerProvince(player1.Name, ProvinceName.London);
-        var paris = provinceManager.GetPlayerProvince(player2.Name, ProvinceName.Paris);
-        ConstructBuildingCommand constructFarm = new(england, london, new ConstructionOrder(farm));
-        ConstructBuildingCommand constructBarrack = new(france, paris, new ConstructionOrder(barrack));
+        var farm = provinceBuildingsTable.GetBuilding("farm");
+        var barrack = provinceBuildingsTable.GetBuilding("barrack");
+        var london = provinceManager.GetPlayerProvince(player1.Name, "london");
+        var paris = provinceManager.GetPlayerProvince(player2.Name, "paris");
+        ConstructBuildingCommand constructFarm = new("england", "london", new ConstructionOrder(farm));
+        ConstructBuildingCommand constructBarrack = new("france", "paris", new ConstructionOrder(barrack));
         constructBuildingCommandHandler.Handle(constructFarm);
         constructBuildingCommandHandler.Handle(constructBarrack);
 

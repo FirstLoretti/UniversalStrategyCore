@@ -1,6 +1,6 @@
-using UniversalStrategyCore.Faction;
 using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.Province;
+using UniversalStrategyCore.Share.Type;
 
 namespace UniversalStrategyCore.Mediators.FactionProvince;
 
@@ -23,7 +23,7 @@ public class FactionProvincesTable: IFactionProvincesTable
         {
             return provinces;
         }
-        throw new ArgumentException($"[FactionProvincesTable] Фракция {factionTemplate.Name} не найдена в таблице _factionToProvinces");
+        throw new ArgumentException($"[FactionProvincesTable] Фракция {factionTemplate.Id} не найдена в таблице _factionToProvinces");
     }
 
     private void Initialization()
@@ -33,16 +33,16 @@ public class FactionProvincesTable: IFactionProvincesTable
 
     private void SetStartingProvinces()
     {
-        var england = _factionTable.GetFaction(FactionName.England);
+        var england = _factionTable.GetFaction("england");
         HashSet<ProvinceTemplate> englandProvinces =
         [
-            _provinceTable.GetProvince(ProvinceName.London)
+            _provinceTable.GetProvince("london")
         ];
 
-        var france = _factionTable.GetFaction(FactionName.France);
+        var france = _factionTable.GetFaction("france");
         HashSet<ProvinceTemplate> franceProvinces =
         [
-            _provinceTable.GetProvince(ProvinceName.Paris)
+            _provinceTable.GetProvince("paris")
         ];
 
         AddProvince(england, englandProvinces);

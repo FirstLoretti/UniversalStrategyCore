@@ -1,3 +1,5 @@
+using UniversalStrategyCore.Share.Type;
+
 namespace UniversalStrategyCore.Province;
 
 public class ProvinceManager
@@ -18,17 +20,17 @@ public class ProvinceManager
         throw new ArgumentException($"[ProvinceManager] Игрок {playerName} не зарегестрирован в _playerToProvince");
     }
 
-    public ProvinceTemplate GetPlayerProvince(string playerName, ProvinceName provinceName)
+    public ProvinceTemplate GetPlayerProvince(string playerName, ProvinceId id)
     {
         if (_playerToProvinces.TryGetValue(playerName, out var provinces))
         {
             foreach(var province in provinces)
             {
-                if(province.Name == provinceName)
+                if(province.Id == id)
                 {
                     return province;
                 }
-                throw new ArgumentException($"[ProvinceManager] Игрок {playerName} не владеет провинцией: {provinceName}");
+                throw new ArgumentException($"[ProvinceManager] Игрок {playerName} не владеет провинцией: {id}");
             }
         }
         throw new ArgumentException($"[ProvinceManager] Игрок {playerName} не зарегистрирован в _playerToProvince");

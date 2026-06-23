@@ -4,6 +4,6 @@ public class DefaultStrategy : IStrategy
 {
     public void Apply(AIFaction faction)
     {
-         Console.WriteLine($"[DefaultStrategy] Фракция: {faction.Faction.Name} применила DefaultStrategy");
+         Console.WriteLine($"[DefaultStrategy] Фракция: {faction.Faction.DisplayName} применила DefaultStrategy");
     }
 }

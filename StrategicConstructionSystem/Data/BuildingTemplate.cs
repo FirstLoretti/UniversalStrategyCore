@@ -1,9 +1,10 @@
 using UniversalStrategyCore.EconomicSystem;
+using UniversalStrategyCore.Share.Type;
 
-namespace UniversalStrategyCore.ConstructionSystem.Data;
+namespace UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 public record BuildingTemplate(
-    string Id,
+    BuildingId Id,
     string DisplayName,
     int ConstructionTurns,
     Dictionary<GameResourceType, int> Cost

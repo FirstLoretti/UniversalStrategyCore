@@ -1,4 +1,4 @@
-using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 namespace UniversalStrategyCore.EconomicSystem;
 

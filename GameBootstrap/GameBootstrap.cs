@@ -11,8 +11,9 @@ using UniversalStrategyCore.TacticalCombat.Unit;
 using UniversalStrategyCore.TacticalCombat.Mediators;
 using UniversalStrategyCore.TacticalCombat.Squad;
 using UniversalStrategyCore.Mediators.FactionProvince;
-using UniversalStrategyCore.ConstructionSystem.Logic;
-using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.StrategicConstructionSystem.Logic;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
+using UniversalStrategyCore.Share.Type;
 
 namespace UniversalStrategyCore.GameBootstrap;
 
@@ -66,7 +67,7 @@ public class GameBootstrap
 
     private void RegisterFactionSystem()
     {
-        _serviceCollection.AddSingleton<IFactionTable, FactionsTable>();
+        _serviceCollection.AddSingleton<IFactionTable, FactionTable>();
         _serviceCollection.AddSingleton<FactionPlayerRegistrar>();
     }
 

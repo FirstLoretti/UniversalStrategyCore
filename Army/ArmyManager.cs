@@ -1,5 +1,4 @@
-using UniversalStrategyCore.Faction;
-using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.Share.Type;
 using UniversalStrategyCore.Units;
 
 namespace UniversalStrategyCore.Armies;
@@ -10,11 +9,11 @@ public class ArmyManager
 
     private int _armyId;
 
-    public Army CreateArmy(FactionName factionName, UnitType unitType, int unitsCount)
+    public Army CreateArmy(FactionId factionId, UnitType unitType, int unitsCount)
     {
         _armyId += 1;
         var armyStrategicStats = new ArmyStrategicStats();
-        var army = new Army(_armyId, factionName, unitType, unitsCount, armyStrategicStats);
+        var army = new Army(_armyId, factionId, unitType, unitsCount, armyStrategicStats);
         Armies.TryAdd(army.Id, army);
         army.ArmyDestroyed += OnArmyDestroyed;
         return army;

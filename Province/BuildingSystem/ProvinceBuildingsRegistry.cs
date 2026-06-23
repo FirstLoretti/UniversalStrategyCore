@@ -1,5 +1,5 @@
-using UniversalStrategyCore.ConstructionSystem;
-using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.StrategicConstructionSystem;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 namespace UniversalStrategyCore.Province.BuildingSystem;
 
@@ -16,7 +16,7 @@ public class ProvinceBuildingsRegistry: IProvinceBuildingsRegistry
         }
         buildings.AddRange(buildingTemplates);
         var buildingsName = string.Join(",", buildings);
-        Console.WriteLine($"[ProvinceBuildings] B провинции: {provinceTemplate.Name} построены здания: {buildingsName}.");
+        Console.WriteLine($"[ProvinceBuildings] B провинции: {provinceTemplate.Id} построены здания: {buildingsName}.");
     }
 
     public void AddBuilding(ProvinceTemplate provinceTemplate, BuildingTemplate buildingTemplate)

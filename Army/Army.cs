@@ -1,15 +1,14 @@
 using System.Numerics;
 using UniversalStrategyCore.Armies.States;
-using UniversalStrategyCore.Faction;
-using UniversalStrategyCore.Factions;
+using UniversalStrategyCore.Share.Type;
 using UniversalStrategyCore.Units;
 
 namespace UniversalStrategyCore.Armies;
 
-public class Army(int id, FactionName factionName, UnitType unitType, int unitsCount, ArmyStrategicStats strategicStats) : IArmy
+public class Army(int id, FactionId factionId, UnitType unitType, int unitsCount, ArmyStrategicStats strategicStats) : IArmy
 {
     public int Id { get; } = id;
-    public FactionName FactionName { get; } = factionName;
+    public FactionId FactionId { get; } = factionId;
     public UnitType UnitType { get; } = unitType;
     public int UnitsCount { get; private set; } = unitsCount;
     public ArmyStrategicStats Stats { get; } = strategicStats;

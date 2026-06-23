@@ -1,7 +1,7 @@
 using UniversalStrategyCore.Province.BuildingSystem;
 using UniversalStrategyCore.Province;
 using UniversalStrategyCore.Turn;
-using UniversalStrategyCore.ConstructionSystem.Logic;
+using UniversalStrategyCore.StrategicConstructionSystem.Logic;
 
 namespace UniversalStrategyCore.Mediators;
 
@@ -30,8 +30,8 @@ public class ProvinceConstructionTurnEndMediator
         var playerProvinces = _provinceManager.GetPlayerProvinces(playerName);
         foreach (var province in playerProvinces)
         {
-            _provinceConstructionManager.OnTurnEnd(province);
-            Console.WriteLine($"[ProvinceTurnEndMediator] Провинция: {province.Name} является провинцией игрока: {playerName}");
+            _provinceConstructionManager.OnTurnEnd(province.Id);
+            Console.WriteLine($"[ProvinceTurnEndMediator] Провинция: {province.DisplayName} является провинцией игрока: {playerName}");
         }
     }
 }

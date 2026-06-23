@@ -1,57 +1,50 @@
-using UniversalStrategyCore.ConstructionSystem.Data;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.EconomicSystem;
+using UniversalStrategyCore.Share.Type;
 
 namespace UniversalStrategyCore.Province;
 
 public class ProvinceBuildingsBalanceTable
 {
-    private readonly Dictionary<BuildingLogicType, List<BuildingTemplate>> _logicTypeToBuildings = [];
-    private readonly Dictionary<string, BuildingTemplate> _idToBuilding = [];
+    private readonly Dictionary<BuildingId, BuildingTemplate> _idToBuilding = [];
 
     public ProvinceBuildingsBalanceTable()
     {
-        Initialize();
+        CreateBuildings();
     }
 
-    public BuildingTemplate GetBuilding(string id)
+    public BuildingTemplate GetBuilding(BuildingId id)
     {
         if (_idToBuilding.TryGetValue(id, out var building))
         {
             return building;
         }
-        throw new ArgumentException($"[ProvinceBuildingsTable] Здание под id: {id} не найдено в _idToBuilding.");
+        throw new ArgumentException($"[ProvinceBuildingsTable] Здание под id: {id} не найдено");
     }
 
-    private void Initialize()
+    private void CreateBuildings()
     {
-        Dictionary<GameResourceType, int> farm_1Cost = new()
+        Dictionary<GameResourceType, int> farmCost = new()
         {
             {GameResourceType.Gold, 200},
             {GameResourceType.Wood, 100}
         };
-        Dictionary<GameResourceType, int> barrack_1Cost = new()
+        Dictionary<GameResourceType, int> barrackCost = new()
         {
             {GameResourceType.Gold, 400},
             {GameResourceType.Wood, 200}
         };
 
-        AddBuilding(BuildingLogicType.Economic, new BuildingTemplate(
-            Id: "farm_1", DisplayName: "Farm", ConstructionTurns: 1, farm_1Cost
-            ));
-        AddBuilding(BuildingLogicType.Military, new BuildingTemplate(
-            Id: "barrack_1", DisplayName: "Barrack", ConstructionTurns: 2, barrack_1Cost
-            ));
+        AddBuilding(new BuildingTemplate(
+            Id: new BuildingId("farm"), DisplayName: "Farm", ConstructionTurns: 1, Cost: farmCost
+        ));
+        AddBuilding(new BuildingTemplate(
+            Id: new BuildingId("barrack"), DisplayName: "Barrack", ConstructionTurns: 2, Cost: barrackCost
+        ));
     }
 
-    private void AddBuilding(BuildingLogicType buildingLogicType, BuildingTemplate buildingTemplate)
+    private void AddBuilding(BuildingTemplate building)
     {
-        if (!_logicTypeToBuildings.TryGetValue(buildingLogicType, out var buildingTemplates))
-        {
-            buildingTemplates = [];
-            _logicTypeToBuildings.Add(buildingLogicType, buildingTemplates);
-        }
-        buildingTemplates.Add(buildingTemplate);
-
-        _idToBuilding.Add(buildingTemplate.Id, buildingTemplate);
+        if (!_idToBuilding.TryAdd(building.Id, building)) { throw new ArgumentException($"Здание: {building} уже есть в таблице"); }
     }
 }

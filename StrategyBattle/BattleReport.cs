@@ -42,10 +42,10 @@ public class BattleReport
         }
 
         Console.WriteLine(
-            $"Victorious army {_victoriousArmy!.Id} of the faction {_victoriousArmy!.FactionName} " +
+            $"Victorious army {_victoriousArmy!.Id} of the faction {_victoriousArmy!.FactionId} " +
             $"take casualties {_victoriousArmyCasualties}. Units alive: {_victoriousArmy!.UnitsCount}. Power: {_victoriousArmyPower}");
         Console.WriteLine(
-            $"Defeated army {_defeatedArmy!.Id} of the faction {_defeatedArmy!.FactionName} " +
+            $"Defeated army {_defeatedArmy!.Id} of the faction {_defeatedArmy!.FactionId} " +
             $"take casualties {_defeatedArmyCasualties}. Units alive: {_defeatedArmy!.UnitsCount}. Power: {_defeatedArmyPower}");
     }
 }

@@ -1,3 +1,5 @@
+using UniversalStrategyCore.Share.Type;
+
 namespace UniversalStrategyCore.Province;
 
 public record ProvinceTable : IProvinceTable
@@ -5,36 +7,31 @@ public record ProvinceTable : IProvinceTable
     public IReadOnlyList<ProvinceTemplate> AllProvinces => _provinces;
 
     private readonly List<ProvinceTemplate> _provinces = [];
-    private readonly Dictionary<ProvinceName, ProvinceTemplate> _provinceNameToProvince = [];
+    private readonly Dictionary<ProvinceId, ProvinceTemplate> _idToProvince = [];
 
     public ProvinceTable()
-    {
-        Initialization();
-    }
-
-    public ProvinceTemplate GetProvince(ProvinceName provinceName)
-    {
-        if (_provinceNameToProvince.TryGetValue(provinceName, out var province))
-        {
-            return province;
-        }
-        throw new ArgumentException($"[ProvinceTable] Фракция {provinceName} не добавлена в таблицу! Добавить в CreateProvince()");
-    }
-
-    private void Initialization()
     {
         CreateProvince();
     }
 
-    private void CreateProvince()
+    public ProvinceTemplate GetProvince(ProvinceId id)
     {
-        AddProvince(new ProvinceTemplate(ProvinceName.London));
-        AddProvince(new ProvinceTemplate(ProvinceName.Paris));
+        if (_idToProvince.TryGetValue(id, out var province))
+        {
+            return province;
+        }
+        throw new ArgumentException($"[ProvinceTable] Провинция: {id} не добавлена в таблицу");
     }
 
-    private void AddProvince(ProvinceTemplate provinceTemplate)
+    private void CreateProvince()
     {
-        _provinceNameToProvince.Add(provinceTemplate.Name, provinceTemplate);
-        _provinces.Add(provinceTemplate);
+        AddProvince(new ProvinceTemplate(Id: new ProvinceId("london"), "London"));
+        AddProvince(new ProvinceTemplate(Id: new ProvinceId("paris"), "Paris"));
+    }
+
+    private void AddProvince(ProvinceTemplate province)
+    {
+        _idToProvince.Add(province.Id, province);
+        _provinces.Add(province);
     }
 }

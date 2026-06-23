@@ -13,13 +13,13 @@ public class AggressiveState : IState
             if (amountGold < 1500)
             {
                 faction.ChangeState(faction.DefaultState);
-                Console.WriteLine($"[AggressiveState] Фракция: {faction.Faction.Name} перешла в DefaultState.");
+                Console.WriteLine($"[AggressiveState] Фракция: {faction.Faction.Id} перешла в DefaultState.");
             }
             else
             {
-                Console.WriteLine($"[AggressiveState] Фракция: {faction.Faction.Name} осталась в AggressiveState.");
+                Console.WriteLine($"[AggressiveState] Фракция: {faction.Faction.DisplayName} осталась в AggressiveState.");
             }
         }
-        throw new Exception($"[AgressiveState] Ресурс: {GameResourceType.Gold} не добавлен в словарь фракции: {faction.Faction.Name}");
+        throw new Exception($"[AgressiveState] Ресурс: {GameResourceType.Gold} не добавлен в словарь фракции: {faction.Faction.DisplayName}");
     }
 }
