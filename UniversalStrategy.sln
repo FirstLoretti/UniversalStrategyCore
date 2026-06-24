@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalStrategyCore.Test"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalStrategyCore.Shared", "src\UniversalStrategyCore.Shared\UniversalStrategyCore.Shared.csproj", "{5F094EA3-5C36-4739-8288-5C9194BEEA10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalStrategyCore.PlayerSystem", "src\UniversalStrategyCore.PlayerSystem\UniversalStrategyCore.PlayerSystem.csproj", "{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{5F094EA3-5C36-4739-8288-5C9194BEEA10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F094EA3-5C36-4739-8288-5C9194BEEA10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F094EA3-5C36-4739-8288-5C9194BEEA10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,5 +59,6 @@ Global
 		{2746737C-B240-4F87-91D4-789ACC56DF5E} = {061A33C0-F2B7-4C50-AD59-D2AD0BBD27D7}
 		{9742EB16-3253-4CC1-A7BB-0559880A5532} = {EF7E09A3-5687-4B63-8341-405A67CF6C16}
 		{5F094EA3-5C36-4739-8288-5C9194BEEA10} = {061A33C0-F2B7-4C50-AD59-D2AD0BBD27D7}
+		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F} = {061A33C0-F2B7-4C50-AD59-D2AD0BBD27D7}
 	EndGlobalSection
 EndGlobal

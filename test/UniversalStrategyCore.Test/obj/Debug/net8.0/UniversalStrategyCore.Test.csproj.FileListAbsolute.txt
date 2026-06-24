@@ -117,3 +117,5 @@ C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\Univer
 C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\UniversalStrategyCore.Test.genruntimeconfig.cache
 C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\ref\UniversalStrategyCore.Test.dll
 C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\UniversalStrategyCore.Test.sourcelink.json
+C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\bin\Debug\net8.0\UniversalStrategyCore.PlayerSystem.dll
+C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\bin\Debug\net8.0\UniversalStrategyCore.PlayerSystem.pdb

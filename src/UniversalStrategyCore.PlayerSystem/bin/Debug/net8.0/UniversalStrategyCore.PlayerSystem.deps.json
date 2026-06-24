@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "UniversalStrategyCore.PlayerSystem/1.0.0": {
+        "dependencies": {
+          "UniversalStrategyCore.Shared": "1.0.0"
+        },
+        "runtime": {
+          "UniversalStrategyCore.PlayerSystem.dll": {}
+        }
+      },
+      "UniversalStrategyCore.Shared/1.0.0": {
+        "runtime": {
+          "UniversalStrategyCore.Shared.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "UniversalStrategyCore.PlayerSystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UniversalStrategyCore.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

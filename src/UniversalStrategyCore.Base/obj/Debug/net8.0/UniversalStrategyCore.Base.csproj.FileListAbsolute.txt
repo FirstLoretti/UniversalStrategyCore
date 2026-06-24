@@ -23,3 +23,5 @@ C:\UniversalStrategyCore\src\UniversalStrategyCore.Base\obj\Debug\net8.0\refint\
 C:\UniversalStrategyCore\src\UniversalStrategyCore.Base\obj\Debug\net8.0\UniversalStrategyCore.Base.pdb
 C:\UniversalStrategyCore\src\UniversalStrategyCore.Base\obj\Debug\net8.0\UniversalStrategyCore.Base.genruntimeconfig.cache
 C:\UniversalStrategyCore\src\UniversalStrategyCore.Base\obj\Debug\net8.0\ref\UniversalStrategyCore.Base.dll
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Base\bin\Debug\net8.0\UniversalStrategyCore.PlayerSystem.dll
+C:\UniversalStrategyCore\src\UniversalStrategyCore.Base\bin\Debug\net8.0\UniversalStrategyCore.PlayerSystem.pdb

@@ -10,9 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.8" />
-    <ProjectReference Include="..\..\src\UniversalStrategyCore.EconomicSystem\UniversalStrategyCore.EconomicSystem.csproj" />
+    <ProjectReference Include="..\UniversalStrategyCore.EconomicSystem\UniversalStrategyCore.EconomicSystem.csproj" />
     <ProjectReference Include="..\UniversalStrategyCore.Shared\UniversalStrategyCore.Shared.csproj" />
-    <ProjectReference Include="..\..\src\UniversalStrategyCore.StrategicConstructionSystem\UniversalStrategyCore.StrategicConstructionSystem.csproj" />
+    <ProjectReference Include="..\UniversalStrategyCore.StrategicConstructionSystem\UniversalStrategyCore.StrategicConstructionSystem.csproj" />
+    <ProjectReference Include="..\UniversalStrategyCore.PlayerSystem\UniversalStrategyCore.PlayerSystem.csproj" />
   </ItemGroup>
 
 </Project>

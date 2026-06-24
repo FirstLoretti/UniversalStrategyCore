@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "10.0.8",
           "UniversalStrategyCore.EconomicSystem": "1.0.0",
+          "UniversalStrategyCore.PlayerSystem": "1.0.0",
           "UniversalStrategyCore.Shared": "1.0.0",
           "UniversalStrategyCore.StrategicConstructionSystem": "1.0.0"
         },
@@ -42,6 +43,17 @@
         },
         "runtime": {
           "UniversalStrategyCore.EconomicSystem.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UniversalStrategyCore.PlayerSystem/1.0.0": {
+        "dependencies": {
+          "UniversalStrategyCore.Shared": "1.0.0"
+        },
+        "runtime": {
+          "UniversalStrategyCore.PlayerSystem.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -90,6 +102,11 @@
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.10.0.8.nupkg.sha512"
     },
     "UniversalStrategyCore.EconomicSystem/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UniversalStrategyCore.PlayerSystem/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1808,6 +1808,7 @@
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "10.0.8",
           "UniversalStrategyCore.EconomicSystem": "1.0.0",
+          "UniversalStrategyCore.PlayerSystem": "1.0.0",
           "UniversalStrategyCore.Shared": "1.0.0",
           "UniversalStrategyCore.StrategicConstructionSystem": "1.0.0"
         },
@@ -1829,6 +1830,19 @@
         },
         "runtime": {
           "bin/placeholder/UniversalStrategyCore.EconomicSystem.dll": {}
+        }
+      },
+      "UniversalStrategyCore.PlayerSystem/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "UniversalStrategyCore.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/UniversalStrategyCore.PlayerSystem.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UniversalStrategyCore.PlayerSystem.dll": {}
         }
       },
       "UniversalStrategyCore.Shared/1.0.0": {
@@ -5788,6 +5802,11 @@
       "type": "project",
       "path": "../../src/UniversalStrategyCore.EconomicSystem/UniversalStrategyCore.EconomicSystem.csproj",
       "msbuildProject": "../../src/UniversalStrategyCore.EconomicSystem/UniversalStrategyCore.EconomicSystem.csproj"
+    },
+    "UniversalStrategyCore.PlayerSystem/1.0.0": {
+      "type": "project",
+      "path": "../../src/UniversalStrategyCore.PlayerSystem/UniversalStrategyCore.PlayerSystem.csproj",
+      "msbuildProject": "../../src/UniversalStrategyCore.PlayerSystem/UniversalStrategyCore.PlayerSystem.csproj"
     },
     "UniversalStrategyCore.Shared/1.0.0": {
       "type": "project",

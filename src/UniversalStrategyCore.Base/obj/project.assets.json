@@ -50,6 +50,19 @@
           "bin/placeholder/UniversalStrategyCore.EconomicSystem.dll": {}
         }
       },
+      "UniversalStrategyCore.PlayerSystem/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "UniversalStrategyCore.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/UniversalStrategyCore.PlayerSystem.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UniversalStrategyCore.PlayerSystem.dll": {}
+        }
+      },
       "UniversalStrategyCore.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -144,6 +157,11 @@
       "path": "../UniversalStrategyCore.EconomicSystem/UniversalStrategyCore.EconomicSystem.csproj",
       "msbuildProject": "../UniversalStrategyCore.EconomicSystem/UniversalStrategyCore.EconomicSystem.csproj"
     },
+    "UniversalStrategyCore.PlayerSystem/1.0.0": {
+      "type": "project",
+      "path": "../UniversalStrategyCore.PlayerSystem/UniversalStrategyCore.PlayerSystem.csproj",
+      "msbuildProject": "../UniversalStrategyCore.PlayerSystem/UniversalStrategyCore.PlayerSystem.csproj"
+    },
     "UniversalStrategyCore.Shared/1.0.0": {
       "type": "project",
       "path": "../UniversalStrategyCore.Shared/UniversalStrategyCore.Shared.csproj",
@@ -159,6 +177,7 @@
     "net8.0": [
       "Microsoft.Extensions.DependencyInjection >= 10.0.8",
       "UniversalStrategyCore.EconomicSystem >= 1.0.0",
+      "UniversalStrategyCore.PlayerSystem >= 1.0.0",
       "UniversalStrategyCore.Shared >= 1.0.0",
       "UniversalStrategyCore.StrategicConstructionSystem >= 1.0.0"
     ]
@@ -190,6 +209,9 @@
           "projectReferences": {
             "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj": {
               "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.EconomicSystem\\UniversalStrategyCore.EconomicSystem.csproj"
+            },
+            "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.PlayerSystem\\UniversalStrategyCore.PlayerSystem.csproj": {
+              "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.PlayerSystem\\UniversalStrategyCore.PlayerSystem.csproj"
             },
             "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj": {
               "projectPath": "C:\\UniversalStrategyCore\\src\\UniversalStrategyCore.Shared\\UniversalStrategyCore.Shared.csproj"
