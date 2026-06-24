@@ -17,9 +17,7 @@ public class ConstructBuildingCommandHandler(
         foreach (var (resource, cost) in command.ConstructionOrder.Building.Cost)
         {
             if (!factionResources.TryGetValue(resource, out var amount) || amount - cost < 0)
-            {
                 return Error.NotEnoughtResource(resource);
-            }
         }
 
         EconomicTransactionCommand transaction = new(
@@ -29,6 +27,7 @@ public class ConstructBuildingCommandHandler(
             command.ConstructionOrder.Building.Cost,
             DateTime.Now
         );
+        
         economicManager.ApplyTransaction(transaction);
         constructionManager.AddConstructionOrder(command.ProvinceId, command.ConstructionOrder);
 

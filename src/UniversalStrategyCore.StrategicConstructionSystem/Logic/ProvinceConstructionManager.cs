@@ -8,6 +8,7 @@ public class ProvinceConstructionManager : IProvinceConstructionManager
     public event Action? BuildingConstructed;
 
     private readonly Dictionary<ProvinceId, List<ConstructionOrder>> _idToConstructionOrders = [];
+    private readonly int _maxOrders = 5;
 
     public void OnTurnEnd(ProvinceId id)
     {
@@ -16,27 +17,25 @@ public class ProvinceConstructionManager : IProvinceConstructionManager
             foreach (var order in orders)
             {
                 order.TickTurn();
-                if (order.IsFinished)
-                {
-                    BuildingConstructed?.Invoke();
-                }
+                if (order.IsFinished) BuildingConstructed?.Invoke();
             }
             orders.RemoveAll(order => order.IsFinished);
-            if (orders.Count == 0)
-            {
-                _idToConstructionOrders.Remove(id);
-            }
         }
     }
 
-    public void AddConstructionOrder(ProvinceId id, ConstructionOrder order)
+    public Result<bool> AddConstructionOrder(ProvinceId id, ConstructionOrder order)
     {
         if (!_idToConstructionOrders.TryGetValue(id, out var constructionOrders))
         {
             constructionOrders = [];
             _idToConstructionOrders.Add(id, constructionOrders);
         }
-        constructionOrders.Add(order);
+        if (constructionOrders.Count < _maxOrders)
+        {
+            constructionOrders.Add(order);
+            return true;
+        }
+        return false;
     }
 
     public Result<bool> RemoveConstructionOrder(ProvinceId id, ConstructionOrder order)
@@ -44,9 +43,8 @@ public class ProvinceConstructionManager : IProvinceConstructionManager
         if (_idToConstructionOrders.TryGetValue(id, out var orders))
         {
             if (!orders.Remove(order))
-            {
-                return Error.NotFound(order.Building.Id, nameof(_idToConstructionOrders));
-            }
+                return Error.NotFound(order.Building.Id, nameof(_idToConstructionOrders));  
+                
             return true;
         }
         return Error.NotFound(id, nameof(_idToConstructionOrders));

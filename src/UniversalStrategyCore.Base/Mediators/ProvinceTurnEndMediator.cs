@@ -1,6 +1,6 @@
 using UniversalStrategyCore.Province;
 using UniversalStrategyCore.Turn;
-using UniversalStrategyCore.StrategicConstructionSystem.Logic;
+using UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 namespace UniversalStrategyCore.Mediators;
 

@@ -116,3 +116,4 @@ C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\refint
 C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\UniversalStrategyCore.Test.pdb
 C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\UniversalStrategyCore.Test.genruntimeconfig.cache
 C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\ref\UniversalStrategyCore.Test.dll
+C:\UniversalStrategyCore\test\UniversalStrategyCore.Test\obj\Debug\net8.0\UniversalStrategyCore.Test.sourcelink.json

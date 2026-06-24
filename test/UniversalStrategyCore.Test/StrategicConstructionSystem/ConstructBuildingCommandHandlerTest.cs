@@ -4,12 +4,12 @@ using UniversalStrategyCore.EconomicSystem;
 using NSubstitute;
 using UniversalStrategyCore.Shared;
 
-namespace UniversalStrategyCore.Test;
+namespace UniversalStrategyCore.Test.StrategicConstructionSystem;
 
 public class ConstructBuildingCommandHandlerTest
 {
     [Fact]
-    public void Handle_Success_WhenResourcesEnough()
+    public void Handle_ShouldReturnTrueAndValue_WhenResourcesEnough()
     {
         var economicManagerMock = Substitute.For<IFactionEconomicManager>();
         var constructionManagerMock = Substitute.For<IProvinceConstructionManager>();
@@ -35,7 +35,7 @@ public class ConstructBuildingCommandHandlerTest
     }
 
     [Fact]
-    public void Handle_Success_WhenResourcesNotEnough()
+    public void Handle_ShouldReturnFalseAndNullValue_WhenResourcesNotEnough()
     {
         var economicManagerMock = Substitute.For<IFactionEconomicManager>();
         var constructionManagerMock = Substitute.For<IProvinceConstructionManager>();

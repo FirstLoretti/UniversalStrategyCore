@@ -1,6 +1,6 @@
 using UniversalStrategyCore.Shared;
 
-namespace UniversalStrategyCore.StrategicConstructionSystem.Logic;
+namespace UniversalStrategyCore.StrategicConstructionSystem.Data;
 
 public interface ICommandHandler<T>
 {
