@@ -1,8 +1,13 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace UniversalStrategyCore.Shared;
 
 public class Result<T>
 {
+    [MemberNotNullWhen(true, nameof(Value))]
+    [MemberNotNullWhen(false, nameof(Error))]
     public bool IsSuccess { get; }
+
     public T? Value { get; }
     public Error? Error { get; }
 
