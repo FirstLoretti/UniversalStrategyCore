@@ -4,9 +4,13 @@ namespace UniversalStrategyCore.Shared;
 
 public record Error(string Id, string Messange)
 {
-    public static Error PlayerAlredyExist() => new("player_exist", "Игрок с таким именем уже существует");
-    public static Error NotEnoughtResource(GameResourceType resource) => new("not_enought_resource", $"Не хватает: {resource}");
-    public static Error NotFound<T>(T entytyId, string collectionName) where T : struct 
+    public static Error PlayerIdAlredyExist(PlayerId player)
+        => new($"{player}_already_exist", $"Игрок с именем: {player} уже существует");
+
+    public static Error NotEnoughtResource(GameResourceType resource)
+        => new("not_enought_resource", $"Не хватает: {resource}");
+
+    public static Error NotFound<T>(T entytyId, string collectionName) where T : struct
         => NotFoundInternal(entytyId, collectionName);
 
     private static string BuildMessage(string className, string entityId, string collectionName)

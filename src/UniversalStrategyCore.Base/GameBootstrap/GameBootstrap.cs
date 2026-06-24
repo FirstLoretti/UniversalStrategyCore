@@ -1,7 +1,7 @@
 using UniversalStrategyCore.EconomicSystem;
 using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.Mediators;
-using UniversalStrategyCore.PlayerRegistrar;
+using UniversalStrategyCore.PlayerSystem;
 using Microsoft.Extensions.DependencyInjection;
 using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Turn;
@@ -25,7 +25,7 @@ public class GameBootstrap
 
     public GameBootstrap()
     {
-        RegisterPlayerSystem();
+        PlayerSystem();
         RegisterArmySystem();
         RegisterTurnSystem();
         RegisterProvinceSystem();
@@ -50,9 +50,10 @@ public class GameBootstrap
         _serviceCollection.AddSingleton<ArmyManager>();
     }
 
-    private void RegisterPlayerSystem()
+    private void PlayerSystem()
     {
-        _serviceCollection.AddSingleton<PlayerManager>();
+        _serviceCollection.AddSingleton<IPlayerRegistry, PlayerRegistry>();
+        _serviceCollection.AddSingleton<ICommandHandler<CreatePlayerCommand>, CreatePlayerCommandHandler>();
     }
 
     private void RegisterTurnSystem()

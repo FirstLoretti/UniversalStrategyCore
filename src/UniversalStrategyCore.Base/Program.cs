@@ -6,7 +6,7 @@ using UniversalStrategyCore.Units;
 using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Mediators;
 using UniversalStrategyCore.Map.WeatherLogic;
-using UniversalStrategyCore.PlayerRegistrar;
+using UniversalStrategyCore.PlayerSystem;
 using UniversalStrategyCore.GameBootstrap;
 using Microsoft.Extensions.DependencyInjection;
 using UniversalStrategyCore.GameMath;
@@ -42,7 +42,7 @@ class Program
 }
 
 class GameSession(
-    ProvinceManager provinceManager, TurnManager turnManager, PlayerManager playerManager, FactionPlayerRegistrar factionManager,
+    ProvinceManager provinceManager, TurnManager turnManager, FactionPlayerRegistrar factionManager,
     ArmyManager armyManager, IFactionTable factionTable, IFactionProvincesTable factionProvincesTable,
     IProvinceConstructionManager provinceConstructionManager, ProvinceBuildingsRegistry provinceBuildings,
     ProvinceBuildingsBalanceTable provinceBuildingsTable, IUnitsTable unitsTable, ISquadsTable squadsTable,
@@ -52,23 +52,11 @@ class GameSession(
 {
     public void Start()
     {
-        FactionId factionId = "1";
-        Console.WriteLine(factionId);
-        // Player player1 = new("Loretty", false);
-        // Player player2 = new("AI", true);
-        // playerManager.RegisterPlayer(player1);
-        // playerManager.RegisterPlayer(player2);
-        var player1 = playerManager.CreatePlayer("AI", true).Value;
-        var player2 = playerManager.CreatePlayer("Loretty", false).Value;
 
         var england = factionTable.GetFaction("england");
         var france = factionTable.GetFaction("france");
-        factionManager.RegisterFactionByPlayer(player1!.Name, england);
-        factionManager.RegisterFactionByPlayer(player2!.Name, france);
         var englandProvinces = factionProvincesTable.GetProvinces(england);
         var franceProvinces = factionProvincesTable.GetProvinces(france);
-        provinceManager.AddPlayerProvinces(player1.Name, englandProvinces);
-        provinceManager.AddPlayerProvinces(player2.Name, franceProvinces);
 
         //Глобальный вижн
         // var isEnglandDiscover = new IsFactionDiscoveredCheck(factionVisionManager, england);
@@ -89,11 +77,6 @@ class GameSession(
         ConstructBuildingCommand constructBarrack = new("france", "paris", new ConstructionOrder(barrack));
         constructBuildingCommandHandler.Handle(constructFarm);
         constructBuildingCommandHandler.Handle(constructBarrack);
-
-        turnManager.TurnEnd(player1.Name);
-        turnManager.TurnEnd(player2.Name);
-        turnManager.TurnEnd(player1.Name);
-        turnManager.TurnEnd(player2.Name);
 
         //Тактическая битва
         // var squad1 = squadFactory.CreateSquad("swordmen_1");

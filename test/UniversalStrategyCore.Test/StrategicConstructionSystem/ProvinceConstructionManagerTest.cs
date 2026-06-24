@@ -11,7 +11,7 @@ public class ProvinceConstructionManagerTest
     {
         ProvinceConstructionManager manager = new();
         ProvinceTemplate province = new("1", "1");
-        ConstructionOrder order = new(new BuildingTemplate("1", "1", 1, []));
+        ConstructionOrder order = new(new Building("1", "1", 1, []));
         bool isTriggered = false;
 
         manager.AddConstructionOrder(province.Id, order);
@@ -28,7 +28,7 @@ public class ProvinceConstructionManagerTest
     {
         ProvinceConstructionManager manager = new();
         ProvinceTemplate province = new("1", "1");
-        ConstructionOrder order = new(new BuildingTemplate("1", "1", 2, []));
+        ConstructionOrder order = new(new Building("1", "1", 2, []));
         bool isTriggered = false;
 
         manager.AddConstructionOrder(province.Id, order);

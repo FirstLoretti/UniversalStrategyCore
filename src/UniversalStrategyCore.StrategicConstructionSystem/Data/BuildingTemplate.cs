@@ -2,7 +2,7 @@ using UniversalStrategyCore.Shared;
 
 namespace UniversalStrategyCore.StrategicConstructionSystem.Data;
 
-public record BuildingTemplate(
+public record Building(
     BuildingId Id,
     string DisplayName,
     int ConstructionTurns,

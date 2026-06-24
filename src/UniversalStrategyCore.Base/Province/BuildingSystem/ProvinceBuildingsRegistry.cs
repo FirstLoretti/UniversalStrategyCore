@@ -5,9 +5,9 @@ namespace UniversalStrategyCore.Province.BuildingSystem;
 
 public class ProvinceBuildingsRegistry: IProvinceBuildingsRegistry
 {
-    private readonly Dictionary <ProvinceTemplate, List<BuildingTemplate>> _provinceToBuildings = [];
+    private readonly Dictionary <ProvinceTemplate, List<Building>> _provinceToBuildings = [];
 
-    public void AddBuildings(ProvinceTemplate provinceTemplate, IEnumerable<BuildingTemplate> buildingTemplates)
+    public void AddBuildings(ProvinceTemplate provinceTemplate, IEnumerable<Building> buildingTemplates)
     {
         if(!_provinceToBuildings.TryGetValue(provinceTemplate, out var buildings))
         {
@@ -19,12 +19,12 @@ public class ProvinceBuildingsRegistry: IProvinceBuildingsRegistry
         Console.WriteLine($"[ProvinceBuildings] B провинции: {provinceTemplate.Id} построены здания: {buildingsName}.");
     }
 
-    public void AddBuilding(ProvinceTemplate provinceTemplate, BuildingTemplate buildingTemplate)
+    public void AddBuilding(ProvinceTemplate provinceTemplate, Building buildingTemplate)
     {
         AddBuildings(provinceTemplate, [buildingTemplate]);
     }
 
-    public IReadOnlyList<BuildingTemplate>? GetBuildings(ProvinceTemplate provinceTemplate)
+    public IReadOnlyList<Building>? GetBuildings(ProvinceTemplate provinceTemplate)
     {
         if(_provinceToBuildings.TryGetValue(provinceTemplate, out var buildingTemplates))
         {

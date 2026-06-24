@@ -5,14 +5,14 @@ namespace UniversalStrategyCore.Province;
 
 public class ProvinceBuildingsBalanceTable
 {
-    private readonly Dictionary<BuildingId, BuildingTemplate> _idToBuilding = [];
+    private readonly Dictionary<BuildingId, Building> _idToBuilding = [];
 
     public ProvinceBuildingsBalanceTable()
     {
         CreateBuildings();
     }
 
-    public BuildingTemplate GetBuilding(BuildingId id)
+    public Building GetBuilding(BuildingId id)
     {
         if (_idToBuilding.TryGetValue(id, out var building))
         {
@@ -34,15 +34,15 @@ public class ProvinceBuildingsBalanceTable
             {GameResourceType.Wood, 200}
         };
 
-        AddBuilding(new BuildingTemplate(
+        AddBuilding(new Building(
             Id: new BuildingId("farm"), DisplayName: "Farm", ConstructionTurns: 1, Cost: farmCost
         ));
-        AddBuilding(new BuildingTemplate(
+        AddBuilding(new Building(
             Id: new BuildingId("barrack"), DisplayName: "Barrack", ConstructionTurns: 2, Cost: barrackCost
         ));
     }
 
-    private void AddBuilding(BuildingTemplate building)
+    private void AddBuilding(Building building)
     {
         if (!_idToBuilding.TryAdd(building.Id, building)) { throw new ArgumentException($"Здание: {building} уже есть в таблице"); }
     }

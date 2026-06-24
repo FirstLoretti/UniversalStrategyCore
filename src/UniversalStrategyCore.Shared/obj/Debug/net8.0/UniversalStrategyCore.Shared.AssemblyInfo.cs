@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UniversalStrategyCore.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ed095a3cb2dae66b7dfc000603fc99aa8c4a90d1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+964eaa43141b750a4c9b8f2bdd7aac6d41b3a1cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("UniversalStrategyCore.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UniversalStrategyCore.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -19,7 +19,7 @@ public class ConstructBuildingCommandHandlerTest
         FactionTemplate faction = new("1", "1", factionResourses);
         ProvinceTemplate province = new("1", "1");
         Dictionary<GameResourceType, int> buildingCost = new() { { GameResourceType.Gold, 500 } };
-        BuildingTemplate building = new("1", "1", 1, buildingCost);
+        Building building = new("1", "1", 1, buildingCost);
         ConstructionOrder order = new(building);
 
         ConstructBuildingCommand command = new(faction.Id, province.Id, order);
@@ -45,7 +45,7 @@ public class ConstructBuildingCommandHandlerTest
         FactionTemplate faction = new("1", "1", factionResourses);
         ProvinceTemplate province = new("1", "1");
         Dictionary<GameResourceType, int> buildingCost = new() { { GameResourceType.Gold, 500 } };
-        BuildingTemplate building = new("1", "1", 1, buildingCost);
+        Building building = new("1", "1", 1, buildingCost);
         ConstructionOrder order = new(building);
 
         ConstructBuildingCommand command = new(faction.Id, province.Id, order);

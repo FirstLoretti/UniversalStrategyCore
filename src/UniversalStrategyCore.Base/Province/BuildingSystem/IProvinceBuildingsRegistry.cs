@@ -5,5 +5,5 @@ namespace UniversalStrategyCore.Province.BuildingSystem;
 
 public interface IProvinceBuildingsRegistry
 {
-    public IReadOnlyList<BuildingTemplate>? GetBuildings(ProvinceTemplate provinceTemplate);
+    public IReadOnlyList<Building>? GetBuildings(ProvinceTemplate provinceTemplate);
 }

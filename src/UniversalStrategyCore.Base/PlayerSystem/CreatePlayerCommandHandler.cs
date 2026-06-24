@@ -1,0 +1,17 @@
+using UniversalStrategyCore.Shared;
+
+namespace UniversalStrategyCore.PlayerSystem;
+
+public class CreatePlayerCommandHandler(
+    IPlayerRegistry playerRegistry
+) : ICommandHandler<CreatePlayerCommand>
+{
+    public Result<IUndoAction> Handle(CreatePlayerCommand command)
+    {
+        Player player = new(command.Name, command.Name, command.IsAI);
+        if (playerRegistry.RegisterPlayer(player).IsSuccess)
+            return new UndoCreatePlayer(playerRegistry, player);
+
+        return Error.PlayerIdAlredyExist(player.Id);
+    }
+}
