@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace UniversalStrategyCore.TacticalCombat.Unit;
+namespace UniversalStrategyCore.TacticalCombat.Entity;
 
 public struct TacticalUnit
 {

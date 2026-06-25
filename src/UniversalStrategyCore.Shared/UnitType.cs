@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.TacticalCombat.Unit;
+namespace UniversalStrategyCore.Shared;
 
 public enum UnitType
 {

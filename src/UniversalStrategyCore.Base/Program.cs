@@ -13,10 +13,6 @@ using UniversalStrategyCore.GameMath;
 using UniversalStrategyCore.Turn;
 using UniversalStrategyCore.ProvinceSystem.BuildingSystem;
 using UniversalStrategyCore.ProvinceSystem;
-using UniversalStrategyCore.TacticalCombat.Unit;
-using UniversalStrategyCore.TacticalCombat.Squad;
-using UniversalStrategyCore.TacticalCombat.Mediators;
-using UniversalStrategyCore.TacticalCombat.Squad.FSM;
 using UniversalStrategyCore.TacticalCombat;
 using System.Numerics;
 using UniversalStrategyCore.Mediators.FactionProvince;
@@ -28,6 +24,7 @@ using UniversalStrategyCore.StrategicConstructionSystem.Logic;
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.EconomicSystem;
 using UniversalStrategyCore.Shared;
+using UniversalStrategyCore.TacticalCombat.Factory;
 
 #pragma warning disable CS9113
 
@@ -45,8 +42,8 @@ class GameSession(
     ProvinceManager provinceManager, TurnManager turnManager, FactionPlayerRegistrar factionManager,
     ArmyManager armyManager, IFactionTable factionTable, IFactionProvincesTable factionProvincesTable,
     IProvinceConstructionManager provinceConstructionManager, ProvinceBuildingsRegistry provinceBuildings,
-    ProvinceBuildingsBalanceTable provinceBuildingsTable, IUnitsTable unitsTable, ISquadsTable squadsTable,
-    SquadFactory squadFactory, FactionVisionManager factionVisionManager, IFactionEconomicManager factionEconomicManager,
+    ProvinceBuildingsBalanceTable provinceBuildingsTable, IUnitRepository unitsTable, ISquadRepository squadsTable,
+    TacticalSquadFactory squadFactory, FactionVisionManager factionVisionManager, IFactionEconomicManager factionEconomicManager,
     ICommandHandler<ConstructBuildingCommand> constructBuildingCommandHandler
 )
 {

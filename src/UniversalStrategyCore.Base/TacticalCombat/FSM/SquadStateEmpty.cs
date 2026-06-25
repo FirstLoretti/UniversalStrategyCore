@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.TacticalCombat.Squad.FSM;
+namespace UniversalStrategyCore.TacticalCombat.FSM;
 
 public class SquadStateEmpty : ISquadState
 {

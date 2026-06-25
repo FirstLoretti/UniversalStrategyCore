@@ -1,4 +1,6 @@
-namespace UniversalStrategyCore.TacticalCombat.Squad.FSM;
+using UniversalStrategyCore.TacticalCombat.Entity;
+
+namespace UniversalStrategyCore.TacticalCombat.FSM;
 
 public class SquadStateIdle(TacticalSquad tacticalSquad) : ISquadState
 {

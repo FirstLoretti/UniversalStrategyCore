@@ -7,13 +7,11 @@ using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Turn;
 using UniversalStrategyCore.ProvinceSystem.BuildingSystem;
 using UniversalStrategyCore.ProvinceSystem;
-using UniversalStrategyCore.TacticalCombat.Unit;
-using UniversalStrategyCore.TacticalCombat.Mediators;
-using UniversalStrategyCore.TacticalCombat.Squad;
 using UniversalStrategyCore.Mediators.FactionProvince;
 using UniversalStrategyCore.StrategicConstructionSystem.Logic;
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.Shared;
+using UniversalStrategyCore.TacticalCombat.Factory;
 
 namespace UniversalStrategyCore.GameBootstrap;
 
@@ -30,11 +28,12 @@ public class GameBootstrap
         RegisterTurnSystem();
         RegisterProvinceSystem();
         RegisterFactionSystem();
-        RegisterTacticalBattleSystem();
+        RegisterTacticalCombatSystem();
         RegisterEconomicSystem();
         RegisterConstructionSystem();
         RegisterMediators();
         RegisterGameSession();
+        RegisterSharedSystem();
 
         GameServices = _serviceCollection.BuildServiceProvider();
         StartEventSystems();
@@ -91,23 +90,23 @@ public class GameBootstrap
         _serviceCollection.AddSingleton<IFactionEconomicManager, FactionEconomicManager>();
     }
 
-    private void RegisterTacticalBattleSystem()
+    private void RegisterTacticalCombatSystem()
     {
-        _serviceCollection.AddSingleton<IUnitsTable, UnitsTable>();
-        _serviceCollection.AddSingleton<ISquadsTable, SquadsTable>();
+        _serviceCollection.AddSingleton<TacticalSquadFactory>();
     }
 
     private void RegisterMediators()
     {
         _serviceCollection.AddSingleton<ProvinceConstructionTurnEndMediator>();
         _serviceCollection.AddSingleton<IFactionProvincesTable, FactionProvincesTable>();
-        _serviceCollection.AddSingleton<SquadFactory>();
         _serviceCollection.AddSingleton<FactionVisionManager>();
         _serviceCollection.AddSingleton<FactionVisionTable>();
     }
-    
+
     private void RegisterSharedSystem()
     {
+        _serviceCollection.AddSingleton<IUnitRepository, UnitRepository>();
+        _serviceCollection.AddSingleton<ISquadRepository, SquadRepository>();
         _serviceCollection.AddSingleton<ICultureNamesRepository, CultureNamesRepository>();
     }
 }
