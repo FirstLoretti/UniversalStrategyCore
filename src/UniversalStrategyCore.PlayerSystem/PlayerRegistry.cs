@@ -10,7 +10,7 @@ public class PlayerRegistry : IPlayerRegistry
     {
         if (_idToPlayer.TryAdd(player.Id, player)) return true;
 
-        return Error.PlayerIdAlredyExist(player.Id);
+        return Error.AlreadyExist(player.Id, nameof(_idToPlayer));
     }
 
     public Result<bool> DeletePlayer(PlayerId id)

@@ -2,27 +2,44 @@ using System.Runtime.CompilerServices;
 
 namespace UniversalStrategyCore.Shared;
 
-public record Error(string Id, string Messange)
+public record Error(string Id, string Message)
 {
-    public static Error PlayerIdAlredyExist(PlayerId player)
-        => new($"{player}_already_exist", $"Игрок с именем: {player} уже существует");
-
     public static Error NotEnoughtResource(GameResourceType resource)
         => new("not_enought_resource", $"Не хватает: {resource}");
 
-    public static Error NotFound<T>(T entytyId, string collectionName) where T : struct
-        => NotFoundInternal(entytyId, collectionName);
+    public static Error AlreadyExist<T>(T entityId, string collectionName) where T : struct
+        => AlreadyExistInternal(entityId, collectionName);
 
-    private static string BuildMessage(string className, string entityId, string collectionName)
+    public static Error NotFound<T>(T entityId, string collectionName) where T : struct
+        => NotFoundInternal(entityId, collectionName);
+
+    private static string BuildAlredyExistMessage(string className, string entityId, string collectionName)
+        => $"[{className}] {entityId} уже содержится в {collectionName}";
+
+    private static string BuildNotFoundMessage(string className, string entityId, string collectionName)
         => $"[{className}] {entityId} не содержится в {collectionName}";
 
-    private static Error NotFoundInternal<T>(T entytyId, string collectionName, [CallerFilePath] string path = "") where T : struct
+    private static Error NotFoundInternal<T>(
+        T entityId, string collectionName, [CallerFilePath] string path = ""
+    ) where T : struct
     {
         var className = Path.GetFileNameWithoutExtension(path);
-        var id = $"{entytyId.ToString}";
+        var id = $"{entityId.ToString}";
         return new Error(
-            $"{entytyId}_not_found",
-            BuildMessage(className, id, collectionName)
+            $"{entityId}_not_found",
+            BuildNotFoundMessage(className, id, collectionName)
+        );
+    }
+
+    private static Error AlreadyExistInternal<T>(
+        T entityId, string collectionName, [CallerFilePath] string path = ""
+    ) where T : struct
+    {
+        var className = Path.GetFileNameWithoutExtension(path);
+        var id = $"{entityId.ToString}";
+        return new Error(
+            $"{entityId}_already_exist",
+            BuildAlredyExistMessage(className, id, collectionName)
         );
     }
 }

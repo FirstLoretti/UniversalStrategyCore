@@ -9,9 +9,10 @@ public class CreatePlayerCommandHandler(
     public Result<IUndoAction> Handle(CreatePlayerCommand command)
     {
         Player player = new(command.Name, command.Name, command.IsAI);
-        if (playerRegistry.RegisterPlayer(player).IsSuccess)
+        var result = playerRegistry.RegisterPlayer(player);
+        if (result.IsSuccess)
             return new UndoCreatePlayer(playerRegistry, player);
 
-        return Error.PlayerIdAlredyExist(player.Id);
+        return result.Error;
     }
 }
