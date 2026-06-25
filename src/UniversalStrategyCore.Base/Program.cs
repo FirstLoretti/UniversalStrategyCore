@@ -1,7 +1,7 @@
 ﻿
 using UniversalStrategyCore.Map;
 using UniversalStrategyCore.StrategyBattle;
-using UniversalStrategyCore.Faction;
+using UniversalStrategyCore.Factionn;
 using UniversalStrategyCore.Units;
 using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Mediators;
@@ -11,8 +11,8 @@ using UniversalStrategyCore.GameBootstrap;
 using Microsoft.Extensions.DependencyInjection;
 using UniversalStrategyCore.GameMath;
 using UniversalStrategyCore.Turn;
-using UniversalStrategyCore.Province.BuildingSystem;
-using UniversalStrategyCore.Province;
+using UniversalStrategyCore.ProvinceSystem.BuildingSystem;
+using UniversalStrategyCore.ProvinceSystem;
 using UniversalStrategyCore.TacticalCombat.Unit;
 using UniversalStrategyCore.TacticalCombat.Squad;
 using UniversalStrategyCore.TacticalCombat.Mediators;
@@ -20,7 +20,7 @@ using UniversalStrategyCore.TacticalCombat.Squad.FSM;
 using UniversalStrategyCore.TacticalCombat;
 using System.Numerics;
 using UniversalStrategyCore.Mediators.FactionProvince;
-using UniversalStrategyCore.Faction.AI;
+using UniversalStrategyCore.Factionn.AI;
 using UniversalStrategyCore;
 using UniversalStrategyCore.StrategicConstructionSystem;
 using UniversalStrategyCore.Factions;

@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.Province;
+namespace UniversalStrategyCore.ProvinceSystem;
 
 public interface IProvinceOwnershipTable
 {

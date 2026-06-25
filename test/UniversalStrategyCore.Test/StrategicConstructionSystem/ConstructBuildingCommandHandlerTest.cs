@@ -16,8 +16,8 @@ public class ConstructBuildingCommandHandlerTest
         var factionTableMock = Substitute.For<IFactionTable>();
 
         Dictionary<GameResourceType, int> factionResourses = new() { { GameResourceType.Gold, 1000 } };
-        FactionTemplate faction = new("1", "1", factionResourses);
-        ProvinceTemplate province = new("1", "1");
+        Faction faction = new("1", "1", factionResourses);
+        Province province = new("1", "1");
         Dictionary<GameResourceType, int> buildingCost = new() { { GameResourceType.Gold, 500 } };
         Building building = new("1", "1", 1, buildingCost);
         ConstructionOrder order = new(building);
@@ -42,8 +42,8 @@ public class ConstructBuildingCommandHandlerTest
         var factionTableMock = Substitute.For<IFactionTable>();
 
         Dictionary<GameResourceType, int> factionResourses = new() { { GameResourceType.Gold, 0 } };
-        FactionTemplate faction = new("1", "1", factionResourses);
-        ProvinceTemplate province = new("1", "1");
+        Faction faction = new("1", "1", factionResourses);
+        Province province = new("1", "1");
         Dictionary<GameResourceType, int> buildingCost = new() { { GameResourceType.Gold, 500 } };
         Building building = new("1", "1", 1, buildingCost);
         ConstructionOrder order = new(building);

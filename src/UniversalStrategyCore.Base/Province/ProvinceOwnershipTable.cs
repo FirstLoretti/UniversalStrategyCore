@@ -1,7 +1,7 @@
 using UniversalStrategyCore.PlayerSystem;
 using UniversalStrategyCore.Shared;
 
-namespace UniversalStrategyCore.Province;
+namespace UniversalStrategyCore.ProvinceSystem;
 
 // public class ProvinceOwnershipTable(
 //     IPlayerTable playerTable,

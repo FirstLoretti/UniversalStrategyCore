@@ -1,10 +1,10 @@
 using UniversalStrategyCore.Shared;
 
-namespace UniversalStrategyCore.Faction.AI;
+namespace UniversalStrategyCore.Factionn.AI;
 
-public class AIFaction(FactionTemplate faction, DefaultState defaultState, AggressiveState aggressiveState)
+public class AIFaction(Shared.Faction faction, DefaultState defaultState, AggressiveState aggressiveState)
 {
-    public FactionTemplate Faction { get; } = faction;
+    public Shared.Faction Faction { get; } = faction;
     public DefaultState DefaultState { get; } = defaultState;
     public AggressiveState AggressiveState { get; } = aggressiveState;
 

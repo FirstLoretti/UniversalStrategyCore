@@ -11,7 +11,15 @@ public class CultureNamesPool
         GenerateNames(activeFactions);
     }
 
-    public Result<bool> GenerateNames(IEnumerable<FactionId> activeFactions)
+    public Result<Queue<string>> GetNames(FactionId factionId)
+    {
+        if(_factionIdToNames.TryGetValue(factionId, out var names))
+            return names;
+        
+        return Error.NotFound(factionId, nameof(_factionIdToNames));
+    }
+
+    private Result<bool> GenerateNames(IEnumerable<FactionId> activeFactions)
     {
         List<Error> errors = [];
 

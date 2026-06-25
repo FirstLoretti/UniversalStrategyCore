@@ -1,20 +1,20 @@
 using UniversalStrategyCore.Shared;
 
-namespace UniversalStrategyCore.Province;
+namespace UniversalStrategyCore.ProvinceSystem;
 
 public record ProvinceTable : IProvinceTable
 {
-    public IReadOnlyList<ProvinceTemplate> AllProvinces => _provinces;
+    public IReadOnlyList<Shared.Province> AllProvinces => _provinces;
 
-    private readonly List<ProvinceTemplate> _provinces = [];
-    private readonly Dictionary<ProvinceId, ProvinceTemplate> _idToProvince = [];
+    private readonly List<Shared.Province> _provinces = [];
+    private readonly Dictionary<ProvinceId, Shared.Province> _idToProvince = [];
 
     public ProvinceTable()
     {
         CreateProvince();
     }
 
-    public ProvinceTemplate GetProvince(ProvinceId id)
+    public Shared.Province GetProvince(ProvinceId id)
     {
         if (_idToProvince.TryGetValue(id, out var province))
         {
@@ -25,11 +25,11 @@ public record ProvinceTable : IProvinceTable
 
     private void CreateProvince()
     {
-        AddProvince(new ProvinceTemplate(Id: new ProvinceId("london"), "London"));
-        AddProvince(new ProvinceTemplate(Id: new ProvinceId("paris"), "Paris"));
+        AddProvince(new Shared.Province(Id: new ProvinceId("london"), "London"));
+        AddProvince(new Shared.Province(Id: new ProvinceId("paris"), "Paris"));
     }
 
-    private void AddProvince(ProvinceTemplate province)
+    private void AddProvince(Shared.Province province)
     {
         _idToProvince.Add(province.Id, province);
         _provinces.Add(province);

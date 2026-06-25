@@ -4,7 +4,7 @@ namespace UniversalStrategyCore.Mediators.FactionProvince;
 
 public class FactionVisionManager(FactionVisionTable factionVisionTable)
 {
-    public bool HasVisionContact(FactionTemplate target, FactionTemplate observer)
+    public bool HasVisionContact(Shared.Faction target, Shared.Faction observer)
     {
         if (!factionVisionTable.VisionContact.TryGetValue(observer, out var factions))
         {

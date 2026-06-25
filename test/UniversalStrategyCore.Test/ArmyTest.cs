@@ -1,5 +1,5 @@
 using UniversalStrategyCore.Armies;
-using UniversalStrategyCore.Faction;
+using UniversalStrategyCore.Factionn;
 using UniversalStrategyCore.Factions;
 using UniversalStrategyCore.Units;
 using UniversalStrategyCore.Shared;

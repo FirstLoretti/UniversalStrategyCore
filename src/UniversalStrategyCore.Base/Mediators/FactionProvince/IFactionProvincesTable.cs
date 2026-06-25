@@ -4,5 +4,5 @@ namespace UniversalStrategyCore.Mediators.FactionProvince;
 
 public interface IFactionProvincesTable
 {
-    public HashSet<ProvinceTemplate> GetProvinces(FactionTemplate factionTemplate);
+    public HashSet<Shared.Province> GetProvinces(Shared.Faction factionTemplate);
 }

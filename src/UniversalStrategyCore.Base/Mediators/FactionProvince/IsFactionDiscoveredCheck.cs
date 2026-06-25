@@ -4,8 +4,8 @@ namespace UniversalStrategyCore.Mediators.FactionProvince;
 
 public class IsFactionDiscoveredCheck(
     FactionVisionManager visionManager,
-    FactionTemplate observer
-) : ICheck<FactionTemplate>
+    Shared.Faction observer
+) : ICheck<Shared.Faction>
 {
-    public bool IsPassed(FactionTemplate faction) => visionManager.HasVisionContact(faction, observer);
+    public bool IsPassed(Shared.Faction faction) => visionManager.HasVisionContact(faction, observer);
 }

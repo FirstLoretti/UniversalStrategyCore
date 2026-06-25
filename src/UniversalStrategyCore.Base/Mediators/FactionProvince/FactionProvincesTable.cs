@@ -4,7 +4,7 @@ namespace UniversalStrategyCore.Mediators.FactionProvince;
 
 public class FactionProvincesTable: IFactionProvincesTable
 {
-    private readonly Dictionary<FactionTemplate, HashSet<ProvinceTemplate>> _factionToProvinces = [];
+    private readonly Dictionary<Shared.Faction, HashSet<Shared.Province>> _factionToProvinces = [];
     private readonly IFactionTable _factionTable;
     private readonly IProvinceTable _provinceTable;
 
@@ -15,7 +15,7 @@ public class FactionProvincesTable: IFactionProvincesTable
         Initialization();
     }
 
-    public HashSet<ProvinceTemplate> GetProvinces(FactionTemplate factionTemplate)
+    public HashSet<Shared.Province> GetProvinces(Shared.Faction factionTemplate)
     {
         if(_factionToProvinces.TryGetValue(factionTemplate, out var provinces))
         {
@@ -32,13 +32,13 @@ public class FactionProvincesTable: IFactionProvincesTable
     private void SetStartingProvinces()
     {
         var england = _factionTable.GetFaction("england");
-        HashSet<ProvinceTemplate> englandProvinces =
+        HashSet<Shared.Province> englandProvinces =
         [
             _provinceTable.GetProvince("london")
         ];
 
         var france = _factionTable.GetFaction("france");
-        HashSet<ProvinceTemplate> franceProvinces =
+        HashSet<Shared.Province> franceProvinces =
         [
             _provinceTable.GetProvince("paris")
         ];
@@ -47,7 +47,7 @@ public class FactionProvincesTable: IFactionProvincesTable
         AddProvince(france, franceProvinces);
     }
 
-    private void AddProvince(FactionTemplate factionTemplate, HashSet<ProvinceTemplate> provinceTemplates)
+    private void AddProvince(Shared.Faction factionTemplate, HashSet<Shared.Province> provinceTemplates)
     {
         if (!_factionToProvinces.TryGetValue(factionTemplate, out var provinces))
         {

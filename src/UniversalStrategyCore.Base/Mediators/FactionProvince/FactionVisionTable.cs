@@ -4,11 +4,11 @@ namespace UniversalStrategyCore.Mediators.FactionProvince;
 
 public class FactionVisionTable
 {
-    public IReadOnlyDictionary<FactionTemplate, HashSet<FactionTemplate>> VisionContact => _visionContact;
-    public IReadOnlyDictionary<FactionTemplate, HashSet<ProvinceTemplate>> VisibleProvinces => _visibleProvinces;
+    public IReadOnlyDictionary<Shared.Faction, HashSet<Shared.Faction>> VisionContact => _visionContact;
+    public IReadOnlyDictionary<Shared.Faction, HashSet<Shared.Province>> VisibleProvinces => _visibleProvinces;
 
-    private readonly Dictionary<FactionTemplate, HashSet<FactionTemplate>> _visionContact = [];
-    private readonly Dictionary<FactionTemplate, HashSet<ProvinceTemplate>> _visibleProvinces = [];
+    private readonly Dictionary<Shared.Faction, HashSet<Shared.Faction>> _visionContact = [];
+    private readonly Dictionary<Shared.Faction, HashSet<Shared.Province>> _visibleProvinces = [];
     private readonly IFactionTable _factionTable;
     private readonly IFactionProvincesTable _factionProvincesTable;
 
@@ -29,8 +29,8 @@ public class FactionVisionTable
     {
         var england = _factionTable.GetFaction("england");
         var france = _factionTable.GetFaction("france");
-        var englandVision = new HashSet<FactionTemplate>() { england };
-        var franceVision = new HashSet<FactionTemplate>() { france };
+        var englandVision = new HashSet<Shared.Faction>() { england };
+        var franceVision = new HashSet<Shared.Faction>() { france };
         _visionContact.Add(england, englandVision);
         _visionContact.Add(france, franceVision);
     }
@@ -39,8 +39,8 @@ public class FactionVisionTable
     {
         var england = _factionTable.GetFaction("england");
         var france = _factionTable.GetFaction("france");
-        var englandVision = new HashSet<ProvinceTemplate>(_factionProvincesTable.GetProvinces(england));
-        var franceVision = new HashSet<ProvinceTemplate>(_factionProvincesTable.GetProvinces(france));
+        var englandVision = new HashSet<Shared.Province>(_factionProvincesTable.GetProvinces(england));
+        var franceVision = new HashSet<Shared.Province>(_factionProvincesTable.GetProvinces(france));
         _visibleProvinces.Add(england, englandVision);
         _visibleProvinces.Add(france, franceVision);
     }

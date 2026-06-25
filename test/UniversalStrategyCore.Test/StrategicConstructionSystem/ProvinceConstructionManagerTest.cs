@@ -1,6 +1,6 @@
+using UniversalStrategyCore.Shared;
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.StrategicConstructionSystem.Logic;
-using UniversalStrategyCore.Shared;
 
 namespace UniversalStrategyCore.Test.StrategicConstructionSystem;
 
@@ -10,7 +10,7 @@ public class ProvinceConstructionManagerTest
     public void OnTurnEnd_ShouldFinishConstructionAndTriggerEvent_WhenOneTurnRemainig()
     {
         ProvinceConstructionManager manager = new();
-        ProvinceTemplate province = new("1", "1");
+        Province province = new("1", "1");
         ConstructionOrder order = new(new Building("1", "1", 1, []));
         bool isTriggered = false;
 
@@ -27,7 +27,7 @@ public class ProvinceConstructionManagerTest
     public void OnTurnEnd_ShouldNotFinishConstructionAndNotTriggerEvent_WhenMultipleTurnsRemaining()
     {
         ProvinceConstructionManager manager = new();
-        ProvinceTemplate province = new("1", "1");
+        Province province = new("1", "1");
         ConstructionOrder order = new(new Building("1", "1", 2, []));
         bool isTriggered = false;
 
@@ -41,17 +41,17 @@ public class ProvinceConstructionManagerTest
     }
 
     [Fact]
-    public void OnTurnEnd_ShouldDoNothingAndNoThrowExeption_WhenProvinceHasNoOrders()
+    public void OnTurnEnd_ShouldDoNothingAndNoThrow_WhenProvinceHasNoOrders()
     {
         ProvinceConstructionManager manager = new();
-        ProvinceTemplate province = new("1", "1");
+        Province province = new("1", "1");
         bool isTriggered = false;
 
         manager.BuildingConstructed += () => isTriggered = true;
 
-        var exeption = Record.Exception(() => manager.OnTurnEnd(province.Id));
+        var exсeption = Record.Exception(() => manager.OnTurnEnd(province.Id));
 
-        Assert.Null(exeption);
+        Assert.Null(exсeption);
         Assert.True(!isTriggered);
     }
 }

@@ -1,9 +1,9 @@
 using UniversalStrategyCore.Shared;
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
 
-namespace UniversalStrategyCore.Province.BuildingSystem;
+namespace UniversalStrategyCore.ProvinceSystem.BuildingSystem;
 
 public interface IProvinceBuildingsRegistry
 {
-    public IReadOnlyList<Building>? GetBuildings(ProvinceTemplate provinceTemplate);
+    public IReadOnlyList<Building>? GetBuildings(Shared.Province provinceTemplate);
 }

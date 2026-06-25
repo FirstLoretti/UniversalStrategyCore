@@ -1,17 +1,17 @@
 using UniversalStrategyCore.Shared;
 
-namespace UniversalStrategyCore.Province;
+namespace UniversalStrategyCore.ProvinceSystem;
 
 public class ProvinceManager
 {
-    private readonly Dictionary<string, HashSet<ProvinceTemplate>> _playerToProvinces = [];
+    private readonly Dictionary<string, HashSet<Shared.Province>> _playerToProvinces = [];
 
-    public void AddPlayerProvinces(string playerName, HashSet<ProvinceTemplate> provinces)
+    public void AddPlayerProvinces(string playerName, HashSet<Shared.Province> provinces)
     {
         _playerToProvinces.TryAdd(playerName, provinces);
     }
 
-    public HashSet<ProvinceTemplate> GetPlayerProvinces(string playerName)
+    public HashSet<Shared.Province> GetPlayerProvinces(string playerName)
     {
         if (_playerToProvinces.TryGetValue(playerName, out var provinces))
         {
@@ -20,7 +20,7 @@ public class ProvinceManager
         throw new ArgumentException($"[ProvinceManager] Игрок {playerName} не зарегестрирован в _playerToProvince");
     }
 
-    public ProvinceTemplate GetPlayerProvince(string playerName, ProvinceId id)
+    public Shared.Province GetPlayerProvince(string playerName, ProvinceId id)
     {
         if (_playerToProvinces.TryGetValue(playerName, out var provinces))
         {

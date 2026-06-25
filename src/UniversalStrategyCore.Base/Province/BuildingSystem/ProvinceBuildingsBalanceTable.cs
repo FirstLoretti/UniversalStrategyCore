@@ -1,7 +1,7 @@
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
 using UniversalStrategyCore.Shared;
 
-namespace UniversalStrategyCore.Province;
+namespace UniversalStrategyCore.ProvinceSystem;
 
 public class ProvinceBuildingsBalanceTable
 {

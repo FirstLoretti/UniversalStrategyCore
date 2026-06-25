@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore.Faction.AI;
+namespace UniversalStrategyCore.Factionn.AI;
 
 public interface IStrategy
 {

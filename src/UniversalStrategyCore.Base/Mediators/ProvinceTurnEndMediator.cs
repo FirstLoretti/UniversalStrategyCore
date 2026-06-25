@@ -1,4 +1,4 @@
-using UniversalStrategyCore.Province;
+using UniversalStrategyCore.ProvinceSystem;
 using UniversalStrategyCore.Turn;
 using UniversalStrategyCore.StrategicConstructionSystem.Data;
 

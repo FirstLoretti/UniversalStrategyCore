@@ -4,14 +4,14 @@ namespace UniversalStrategyCore.Factions;
 
 public class FactionTable : IFactionTable
 {
-    private readonly Dictionary<FactionId, FactionTemplate> _idToFaction = [];
+    private readonly Dictionary<FactionId, Shared.Faction> _idToFaction = [];
 
     public FactionTable()
     {
         CreateFactions();
     }
 
-    public FactionTemplate GetFaction(FactionId id)
+    public Shared.Faction GetFaction(FactionId id)
     {
         if (_idToFaction.TryGetValue(id, out var faction))
         {
@@ -32,11 +32,11 @@ public class FactionTable : IFactionTable
             {GameResourceType.Gold, 2000},
             {GameResourceType.Wood, 250}
         };
-        AddFaction(new FactionTemplate(Id: new FactionId("england"), DisplayName: "England", englandResources));
-        AddFaction(new FactionTemplate(Id: new FactionId("france"), DisplayName:"France", franceResources));
+        AddFaction(new Shared.Faction(Id: new FactionId("england"), DisplayName: "England", englandResources));
+        AddFaction(new Shared.Faction(Id: new FactionId("france"), DisplayName:"France", franceResources));
     }
 
-    private void AddFaction(FactionTemplate faction)
+    private void AddFaction(Shared.Faction faction)
     {
         _idToFaction.Add(faction.Id, faction);
     }

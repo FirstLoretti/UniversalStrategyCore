@@ -5,8 +5,8 @@ using UniversalStrategyCore.PlayerSystem;
 using Microsoft.Extensions.DependencyInjection;
 using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Turn;
-using UniversalStrategyCore.Province.BuildingSystem;
-using UniversalStrategyCore.Province;
+using UniversalStrategyCore.ProvinceSystem.BuildingSystem;
+using UniversalStrategyCore.ProvinceSystem;
 using UniversalStrategyCore.TacticalCombat.Unit;
 using UniversalStrategyCore.TacticalCombat.Mediators;
 using UniversalStrategyCore.TacticalCombat.Squad;
@@ -104,5 +104,10 @@ public class GameBootstrap
         _serviceCollection.AddSingleton<SquadFactory>();
         _serviceCollection.AddSingleton<FactionVisionManager>();
         _serviceCollection.AddSingleton<FactionVisionTable>();
+    }
+    
+    private void RegisterSharedSystem()
+    {
+        _serviceCollection.AddSingleton<ICultureNamesRepository, CultureNamesRepository>();
     }
 }

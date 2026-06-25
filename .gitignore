@@ -21,3 +21,13 @@
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode
+
+# Сборка .NET (C#)
+[Bb]in/
+[Oo]bj/
+
+# Системные папки Visual Studio и Rider
+.vs/
+.idea/
+*.user
+*.suo

@@ -2,5 +2,5 @@ namespace UniversalStrategyCore.Shared;
 
 public interface IProvinceTable
 {
-    public ProvinceTemplate GetProvince(ProvinceId id);
+    public Province GetProvince(ProvinceId id);
 }
