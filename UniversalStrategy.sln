@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalStrategyCore.Share
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalStrategyCore.PlayerSystem", "src\UniversalStrategyCore.PlayerSystem\UniversalStrategyCore.PlayerSystem.csproj", "{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalStrategyCore.TacticalCombat", "src\UniversalStrategyCore.TacticalCombat\UniversalStrategyCore.TacticalCombat.csproj", "{79FF2010-F9C1-4287-BE92-CD04F6E8A122}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FF2010-F9C1-4287-BE92-CD04F6E8A122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FF2010-F9C1-4287-BE92-CD04F6E8A122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FF2010-F9C1-4287-BE92-CD04F6E8A122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FF2010-F9C1-4287-BE92-CD04F6E8A122}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +66,6 @@ Global
 		{9742EB16-3253-4CC1-A7BB-0559880A5532} = {EF7E09A3-5687-4B63-8341-405A67CF6C16}
 		{5F094EA3-5C36-4739-8288-5C9194BEEA10} = {061A33C0-F2B7-4C50-AD59-D2AD0BBD27D7}
 		{A98FE8E0-D0D3-43A9-A908-3E1712B6589F} = {061A33C0-F2B7-4C50-AD59-D2AD0BBD27D7}
+		{79FF2010-F9C1-4287-BE92-CD04F6E8A122} = {061A33C0-F2B7-4C50-AD59-D2AD0BBD27D7}
 	EndGlobalSection
 EndGlobal

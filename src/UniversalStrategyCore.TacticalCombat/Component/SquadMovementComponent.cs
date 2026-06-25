@@ -1,7 +1,8 @@
 using System.Numerics;
 using UniversalStrategyCore.TacticalCombat.Entity;
+using UniversalStrategyCore.TacticalCombat.FSM;
 
-namespace UniversalStrategyCore.TacticalCombat.FSM;
+namespace UniversalStrategyCore.TacticalCombat.Component;
 
 public class SquadMovementComponent(TacticalSquad tacticalSquad)
 {

@@ -1,5 +1,4 @@
 using UniversalStrategyCore.Shared;
-using UniversalStrategyCore.Units;
 
 namespace UniversalStrategyCore.Armies;
 

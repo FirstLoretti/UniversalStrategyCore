@@ -1,4 +1,6 @@
-namespace UniversalStrategyCore.Units;
+using UniversalStrategyCore.Shared;
+
+namespace UniversalStrategyCore;
 
 public struct UnitMatchup
 {

@@ -1,6 +1,6 @@
 using System.Numerics;
 using UniversalStrategyCore.Shared;
-using UniversalStrategyCore.TacticalCombat.FSM;
+using UniversalStrategyCore.TacticalCombat.Component;
 
 namespace UniversalStrategyCore.TacticalCombat.Entity;
 

@@ -1,6 +1,7 @@
+using UniversalStrategyCore.Shared;
 using UniversalStrategyCore.StrategyBattle;
 
-namespace UniversalStrategyCore.Units;
+namespace UniversalStrategyCore;
 
 public class UnitMatchupTable : IUnitMatchupTable
 {
@@ -26,14 +27,14 @@ public class UnitMatchupTable : IUnitMatchupTable
     {
         UnitMatchup[] unitMatchups =
         [
-            new UnitMatchup(UnitType.Cavalry, UnitType.Spearmen, 0.75f),
-            new UnitMatchup(UnitType.Cavalry, UnitType.Infantry, 1.25f),
+            new UnitMatchup(UnitType.Cavalry, UnitType.Spearman, 0.75f),
+            new UnitMatchup(UnitType.Cavalry, UnitType.Swordman, 1.25f),
 
-            new UnitMatchup(UnitType.Spearmen, UnitType.Cavalry, 1.25f),
-            new UnitMatchup(UnitType.Spearmen, UnitType.Infantry, 0.75f),
+            new UnitMatchup(UnitType.Spearman, UnitType.Cavalry, 1.25f),
+            new UnitMatchup(UnitType.Spearman, UnitType.Swordman, 0.75f),
 
-            new UnitMatchup(UnitType.Infantry, UnitType.Spearmen, 1.25f),
-            new UnitMatchup(UnitType.Infantry, UnitType.Cavalry, 0.75f),
+            new UnitMatchup(UnitType.Swordman, UnitType.Spearman, 1.25f),
+            new UnitMatchup(UnitType.Swordman, UnitType.Cavalry, 0.75f),
         ];
 
         foreach (var unitMatchup in unitMatchups)

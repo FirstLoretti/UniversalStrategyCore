@@ -1,4 +1,4 @@
-using UniversalStrategyCore.Units;
+using UniversalStrategyCore.Shared;
 
 namespace UniversalStrategyCore.StrategyBattle;
 

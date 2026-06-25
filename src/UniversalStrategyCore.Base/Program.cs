@@ -2,7 +2,6 @@
 using UniversalStrategyCore.Map;
 using UniversalStrategyCore.StrategyBattle;
 using UniversalStrategyCore.Factionn;
-using UniversalStrategyCore.Units;
 using UniversalStrategyCore.Armies;
 using UniversalStrategyCore.Mediators;
 using UniversalStrategyCore.Map.WeatherLogic;

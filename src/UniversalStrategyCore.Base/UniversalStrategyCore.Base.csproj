@@ -14,6 +14,7 @@
     <ProjectReference Include="..\UniversalStrategyCore.Shared\UniversalStrategyCore.Shared.csproj" />
     <ProjectReference Include="..\UniversalStrategyCore.StrategicConstructionSystem\UniversalStrategyCore.StrategicConstructionSystem.csproj" />
     <ProjectReference Include="..\UniversalStrategyCore.PlayerSystem\UniversalStrategyCore.PlayerSystem.csproj" />
+    <ProjectReference Include="..\UniversalStrategyCore.TacticalCombat\UniversalStrategyCore.TacticalCombat.csproj" />
   </ItemGroup>
 
 </Project>
