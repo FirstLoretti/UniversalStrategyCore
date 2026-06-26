@@ -43,7 +43,7 @@ class GameSession(
     IProvinceConstructionManager provinceConstructionManager, ProvinceBuildingsRegistry provinceBuildings,
     ProvinceBuildingsBalanceTable provinceBuildingsTable, IUnitRepository unitsTable, ISquadRepository squadsTable,
     TacticalSquadFactory squadFactory, FactionVisionManager factionVisionManager, IFactionEconomicManager factionEconomicManager,
-    ICommandHandler<ConstructBuildingCommand> constructBuildingCommandHandler
+    ICommandHandler<ConstructBuildingCommand> constructBuildingCommandHandler, ISquadRepository squadRepository
 )
 {
     public void Start()
@@ -74,6 +74,10 @@ class GameSession(
         // constructBuildingCommandHandler.Handle(constructFarm);
         // constructBuildingCommandHandler.Handle(constructBarrack);
 
+        FactionId a = default;
+        Console.WriteLine(a);
+        Result<Squad> result = squadRepository.GetSquad("swordman");
+        var squad = result.IsSuccess ? result.Value : throw new Exception(result.Error.Message);
         //Тактическая битва
         // var squad1 = squadFactory.CreateSquad("swordmen_1");
         // var squad2 = squadFactory.CreateSquad("spearmen_1");
