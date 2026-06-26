@@ -67,12 +67,12 @@ class GameSession(
         // aiEngland.OnTurnEnd();
 
         //Строительство
-        var farm = provinceBuildingsTable.GetBuilding("farm");
-        var barrack = provinceBuildingsTable.GetBuilding("barrack");
-        ConstructBuildingCommand constructFarm = new("england", "london", new ConstructionOrder(farm));
-        ConstructBuildingCommand constructBarrack = new("france", "paris", new ConstructionOrder(barrack));
-        constructBuildingCommandHandler.Handle(constructFarm);
-        constructBuildingCommandHandler.Handle(constructBarrack);
+        // var farm = provinceBuildingsTable.GetBuilding("farm");
+        // var barrack = provinceBuildingsTable.GetBuilding("barrack");
+        // ConstructBuildingCommand constructFarm = new("england", "london", new ConstructionOrder(farm));
+        // ConstructBuildingCommand constructBarrack = new("france", "paris", new ConstructionOrder(barrack));
+        // constructBuildingCommandHandler.Handle(constructFarm);
+        // constructBuildingCommandHandler.Handle(constructBarrack);
 
         //Тактическая битва
         // var squad1 = squadFactory.CreateSquad("swordmen_1");
