@@ -1,7 +1,9 @@
+using UniversalStrategyCore.Shared;
+
 namespace UniversalStrategyCore.EconomicSystem;
 
 public interface IFactionEconomicManager
 {
-    public void ApplyTransaction(EconomicTransactionCommand transaction);
+    public Result<bool> ApplyTransaction(EconomicTransactionCommand transaction);
     public void ReturnTransaction(EconomicTransactionCommand transaction);
 }

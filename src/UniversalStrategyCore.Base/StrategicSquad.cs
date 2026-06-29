@@ -5,30 +5,45 @@ namespace UniversalStrategyCore;
 public class StrategicSquad
 {
     public Squad InitialData { get; init; }
+    public FactionId HolderFaction { get; init; }
 
-    private int _unitsCount;
     private readonly Unit _unit;
+    private int _unitsCount;
+    private bool _isAlive => _unitsCount > 0;
+    private int _replenishmentValue = 10;
+    private int _nonCombatLossesPercent = 20;
 
-    public StrategicSquad(Squad squad, IUnitRepository unitRepository)
+    public StrategicSquad(Squad squad, IUnitRepository unitRepository, FactionId holderFaction)
     {
         InitialData = squad;
         var result = unitRepository.GetUnit(InitialData.UnitId);
         _unit = result.IsSuccess ? result.Value : throw new Exception(result.Error.Message);
         _unitsCount = InitialData.UnitsCount;
+        HolderFaction = holderFaction;
     }
 
-    public void OnTurnEnd()
-    {
-        ReplenishmentUnits(10);
-    }
+    public Squad GetCurrentData() => InitialData with { UnitsCount = _unitsCount };
 
-    public Squad GetCurrentData() => InitialData with {UnitsCount = _unitsCount};
-
-    public Result<bool> ReplenishmentUnits(int amount)
+    public Dictionary<GameResourceType, int> GetUpkeep() => new()
     {
-        if (_unitsCount > 0)
+        [GameResourceType.Gold] = _unitsCount * _unit.Upkeep
+    };
+
+    public Result<bool> ReplenishmentUnits()
+    {
+        if (_isAlive)
         {
-            _unitsCount = int.Min(_unitsCount + int.Max(0, amount), InitialData.MaxUnits);
+            _unitsCount = int.Min(_unitsCount + _replenishmentValue, InitialData.MaxUnits);
+            return true;
+        }
+        return Error.SquadDestroyed(InitialData.Id);
+    }
+
+    public Result<bool> NonCombatLosses()
+    {
+        if (_isAlive)
+        {
+            _unitsCount -= int.Max(1, _unitsCount * _nonCombatLossesPercent / 100);
             return true;
         }
         return Error.SquadDestroyed(InitialData.Id);

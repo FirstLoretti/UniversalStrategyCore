@@ -17,7 +17,7 @@ public class ConstructBuildingCommandHandler(
         foreach (var (resource, cost) in command.ConstructionOrder.Building.Cost)
         {
             if (!factionResources.TryGetValue(resource, out var amount) || amount - cost < 0)
-                return Error.NotEnoughtResource(resource);
+                return Error.NotEnoughtResources(resource);
         }
 
         EconomicTransactionCommand transaction = new(
