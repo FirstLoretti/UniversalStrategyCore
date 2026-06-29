@@ -19,10 +19,14 @@ public class SquadRepository : ISquadRepository
     private void CreateSquads()
     {
         _idToSquad.Add(
-            "swordmen", new(Id: "swordmen", DisplayName: "Мечники", UnitId: "swordman", UnitsCount: 1)
+            "swordmen", new(
+                Id: "swordmen", DisplayName: "Мечники", UnitId: "swordman", UnitsCount: 1, MaxUnits: 100
+            )
         );
         _idToSquad.Add(
-            "spearmen", new(Id: "spearmen", DisplayName: "Копейщики", UnitId: "spearman", UnitsCount: 100)
+            "spearmen", new(
+                Id: "spearmen", DisplayName: "Копейщики", UnitId: "spearman", UnitsCount: 100, MaxUnits: 100
+            )
         );
     }
 }

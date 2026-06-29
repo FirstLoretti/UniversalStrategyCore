@@ -73,11 +73,7 @@ class GameSession(
         // ConstructBuildingCommand constructBarrack = new("france", "paris", new ConstructionOrder(barrack));
         // constructBuildingCommandHandler.Handle(constructFarm);
         // constructBuildingCommandHandler.Handle(constructBarrack);
-
-        FactionId a = default;
-        Console.WriteLine(a);
-        Result<Squad> result = squadRepository.GetSquad("swordman");
-        var squad = result.IsSuccess ? result.Value : throw new Exception(result.Error.Message);
+        
         //Тактическая битва
         // var squad1 = squadFactory.CreateSquad("swordmen_1");
         // var squad2 = squadFactory.CreateSquad("spearmen_1");

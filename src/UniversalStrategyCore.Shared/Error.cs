@@ -7,6 +7,9 @@ public record Error(string Message)
     public static Error NotEnoughtResource(GameResourceType resource)
         => new($"Не хватает: {resource}");
 
+    public static Error SquadDestroyed(SquadId id, [CallerFilePath] string path = "")
+        => new($"[{Path.GetFileNameWithoutExtension(path)}] Отряд: {id} уничтожен");
+
     public static Error AlreadyExist<T>(T entityId, string collectionName, [CallerFilePath] string path = "") where T : struct
         => new(BuildAlredyExistMessage(Path.GetFileNameWithoutExtension(path), $"{entityId}", collectionName));
 
