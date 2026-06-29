@@ -43,7 +43,8 @@ class GameSession(
     IProvinceConstructionManager provinceConstructionManager, ProvinceBuildingsRegistry provinceBuildings,
     ProvinceBuildingsBalanceTable provinceBuildingsTable, IUnitRepository unitsTable, ISquadRepository squadsTable,
     TacticalSquadFactory squadFactory, FactionVisionManager factionVisionManager, IFactionEconomicManager factionEconomicManager,
-    ICommandHandler<ConstructBuildingCommand> constructBuildingCommandHandler, ISquadRepository squadRepository
+    ICommandHandler<ConstructBuildingCommand> constructBuildingCommandHandler, ISquadRepository squadRepository,
+    IExperienceSquadTable experienceUnitTable
 )
 {
     public void Start()

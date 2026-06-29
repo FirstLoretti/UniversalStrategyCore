@@ -33,7 +33,8 @@ public class GameBootstrap
         RegisterConstructionSystem();
         RegisterMediators();
         RegisterGameSession();
-        RegisterSharedSystem();
+        RegisterShared();
+        RegisterUnnamed();
 
         GameServices = _serviceCollection.BuildServiceProvider();
         StartEventSystems();
@@ -103,10 +104,15 @@ public class GameBootstrap
         _serviceCollection.AddSingleton<FactionVisionTable>();
     }
 
-    private void RegisterSharedSystem()
+    private void RegisterShared()
     {
         _serviceCollection.AddSingleton<IUnitRepository, UnitRepository>();
         _serviceCollection.AddSingleton<ISquadRepository, SquadRepository>();
         _serviceCollection.AddSingleton<ICultureNamesRepository, CultureNamesRepository>();
+    }
+
+    private void RegisterUnnamed()
+    {
+        _serviceCollection.AddSingleton<IExperienceSquadTable, ExperienceSquadTable>();
     }
 }
