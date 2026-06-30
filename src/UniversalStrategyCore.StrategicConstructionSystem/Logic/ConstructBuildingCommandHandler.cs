@@ -13,12 +13,19 @@ public class ConstructBuildingCommandHandler(
     public Result<IUndoAction> Handle(ConstructBuildingCommand command)
     {
         var factionResources = factionTable.GetFaction(command.FactionId).ResourceAmount;
+        Dictionary<GameResourceType, int> deficitResources = [];
 
         foreach (var (resource, cost) in command.ConstructionOrder.Building.Cost)
         {
-            if (!factionResources.TryGetValue(resource, out var amount) || amount - cost < 0)
-                return Error.NotEnoughtResources(resource);
+            if (!factionResources.TryGetValue(resource, out var amount))
+            {
+                return Error.NotFound(resource, nameof(factionResources));
+            }
+            var operaion = amount - cost;
+            if (operaion < 0) deficitResources.Add(resource, int.Abs(operaion));
         }
+
+        if (deficitResources.Count > 0) return Error.NotEnoughtResources(deficitResources);
 
         EconomicTransactionCommand transaction = new(
             Guid.NewGuid(),
@@ -27,7 +34,7 @@ public class ConstructBuildingCommandHandler(
             command.ConstructionOrder.Building.Cost,
             DateTime.Now
         );
-        
+
         economicManager.ApplyTransaction(transaction);
         constructionManager.AddConstructionOrder(command.ProvinceId, command.ConstructionOrder);
 

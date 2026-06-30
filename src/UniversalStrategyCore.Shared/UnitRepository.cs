@@ -21,15 +21,27 @@ public class UnitRepository : IUnitRepository
         _idToUnit.Add(
             "swordman",
             new Unit(
-                Id: "swordman", DisplayName: "Мечник", UnitType.Swordman, Speed: 1f, Upkeep: 5,
-                Damage: 5, Health: 25, ExpKillReward: 3
+                Id: "swordman",
+                DisplayName: "Мечник",
+                UnitType.Swordman,
+                Speed: 1f,
+                Damage: 5,
+                Health: 25,
+                ExpKillReward: 3,
+                Upkeep: new() { { GameResourceType.Gold, 1 } }
             )
         );
         _idToUnit.Add(
             "spearman",
             new Unit(
-                Id: "spearman", DisplayName: "Копейщик", UnitType.Spearman, Speed: 1f, Upkeep: 5,
-                Damage: 5, Health: 25, ExpKillReward: 3
+                Id: "spearman",
+                DisplayName: "Копейщик",
+                UnitType.Spearman,
+                Speed: 1f,
+                Damage: 5,
+                Health: 25,
+                ExpKillReward: 3,
+                Upkeep: new() { { GameResourceType.Gold, 1 } }
             )
         );
     }

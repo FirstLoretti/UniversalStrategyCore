@@ -7,12 +7,12 @@ public class SquadStateMoving(TacticalSquad squad) : ISquadState
 {
     public void Enter()
     {
-        Console.WriteLine($"Отряд: {squad.Id} вошёл в состояние Moving");
+        Console.WriteLine($"Отряд: {squad.Number} вошёл в состояние Moving");
     }
 
     public void Exit()
     {
-        Console.WriteLine($"Отряд: {squad.Id} вышел из состояния Moving");
+        Console.WriteLine($"Отряд: {squad.Number} вышел из состояния Moving");
     }
 
     public void Update(float deltaTime)

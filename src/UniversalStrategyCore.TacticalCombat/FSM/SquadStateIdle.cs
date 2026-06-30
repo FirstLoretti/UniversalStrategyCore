@@ -6,12 +6,12 @@ public class SquadStateIdle(TacticalSquad squad) : ISquadState
 {
     public void Enter()
     {
-        Console.WriteLine($"Отряд: {squad.Id} вошёл в состояние Idle");
+        Console.WriteLine($"Отряд: {squad.Number} вошёл в состояние Idle");
     }
 
     public void Exit()
     {
-        Console.WriteLine($"Отряд: {squad.Id} вышел из состояния Idle");
+        Console.WriteLine($"Отряд: {squad.Number} вышел из состояния Idle");
     }
 
     public void Update(float deltaTime)

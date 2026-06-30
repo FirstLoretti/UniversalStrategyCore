@@ -4,18 +4,21 @@ namespace UniversalStrategyCore;
 
 public class StrategicSquad
 {
-    public int Number {get; init;}
+    public int Number { get; init; }
     public Squad InitialData { get; init; }
     public FactionId HolderFaction { get; init; }
 
     private readonly Unit _unit;
     private int _unitsCount;
-    private bool _isAlive => _unitsCount > 0;
+    private bool IsAlive => _unitsCount > 0;
     private int _replenishmentValue = 10;
     private int _nonCombatLossesPercent = 20;
 
     public StrategicSquad(
-        int number, Squad squad, IUnitRepository unitRepository, FactionId holderFaction
+        int number,
+        Squad squad,
+        IUnitRepository unitRepository,
+        FactionId holderFaction
     )
     {
         Number = number;
@@ -28,14 +31,11 @@ public class StrategicSquad
 
     public Squad GetCurrentData() => InitialData with { UnitsCount = _unitsCount };
 
-    public Dictionary<GameResourceType, int> GetUpkeep() => new()
-    {
-        [GameResourceType.Gold] = _unitsCount * _unit.Upkeep
-    };
+    public Dictionary<GameResourceType, int> GetUpkeep() => _unit.Upkeep;
 
     public Result<bool> ReplenishmentUnits()
     {
-        if (_isAlive)
+        if (IsAlive)
         {
             _unitsCount = int.Min(_unitsCount + _replenishmentValue, InitialData.MaxUnits);
             return true;
@@ -45,7 +45,7 @@ public class StrategicSquad
 
     public Result<bool> NonCombatLosses()
     {
-        if (_isAlive)
+        if (IsAlive)
         {
             _unitsCount -= int.Max(1, _unitsCount * _nonCombatLossesPercent / 100);
             return true;

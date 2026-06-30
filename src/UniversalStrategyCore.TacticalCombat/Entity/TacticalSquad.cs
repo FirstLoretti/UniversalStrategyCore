@@ -4,31 +4,36 @@ using UniversalStrategyCore.TacticalCombat.Component;
 
 namespace UniversalStrategyCore.TacticalCombat.Entity;
 
-public class TacticalSquad : IAttackable
+public class TacticalSquad : IAttackable, ICanCounterattack
 {
-    public int Id { get; }
-    public FactionId FactionHolder {get;}
+    public int Number { get; }
+    public FactionId FactionHolder { get; }
     public TacticalUnit[] Units { get; }
+    public int UnitsCount { get; private set; }
     public SquadMovementComponent MovementComponent { get; }
     public SquadBattleComponent BattleComponent { get; }
-    public bool IsAlive => _isAlive;
+    public bool IsAlive => UnitsCount > 0;
+    public int Experience { get; private set; }
+    public int Level { get; private set; }
 
     private readonly IExperienceSquadTable _experienceTable;
     private readonly Unit _unit;
-    private bool _isAlive => _unitsCount > 0;
-    private int _unitsCount;
-    private int _experience;
-    private int _level;
 
-    public TacticalSquad(int id, Unit unit, int unitsCount, IExperienceSquadTable experienceSquadTable)
+    public TacticalSquad(
+        int number,
+        FactionId factionHolder,
+        Unit unit,
+        int unitsCount,
+        IExperienceSquadTable experienceSquadTable)
     {
-        Id = id;
+        Number = number;
         _unit = unit;
         Units = new TacticalUnit[unitsCount];
         MovementComponent = new SquadMovementComponent(this);
         BattleComponent = new SquadBattleComponent(this);
         _experienceTable = experienceSquadTable;
-        _unitsCount = unitsCount;
+        UnitsCount = unitsCount;
+        FactionHolder = factionHolder;
         InitializeUnits();
     }
 
@@ -40,38 +45,35 @@ public class TacticalSquad : IAttackable
         }
     }
 
+    public void Counterattack(IAttackable attacker) => BattleComponent.Attack(attacker, true);
+
     public int CalculateCurrentDamage()
     {
-        if (!_isAlive) return 0;
+        if (!IsAlive) return 0;
 
-        var damage = _unit.Damage * _unitsCount;
-        var levelMultiplier = 1.0f + _level * 0.1f;
+        var baseDamage = _unit.Damage * UnitsCount;
+        var levelMultiplier = 1.0f + Level * 0.1f;
 
-        return (int)MathF.Ceiling(damage + levelMultiplier);
+        return (int)MathF.Ceiling(baseDamage * levelMultiplier);
     }
 
     public int TakeDamage(int amount)
     {
-        if (!_isAlive) return 0;
+        if (!IsAlive) return 0;
 
-        var casualties = int.Min(amount / _unit.Health, _unitsCount);
-        _unitsCount -= casualties;
-        
+        var casualties = int.Min(amount / _unit.Health, UnitsCount);
+        UnitsCount -= casualties;
+
         return casualties * _unit.ExpKillReward;
     }
 
     public Result<bool> AddExperience(int amount)
     {
-        if (!_isAlive) return Error.SquadDestroyed(Id);
+        if (!IsAlive) return Error.SquadDestroyed(Number);
 
-        _experience += int.Max(0, amount);
-        _level = _experienceTable.GetLevel(_experience);
+        Experience += int.Max(0, amount);
+        Level = _experienceTable.GetLevel(Experience);
 
         return true;
-    }
-
-    public void Counterattack(IAttackable attacker)
-    {
-        BattleComponent.Attack(attacker, true);
     }
 }

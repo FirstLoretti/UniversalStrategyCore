@@ -29,7 +29,7 @@ public class SquadMovementComponent(TacticalSquad squad)
         }
         ChangeState(new SquadStateMoving(squad));
 #if DEBUG
-        Console.WriteLine($"Приказ отряду: {squad.Id} MoveTo: {point}.");
+        Console.WriteLine($"Приказ отряду: {squad.Number} MoveTo: {point}.");
 #endif
     }
 
@@ -41,7 +41,7 @@ public class SquadMovementComponent(TacticalSquad squad)
             units[i].Position = units[i].Destination;
         }
 #if DEBUG
-        Console.WriteLine($"Юниты отряда: {squad.Id}, остановились.");
+        Console.WriteLine($"Юниты отряда: {squad.Number}, остановились.");
 #endif
     }
 }

@@ -1,7 +1,4 @@
 using UniversalStrategyCore.Armies;
-using UniversalStrategyCore.Factionn;
-using UniversalStrategyCore.Factions;
-using UniversalStrategyCore;
 using UniversalStrategyCore.Shared;
 
 namespace UniversalStrategyCore.Test;
