@@ -3,21 +3,21 @@ using UniversalStrategyCore.TacticalCombat.Entity;
 
 namespace UniversalStrategyCore.TacticalCombat.FSM;
 
-public class SquadStateMoving(TacticalSquad tacticalSquad) : ISquadState
+public class SquadStateMoving(TacticalSquad squad) : ISquadState
 {
     public void Enter()
     {
-        Console.WriteLine($"Отряд: {tacticalSquad.Id} вошёл в состояние Moving");
+        Console.WriteLine($"Отряд: {squad.Id} вошёл в состояние Moving");
     }
 
     public void Exit()
     {
-        Console.WriteLine($"Отряд: {tacticalSquad.Id} вышел из состояния Moving");
+        Console.WriteLine($"Отряд: {squad.Id} вышел из состояния Moving");
     }
 
     public void Update(float deltaTime)
     {
-        var units = tacticalSquad.TacticalUnits;
+        var units = squad.Units;
         for (int i = 0; i < units.Length; i++)
         {
             var unit = units[i];

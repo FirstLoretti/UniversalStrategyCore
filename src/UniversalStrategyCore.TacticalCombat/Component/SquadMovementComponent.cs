@@ -4,7 +4,7 @@ using UniversalStrategyCore.TacticalCombat.FSM;
 
 namespace UniversalStrategyCore.TacticalCombat.Component;
 
-public class SquadMovementComponent(TacticalSquad tacticalSquad)
+public class SquadMovementComponent(TacticalSquad squad)
 {
     private ISquadState _currentState = new SquadStateEmpty();
 
@@ -22,24 +22,26 @@ public class SquadMovementComponent(TacticalSquad tacticalSquad)
 
     public void MoveTo(Vector2 point)
     {
-        var units = tacticalSquad.TacticalUnits;
+        var units = squad.Units;
         for (int i = 0; i < units.Length; i++)
         {
             units[i].Destination = point;
         }
-        ChangeState(new SquadStateMoving(tacticalSquad));
+        ChangeState(new SquadStateMoving(squad));
 #if DEBUG
-        Console.WriteLine($"Приказ отряду: {tacticalSquad.Id} MoveTo: {point}.");
+        Console.WriteLine($"Приказ отряду: {squad.Id} MoveTo: {point}.");
 #endif
     }
 
     public void Stop()
     {
-        var units = tacticalSquad.TacticalUnits;
+        var units = squad.Units;
         for (int i = 0; i < units.Length; i++)
         {
             units[i].Position = units[i].Destination;
         }
-        Console.WriteLine($"Юниты отряда: {tacticalSquad.Id}, остановились.");
+#if DEBUG
+        Console.WriteLine($"Юниты отряда: {squad.Id}, остановились.");
+#endif
     }
 }

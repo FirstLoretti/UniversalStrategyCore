@@ -1,6 +1,4 @@
-using UniversalStrategyCore.Shared;
-
-namespace UniversalStrategyCore;
+namespace UniversalStrategyCore.Shared;
 
 public class ExperienceSquadTable : IExperienceSquadTable
 {

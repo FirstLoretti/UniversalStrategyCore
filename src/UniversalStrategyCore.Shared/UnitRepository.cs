@@ -22,14 +22,14 @@ public class UnitRepository : IUnitRepository
             "swordman",
             new Unit(
                 Id: "swordman", DisplayName: "Мечник", UnitType.Swordman, Speed: 1f, Upkeep: 5,
-                Damage: 5
+                Damage: 5, Health: 25, ExpKillReward: 3
             )
         );
         _idToUnit.Add(
             "spearman",
             new Unit(
                 Id: "spearman", DisplayName: "Копейщик", UnitType.Spearman, Speed: 1f, Upkeep: 5,
-                Damage: 5
+                Damage: 5, Health: 25, ExpKillReward: 3
             )
         );
     }

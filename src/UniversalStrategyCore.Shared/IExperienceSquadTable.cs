@@ -1,4 +1,4 @@
-namespace UniversalStrategyCore;
+namespace UniversalStrategyCore.Shared;
 
 public interface IExperienceSquadTable
 {

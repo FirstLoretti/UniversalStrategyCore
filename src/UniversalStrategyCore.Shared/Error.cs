@@ -8,7 +8,7 @@ public record Error(string Message)
     public static Error NotEnoughtResources(Dictionary<GameResourceType, int> resources)
         => new(BuildNotEnoughtResourcesMessage(resources));
 
-    public static Error SquadDestroyed(SquadId id, [CallerFilePath] string path = "")
+    public static Error SquadDestroyed(int id, [CallerFilePath] string path = "")
         => new($"[{Path.GetFileNameWithoutExtension(path)}] Отряд: {id} уничтожен");
 
     public static Error AlreadyExist<T>(T entityId, string collectionName, [CallerFilePath] string path = "") where T : struct
